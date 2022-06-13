@@ -4,7 +4,14 @@ import styles from "../styles/Home.module.css";
 
 import { useState } from "react";
 
+import { motion } from 'framer-motion';
+
+import PhoneIcon from '@mui/icons-material/Phone';
+import EmailIcon from '@mui/icons-material/Email';
+import PushPinIcon from '@mui/icons-material/PushPin';
+
 import Navbar from "../components/Navbar";
+import Home from "../components/Home";
 import Contact from "../components/Contact";
 
 //import lightAluminum from "/img/textures/light-aluminum.png";
@@ -50,258 +57,142 @@ export default function Index() {
         }}
       >
         <Navbar />
-        <Contact />
-        <div
-          style={{
-            width: "96vw",
-            maxWidth: "1000px",
-            height: "400px",
-            backgroundColor: "beige",
-            backgroundImage: "url('/img/textures/beige-paper.png')",
-            borderBottomLeftRadius: "0.1rem",
-            borderBottomRightRadius: "0.1rem",
-            margin: "1rem",
-            padding: "1rem",
-            display: "flex",
-            justifyContent: "center",
-            boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-          }}
-        >
-          <h3>Beige Paper</h3>
+
+        <div style={{
+          width: '100vw',
+          height: '400px',
+          minHeight: '80vh',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+        }}>
+
+          <div style={{
+            minHeight: '64%'
+          }}>
+
+            <div style={{
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              marginTop: '0vh',
+            }}>
+              <motion.div
+                initial={{ y: -400 }}
+                animate={{ y: 0 }}
+                transition={{
+                  type: "spring",
+                  bounce: 0.2,
+                  duration: 1.2
+                }}
+                style={{
+                  width: '300px',
+                  height: '183px',
+                  maxWidth: '88vw',
+                  maxHeight: '50vh',
+                  border: 'dashed 2px #304',
+                  borderBottom: 'solid 8px #304',
+                }}>Pole Printing Logo</motion.div>
+            </div>
+
+            <motion.div
+              initial={{ x: 1000 }}
+              animate={{ x: 0 }}
+              transition={{
+                type: "spring",
+                bounce: 0,
+                duration: 1.2
+              }}
+              style={{
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                fontFamily: 'Times New Roman',
+                fontSize: '29px',
+                color: '#304',
+                textTransform: 'uppercase',
+                fontWeight: 'bold',
+              }}>
+              <span>Pole Printing Inc.</span>
+            </motion.div>
+
+            <motion.div
+              initial={{ x: -1000 }}
+              animate={{ x: 0 }}
+              transition={{
+                type: "spring",
+                bounce: 0.2,
+                duration: 1.8
+              }}
+              style={{
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                marginTop: '2vh',
+                color: '#A08',
+                textShadow: '1px 1px 0 #304, 1px -1px 0 #304, -1px 1px 0 #304, -1px -1px 0 #304',
+              }}>
+              <span>Over 35 Years in Service</span>
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 700 }}
+              animate={{ y: 0 }}
+              transition={{
+                type: "spring",
+                bounce: 0,
+                duration: 1.2,
+                delay: 0.1,
+              }}
+              style={{
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                marginTop: '4vh',
+              }}>
+              <PhoneIcon/><span>519 786 5112</span><br />
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 700 }}
+              animate={{ y: 0 }}
+              transition={{
+                type: "spring",
+                bounce: 0,
+                duration: 1.0,
+                delay: 0.3,
+              }}
+              style={{
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                marginTop: '0.5rem',
+              }}>
+              <EmailIcon/><span>contact@poleprinting.ca</span><br />
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 700 }}
+              animate={{ y: 0 }}
+              transition={{
+                type: "spring",
+                bounce: 0,
+                duration: 0.8,
+                delay: 0.5,
+              }}
+              style={{
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                marginTop: '0.5rem',
+              }}>
+              <PushPinIcon/><span>89 King St E, Forest, ON N0N 1J0</span>
+            </motion.div>
+
+          </div>
         </div>
 
-        <div
-          style={{
-            width: "96vw",
-            maxWidth: "1000px",
-            height: "400px",
-            backgroundColor: "#181818",
-            backgroundImage: "url('/img/textures/black-paper.png')",
-            borderBottomLeftRadius: "0.1rem",
-            borderBottomRightRadius: "0.1rem",
-            margin: "1rem",
-            padding: "1rem",
-            display: "flex",
-            justifyContent: "center",
-            boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-            fontFamily: "Permanent Marker",
-            color: '#CCC',
-          }}
-        >
-          <h3>Black Paper</h3>
-        </div>
-
-        <div
-          style={{
-            width: "96vw",
-            maxWidth: "1000px",
-            height: "400px",
-            backgroundColor: "#634938",
-            backgroundImage: "url('/img/textures/cardboard-flat.png')",
-            borderBottomLeftRadius: "0.1rem",
-            borderBottomRightRadius: "0.1rem",
-            margin: "1rem",
-            padding: "1rem",
-            display: "flex",
-            justifyContent: "center",
-            boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-            fontFamily: "Special Elite",
-            color: '#333',
-          }}
-        >
-          <h3>Cardboard Flat</h3>
-        </div>
-
-        <div
-          style={{
-            width: "96vw",
-            maxWidth: "1000px",
-            height: "400px",
-            backgroundColor: "#634938",
-            backgroundImage: "url('/img/textures/cardboard.png')",
-            borderBottomLeftRadius: "0.1rem",
-            borderBottomRightRadius: "0.1rem",
-            margin: "1rem",
-            padding: "1rem",
-            display: "flex",
-            justifyContent: "center",
-            boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-          }}
-        >
-          <h3>Cardboard</h3>
-        </div>
-
-        <div
-          style={{
-            width: "96vw",
-            maxWidth: "1000px",
-            height: "400px",
-            backgroundColor: "#FFF",
-            backgroundImage: "url('/img/textures/exclusive-paper.png')",
-            borderBottomLeftRadius: "0.1rem",
-            borderBottomRightRadius: "0.1rem",
-            margin: "1rem",
-            padding: "1rem",
-            display: "flex",
-            justifyContent: "center",
-            boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-          }}
-        >
-          <h3>Exclusive Paper</h3>
-        </div>
-
-        <div
-          style={{
-            width: "96vw",
-            maxWidth: "1000px",
-            height: "400px",
-            backgroundColor: "#DFD",
-            backgroundImage: "url('/img/textures/graphy.png')",
-            borderBottomLeftRadius: "0.1rem",
-            borderBottomRightRadius: "0.1rem",
-            margin: "1rem",
-            padding: "1rem",
-            display: "flex",
-            justifyContent: "center",
-            boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-          }}
-        >
-          <h3>Graphy</h3>
-        </div>
-
-        <div
-          style={{
-            width: "96vw",
-            maxWidth: "1000px",
-            height: "400px",
-            backgroundColor: "#FFF",
-            backgroundImage: "url('/img/textures/groovepaper.png')",
-            borderBottomLeftRadius: "0.1rem",
-            borderBottomRightRadius: "0.1rem",
-            margin: "1rem",
-            padding: "1rem",
-            display: "flex",
-            justifyContent: "center",
-            boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-          }}
-        >
-          <h3>Groove Paper</h3>
-        </div>
-
-        <div
-          style={{
-            width: "96vw",
-            maxWidth: "1000px",
-            height: "400px",
-            backgroundColor: "#FFF",
-            backgroundImage: "url('/img/textures/notebook-dark.png')",
-            borderBottomLeftRadius: "0.1rem",
-            borderBottomRightRadius: "0.1rem",
-            margin: "1rem",
-            padding: "1rem",
-            display: "flex",
-            justifyContent: "center",
-            boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-          }}
-        >
-          <h3>Notebook Dark</h3>
-        </div>
-
-        <div
-          style={{
-            width: "96vw",
-            maxWidth: "1000px",
-            height: "400px",
-            backgroundColor: "#FFF",
-            backgroundImage: "url('/img/textures/paper-2.png')",
-            borderBottomLeftRadius: "0.1rem",
-            borderBottomRightRadius: "0.1rem",
-            margin: "1rem",
-            padding: "1rem",
-            display: "flex",
-            justifyContent: "center",
-            boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-            fontFamily: "Bebas Neue",
-          }}
-        >
-          <h3>Paper 2</h3>
-        </div>
-
-        <div
-          style={{
-            width: "96vw",
-            maxWidth: "1000px",
-            height: "400px",
-            backgroundColor: "#FFF",
-            backgroundImage: "url('/img/textures/paper.png')",
-            borderBottomLeftRadius: "0.1rem",
-            borderBottomRightRadius: "0.1rem",
-            margin: "1rem",
-            padding: "1rem",
-            display: "flex",
-            justifyContent: "center",
-            boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-          }}
-        >
-          <h3>Paper</h3>
-        </div>
-
-        <div
-          style={{
-            width: "96vw",
-            maxWidth: "1000px",
-            height: "400px",
-            backgroundColor: "darkblue",
-            backgroundImage: "url('/img/textures/project-paper.png')",
-            borderBottomLeftRadius: "0.1rem",
-            borderBottomRightRadius: "0.1rem",
-            margin: "1rem",
-            padding: "1rem",
-            display: "flex",
-            justifyContent: "center",
-            boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-          }}
-        >
-          <h3>Project Paper</h3>
-        </div>
-
-        <div
-          style={{
-            width: "96vw",
-            maxWidth: "1000px",
-            height: "400px",
-            backgroundColor: "#FFF",
-            backgroundImage: "url('/img/textures/sandpaper.png')",
-            borderBottomLeftRadius: "0.1rem",
-            borderBottomRightRadius: "0.1rem",
-            margin: "1rem",
-            padding: "1rem",
-            display: "flex",
-            justifyContent: "center",
-            boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-          }}
-        >
-          <h3>Sandpaper</h3>
-        </div>
-
-        <div
-          style={{
-            width: "96vw",
-            maxWidth: "1000px",
-            height: "400px",
-            backgroundColor: "#FFF",
-            backgroundImage: "url('/img/textures/textured-paper.png')",
-            borderBottomLeftRadius: "0.1rem",
-            borderBottomRightRadius: "0.1rem",
-            margin: "1rem",
-            padding: "1rem",
-            display: "flex",
-            justifyContent: "center",
-            boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-          }}
-        >
-          <h3>Textured Paper</h3>
-        </div>
+        <Home />
       </div>
     </div>
   );

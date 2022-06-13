@@ -176,6 +176,15 @@ const Navbar = () => {
               </span>
             </Link>
           </Typography>
+          <div className={navbarStyles.search}>
+            <div className={navbarStyles.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Search…"
+              className={navbarStyles.searchInput}
+            />
+          </div>
         </Toolbar>
       </AppBar>
     </div>
