@@ -4,6 +4,10 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import PushPinIcon from '@mui/icons-material/PushPin';
 import Button from '@mui/material/Button';
+import UploadFileIcon from '@mui/icons-material/UploadFile';
+import HelpCenterIcon from '@mui/icons-material/HelpCenter';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 
 import "@fontsource/bebas-neue";
 import "@fontsource/permanent-marker";
@@ -45,7 +49,7 @@ const Home = () => {
                 }}
                 style={{
                     width: "100%",
-                    height: "400px",
+                    overflow: 'hidden',
                     backgroundColor: "#EEE",
                     backgroundImage: "url('/img/textures/paper-2.png')",
                     borderBottomLeftRadius: "0.1rem",
@@ -60,7 +64,7 @@ const Home = () => {
                     fontFamily: "Bebas Neue",
                 }}
             >
-                <h2>Lets Get Started</h2>
+                <h2>Let&apos;s Get Started</h2>
                 <div style={{
                     width: '100%',
                     display: 'flex',
@@ -69,9 +73,10 @@ const Home = () => {
                 }}>
                     <div style={{
                         display: 'flex',
-                        width: '48%',
+                        width: '46%',
                         minWidth: '420px',
-                        justifyContent: 'space-around'
+                        justifyContent: 'space-around',
+                        margin: '1rem',
                     }}>
                         <div style={{
                             display: 'flex',
@@ -93,7 +98,7 @@ const Home = () => {
                                     backgroundColor: "purple",
                                     color: 'white',
                                     fontSize: '1.2rem',
-                                }}><PhoneIcon /><br />Send Us A File
+                                }}><UploadFileIcon /><br />Send Us A File
                             </motion.button>
                         </div>
                     
@@ -118,7 +123,7 @@ const Home = () => {
                                 backgroundColor: "purple",
                                 color: 'white',
                                 fontSize: '1.2rem',
-                            }}><PhoneIcon /><br />Request A Quote
+                            }}><HelpCenterIcon /><br />Request A Quote
                         </motion.button>
                     </div>
                     </div>
@@ -126,7 +131,8 @@ const Home = () => {
                         display: 'flex',
                         width: '48%',
                         minWidth: '420px',
-                        justifyContent: 'space-around'
+                        justifyContent: 'space-around',
+                        margin: '1rem',
                     }}>
                         <div style={{
                             display: 'flex',
@@ -146,7 +152,7 @@ const Home = () => {
                                     backgroundColor: "purple",
                                     color: 'white',
                                     fontSize: '1.2rem',
-                                }}><PhoneIcon /><br />Browse Our Catalog
+                                }}><MenuBookIcon /><br />Browse Our Catalog
                             </button>
                         </div>
                         <div style={{
@@ -167,7 +173,7 @@ const Home = () => {
                                     backgroundColor: "purple",
                                     color: 'white',
                                     fontSize: '1.2rem',
-                                }}><PhoneIcon /><br />Trucking Products
+                                }}><LocalShippingIcon /><br />Trucking Products
                             </button>
                         </div>
                     </div>
