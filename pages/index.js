@@ -121,7 +121,7 @@ export default function Index() {
               animate={{ x: 0 }}
               transition={{
                 type: "spring",
-                bounce: 0.2,
+                bounce: 0,
                 duration: 1.8
               }}
               style={{

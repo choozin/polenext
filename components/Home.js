@@ -1,5 +1,10 @@
 import { motion } from "framer-motion";
 
+import PhoneIcon from '@mui/icons-material/Phone';
+import EmailIcon from '@mui/icons-material/Email';
+import PushPinIcon from '@mui/icons-material/PushPin';
+import Button from '@mui/material/Button';
+
 import "@fontsource/bebas-neue";
 import "@fontsource/permanent-marker";
 import "@fontsource/shadows-into-light";
@@ -36,13 +41,13 @@ const Home = () => {
                     type: "spring",
                     bounce: 0.2,
                     duration: 1.0,
-                    delay: 3.0,
+                    delay: 2.0,
                 }}
                 style={{
-                    width: "80vw",
-                    maxWidth: "700px",
-                    backgroundColor: "#FFF",
-                    backgroundImage: "url('/img/textures/exclusive-paper.png')",
+                    width: "100%",
+                    height: "400px",
+                    backgroundColor: "#EEE",
+                    backgroundImage: "url('/img/textures/paper-2.png')",
                     borderBottomLeftRadius: "0.1rem",
                     borderBottomRightRadius: "0.1rem",
                     margin: "0 auto", marginBottom: "2rem", marginBottom: "2rem",
@@ -50,39 +55,125 @@ const Home = () => {
                     display: "flex",
                     flexDirection: 'column',
                     textAlign: 'center',
-                    justifyContent: "center",
                     boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
+                    color: '#444',
                     fontFamily: "Bebas Neue",
                 }}
             >
-                <h2>Welcome to Pole Printing!</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat nec ex quis ultrices. Pellentesque euismod id quam sit amet facilisis. In hac habitasse platea dictumst. Etiam feugiat dolor eget lacinia hendrerit. Donec nec magna pulvinar, mattis tellus viverra, dapibus quam. Ut euismod lacus nulla, sit amet pulvinar risus mollis non. Morbi dapibus eget dolor non tempus. Sed in auctor diam. Proin diam nunc, commodo eget posuere eu, sodales sit amet velit. Pellentesque imperdiet, ante et imperdiet dictum, orci augue accumsan libero, nec tincidunt diam nibh vel neque. Nullam blandit sed velit sit amet mollis. Praesent euismod blandit velit, ac facilisis risus semper vitae. Integer euismod, ipsum eu bibendum iaculis, nunc justo auctor nibh, et consectetur mauris ligula eget risus. Quisque pharetra urna vitae magna eleifend, id commodo leo finibus. Suspendisse tincidunt augue eu diam maximus, cursus vehicula augue mollis. Nullam laoreet diam in lacinia rutrum.</p>
-                <p>Etiam id justo semper, lacinia mi ut, volutpat dolor. Morbi aliquam sit amet eros quis laoreet. Sed varius elit a ligula maximus mattis. Mauris at lacus nunc. Mauris nec nisi ut odio condimentum congue a eget nisl. Duis mattis ex id magna dignissim elementum. Sed blandit interdum dui. Vivamus id purus risus.</p>
-                <p>Suspendisse eleifend, purus vel sagittis condimentum, justo mi efficitur ante, eu condimentum nunc risus ac nisl. Vivamus sit amet posuere quam, eu condimentum erat. Aliquam ultricies hendrerit mauris, eu interdum massa sollicitudin quis. Nulla facilisi. Cras faucibus mauris sit amet turpis maximus, eget facilisis tellus porttitor. In hac habitasse platea dictumst. Fusce nec felis ultricies, pellentesque odio sit amet, ornare diam. Cras at suscipit ipsum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean libero velit, sollicitudin sit amet est vitae, ornare consequat libero. Duis euismod leo velit, luctus imperdiet nunc pharetra consequat. Nulla mauris ex, ullamcorper sed sollicitudin quis, semper ac leo. Sed quis porta tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In facilisis iaculis imperdiet. Fusce posuere suscipit mauris, vel aliquet augue tempus a.</p>
+                <h2>Let's Get Started</h2>
+                <div style={{
+                    width: '100%',
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    justifyContent: 'space-around',
+                }}>
+                    <div style={{
+                        display: 'flex',
+                        width: '48%',
+                        minWidth: '420px',
+                        justifyContent: 'space-around'
+                    }}>
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-between',
+                            minHeight: '280px',
+                            width: '200px',
+                        }}>
+                            <span>Etiam id justo semper, lacinia mi ut, volutpat dolor. Morbi aliquam sit. Sed varius elit a ligula maximus mattis. Mauris at lacus nunc. Mauris nec nisi ut odio condimentum congue a eget nisl. Duis mattis ex id magna dignissim elementum. Sed blandit interdum dui. Vivamus id purus risus.</span>
+                            <motion.button
+                                whileHover={{ scale: 1.2, transition: { duration: 0.5} }}
+                                whileFocus={{ scale: 1.2 }}
+                                style={{
+                                    textAlign: 'center',
+                                    width: '200px',
+                                    height: '80px',
+                                    border: 'solid 0.1rem white',
+                                    borderRadius: '1rem',
+                                    backgroundColor: "purple",
+                                    color: 'white',
+                                    fontSize: '1.2rem',
+                                }}><PhoneIcon /><br />Send Us A File
+                            </motion.button>
+                        </div>
+                    
+
+                    <div style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        minHeight: '280px',
+                        width: '200px',
+                    }}>
+                        <span>Etiam id justo semper, lacinia mi ut, volutpat dolor. Morbi aliquam sit. Sed varius elit a ligula maximus mattis. Mauris at lacus nunc. Mauris nec nisi ut odio condimentum congue a eget nisl. Duis mattis ex id magna dignissim elementum. Sed blandit interdum dui. Vivamus id purus risus.</span>
+                        <motion.button
+                            whileHover={{ scale: 1.2, transition: { duration: 0.5} }}
+                            whileFocus={{ scale: 1.2 }}
+                            style={{
+                                textAlign: 'center',
+                                width: '200px',
+                                height: '80px',
+                                border: 'solid 0.1rem white',
+                                borderRadius: '1rem',
+                                backgroundColor: "purple",
+                                color: 'white',
+                                fontSize: '1.2rem',
+                            }}><PhoneIcon /><br />Request A Quote
+                        </motion.button>
+                    </div>
+                    </div>
+                    <div style={{
+                        display: 'flex',
+                        width: '48%',
+                        minWidth: '420px',
+                        justifyContent: 'space-around'
+                    }}>
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-between',
+                            minHeight: '280px',
+                            width: '200px',
+                        }}>
+                            <span>Etiam id justo semper, lacinia mi ut, volutpat dolor. Morbi aliquam sit. Sed varius elit a ligula maximus mattis. Mauris at lacus nunc. Mauris nec nisi ut odio condimentum congue a eget nisl. Duis mattis ex id magna dignissim elementum. Sed blandit interdum dui. Vivamus id purus risus.</span>
+                            <button
+                                style={{
+                                    textAlign: 'center',
+                                    width: '200px',
+                                    height: '80px',
+                                    border: 'solid 0.1rem white',
+                                    borderRadius: '1rem',
+                                    backgroundColor: "purple",
+                                    color: 'white',
+                                    fontSize: '1.2rem',
+                                }}><PhoneIcon /><br />Browse Our Catalog
+                            </button>
+                        </div>
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-between',
+                            minHeight: '280px',
+                            width: '200px',
+                        }}>
+                            <span>Etiam id justo semper, lacinia mi ut, volutpat dolor. Morbi aliquam sit. Sed varius elit a ligula maximus mattis. Mauris at lacus nunc. Mauris nec nisi ut odio condimentum congue a eget nisl. Duis mattis ex id magna dignissim elementum. Sed blandit interdum dui. Vivamus id purus risus.</span>
+                            <button
+                                style={{
+                                    textAlign: 'center',
+                                    width: '200px',
+                                    height: '80px',
+                                    border: 'solid 0.1rem white',
+                                    borderRadius: '1rem',
+                                    backgroundColor: "purple",
+                                    color: 'white',
+                                    fontSize: '1.2rem',
+                                }}><PhoneIcon /><br />Trucking Products
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </motion.div>
 
-            <motion.div
-            >
-                <motion.div
-                    style={{
-                        width: "100%",
-                        height: "400px",
-                        backgroundColor: "#181818",
-                        backgroundImage: "url('/img/textures/black-paper.png')",
-                        borderBottomLeftRadius: "0.1rem",
-                        borderBottomRightRadius: "0.1rem",
-                        margin: "0 auto", marginBottom: "2rem", marginBottom: "2rem",
-                        padding: "1rem",
-                        display: "flex",
-                        justifyContent: "center",
-                        fontFamily: "Permanent Marker",
-                        color: '#CCC',
-                    }}
-                >
-                    <h3>Black Paper</h3>
-                </motion.div>
-            </motion.div>
-            
             <div style={{
                 width: '100%',
                 display: 'flex',
@@ -130,6 +221,53 @@ const Home = () => {
                     <h3>Cardboard</h3>
                 </div>
             </div>
+
+            <motion.div
+                style={{
+                    width: "80vw",
+                    maxWidth: "700px",
+                    backgroundColor: "#FFF",
+                    backgroundImage: "url('/img/textures/exclusive-paper.png')",
+                    borderBottomLeftRadius: "0.1rem",
+                    borderBottomRightRadius: "0.1rem",
+                    margin: "0 auto", marginBottom: "2rem", marginBottom: "2rem",
+                    padding: "1rem",
+                    display: "flex",
+                    flexDirection: 'column',
+                    textAlign: 'center',
+                    justifyContent: "center",
+                    boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
+                    fontFamily: "Bebas Neue",
+                }}
+            >
+                <h2>Welcome to Pole Printing!</h2>
+                <p>We offer high-quality printing services to customers throughout Southwestern Ontario.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat nec ex quis ultrices. Pellentesque euismod id quam sit amet facilisis. In hac habitasse platea dictumst. Etiam feugiat dolor eget lacinia hendrerit. Donec nec magna pulvinar, mattis tellus viverra, dapibus quam. Ut euismod lacus nulla, sit amet pulvinar risus mollis non. Morbi dapibus eget dolor non tempus. Sed in auctor diam. Proin diam nunc, commodo eget posuere eu, sodales sit amet velit. Pellentesque imperdiet, ante et imperdiet dictum, orci augue accumsan libero, nec tincidunt diam nibh vel neque. Nullam blandit sed velit sit amet mollis. Praesent euismod blandit velit, ac facilisis risus semper vitae. Integer euismod, ipsum eu bibendum iaculis, nunc justo auctor nibh, et consectetur mauris ligula eget risus. Quisque pharetra urna vitae magna eleifend, id commodo leo finibus. Suspendisse tincidunt augue eu diam maximus, cursus vehicula augue mollis. Nullam laoreet diam in lacinia rutrum.</p>
+                <p>Etiam id justo semper, lacinia mi ut, volutpat dolor. Morbi aliquam sit amet eros quis laoreet. Sed varius elit a ligula maximus mattis. Mauris at lacus nunc. Mauris nec nisi ut odio condimentum congue a eget nisl. Duis mattis ex id magna dignissim elementum. Sed blandit interdum dui. Vivamus id purus risus.</p>
+            </motion.div>
+
+
+            <motion.div
+            >
+                <motion.div
+                    style={{
+                        width: "100%",
+                        height: "400px",
+                        backgroundColor: "#181818",
+                        backgroundImage: "url('/img/textures/black-paper.png')",
+                        borderBottomLeftRadius: "0.1rem",
+                        borderBottomRightRadius: "0.1rem",
+                        margin: "0 auto", marginBottom: "2rem", marginBottom: "2rem",
+                        padding: "1rem",
+                        display: "flex",
+                        justifyContent: "center",
+                        fontFamily: "Permanent Marker",
+                        color: '#CCC',
+                    }}
+                >
+                    <h3>Black Paper</h3>
+                </motion.div>
+            </motion.div>
 
             <motion.div
                 initial="offscreen"
@@ -221,26 +359,6 @@ const Home = () => {
                     maxWidth: "1000px",
                     height: "400px",
                     backgroundColor: "#FFF",
-                    backgroundImage: "url('/img/textures/paper-2.png')",
-                    borderBottomLeftRadius: "0.1rem",
-                    borderBottomRightRadius: "0.1rem",
-                    margin: "0 auto", marginBottom: "2rem",
-                    padding: "1rem",
-                    display: "flex",
-                    justifyContent: "center",
-                    boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-                    fontFamily: "Bebas Neue",
-                }}
-            >
-                <h3>Paper 2</h3>
-            </div>
-
-            <div
-                style={{
-                    width: "96vw",
-                    maxWidth: "1000px",
-                    height: "400px",
-                    backgroundColor: "#FFF",
                     backgroundImage: "url('/img/textures/paper.png')",
                     borderBottomLeftRadius: "0.1rem",
                     borderBottomRightRadius: "0.1rem",
@@ -310,7 +428,7 @@ const Home = () => {
             >
                 <h3>Textured Paper</h3>
             </div>
-        </div>
+        </div >
     )
 }
 

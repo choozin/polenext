@@ -162,7 +162,7 @@ const Navbar = () => {
                   fontSize: "1.2rem",
                   textTransform: 'uppercase',
                 }}
-              >Page Title</span>
+              >Pole Printing</span>
           </Typography>
         </Toolbar>
       </AppBar>
