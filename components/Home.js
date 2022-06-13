@@ -60,7 +60,7 @@ const Home = () => {
                     fontFamily: "Bebas Neue",
                 }}
             >
-                <h2>Let's Get Started</h2>
+                <h2>Lets Get Started</h2>
                 <div style={{
                     width: '100%',
                     display: 'flex',
