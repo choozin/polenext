@@ -28,7 +28,7 @@ const Home = () => {
             display: 'flex',
             flexDirection: 'column',
         }}>
-            
+
             <motion.div
                 initial={{ y: 400 }}
                 animate={{ y: 0 }}
@@ -45,7 +45,7 @@ const Home = () => {
                     backgroundImage: "url('/img/textures/exclusive-paper.png')",
                     borderBottomLeftRadius: "0.1rem",
                     borderBottomRightRadius: "0.1rem",
-                    margin: "0 auto",  marginBottom: "2rem",  marginBottom: "2rem",
+                    margin: "0 auto", marginBottom: "2rem", marginBottom: "2rem",
                     padding: "1rem",
                     display: "flex",
                     flexDirection: 'column',
@@ -62,25 +62,19 @@ const Home = () => {
             </motion.div>
 
             <motion.div
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true, amount: 0.8 }}
             >
                 <motion.div
-                    variants={cardVariants}
                     style={{
-                        width: "96vw",
-                        maxWidth: "1000px",
+                        width: "100%",
                         height: "400px",
                         backgroundColor: "#181818",
                         backgroundImage: "url('/img/textures/black-paper.png')",
                         borderBottomLeftRadius: "0.1rem",
                         borderBottomRightRadius: "0.1rem",
-                        margin: "0 auto",  marginBottom: "2rem",  marginBottom: "2rem",
+                        margin: "0 auto", marginBottom: "2rem", marginBottom: "2rem",
                         padding: "1rem",
                         display: "flex",
                         justifyContent: "center",
-                        boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
                         fontFamily: "Permanent Marker",
                         color: '#CCC',
                     }}
@@ -88,6 +82,55 @@ const Home = () => {
                     <h3>Black Paper</h3>
                 </motion.div>
             </motion.div>
+            
+            <div style={{
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'space-around',
+                marginBottom: '2rem',
+                flexWrap: 'wrap',
+            }}>
+                <motion.div
+                >
+                    <motion.div
+                        style={{
+                            maxWidth: "92vw",
+                            width: "300px",
+                            height: "400px",
+                            backgroundColor: "beige",
+                            backgroundImage: "url('/img/textures/beige-paper.png')",
+                            borderBottomLeftRadius: "0.1rem",
+                            borderBottomRightRadius: "0.1rem",
+                            marginBottom: "2rem",
+                            padding: "1rem",
+                            display: "flex",
+                            justifyContent: "center",
+                            boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
+                        }}
+                    >
+                        <h3>Beige Paper</h3>
+                    </motion.div>
+                </motion.div>
+                <div
+                    style={{
+                        maxWidth: "92vw",
+                        width: "700px",
+                        height: "400px",
+                        backgroundColor: "#634938",
+                        backgroundImage: "url('/img/textures/cardboard.png')",
+                        borderBottomLeftRadius: "0.1rem",
+                        borderBottomRightRadius: "0.1rem",
+                        marginBottom: "2rem",
+                        padding: "1rem",
+                        display: "flex",
+                        justifyContent: "center",
+                        boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
+                    }}
+                >
+                    <h3>Cardboard</h3>
+                </div>
+            </div>
+
             <motion.div
                 initial="offscreen"
                 whileInView="onscreen"
@@ -103,7 +146,7 @@ const Home = () => {
                         backgroundImage: "url('/img/textures/cardboard-flat.png')",
                         borderBottomLeftRadius: "0.1rem",
                         borderBottomRightRadius: "0.1rem",
-                        margin: "0 auto",  marginBottom: "2rem",  marginBottom: "2rem",
+                        margin: "0 auto", marginBottom: "2rem", marginBottom: "2rem",
                         padding: "1rem",
                         display: "flex",
                         justifyContent: "center",
@@ -115,60 +158,16 @@ const Home = () => {
                     <h3>Cardboard Flat</h3>
                 </motion.div>
             </motion.div>
-            <motion.div
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true, amount: 0.8 }}
-            >
-                <motion.div
-                    variants={cardVariants}
-                    style={{
-                        width: "96vw",
-                        maxWidth: "1000px",
-                        height: "400px",
-                        backgroundColor: "beige",
-                        backgroundImage: "url('/img/textures/beige-paper.png')",
-                        borderBottomLeftRadius: "0.1rem",
-                        borderBottomRightRadius: "0.1rem",
-                        margin: "0 auto",  marginBottom: "2rem",
-                        padding: "1rem",
-                        display: "flex",
-                        justifyContent: "center",
-                        boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-                    }}
-                >
-                    <h3>Beige Paper</h3>
-                </motion.div>
-            </motion.div>
             <div
                 style={{
                     width: "96vw",
-                    maxWidth: "1000px",
-                    height: "400px",
-                    backgroundColor: "#634938",
-                    backgroundImage: "url('/img/textures/cardboard.png')",
-                    borderBottomLeftRadius: "0.1rem",
-                    borderBottomRightRadius: "0.1rem",
-                    margin: "0 auto",  marginBottom: "2rem",
-                    padding: "1rem",
-                    display: "flex",
-                    justifyContent: "center",
-                    boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-                }}
-            >
-                <h3>Cardboard</h3>
-            </div>
-
-            <div
-                style={{
-                    width: "96vw",
-                    maxWidth: "1000px",
+                    maxWidth: "600px",
                     height: "400px",
                     backgroundColor: "#DFD",
                     backgroundImage: "url('/img/textures/graphy.png')",
                     borderBottomLeftRadius: "0.1rem",
                     borderBottomRightRadius: "0.1rem",
-                    margin: "0 auto",  marginBottom: "2rem",
+                    margin: "0 auto", marginBottom: "2rem",
                     padding: "1rem",
                     display: "flex",
                     justifyContent: "center",
@@ -187,7 +186,7 @@ const Home = () => {
                     backgroundImage: "url('/img/textures/groovepaper.png')",
                     borderBottomLeftRadius: "0.1rem",
                     borderBottomRightRadius: "0.1rem",
-                    margin: "0 auto",  marginBottom: "2rem",
+                    margin: "0 auto", marginBottom: "2rem",
                     padding: "1rem",
                     display: "flex",
                     justifyContent: "center",
@@ -206,7 +205,7 @@ const Home = () => {
                     backgroundImage: "url('/img/textures/notebook-dark.png')",
                     borderBottomLeftRadius: "0.1rem",
                     borderBottomRightRadius: "0.1rem",
-                    margin: "0 auto",  marginBottom: "2rem",
+                    margin: "0 auto", marginBottom: "2rem",
                     padding: "1rem",
                     display: "flex",
                     justifyContent: "center",
@@ -225,7 +224,7 @@ const Home = () => {
                     backgroundImage: "url('/img/textures/paper-2.png')",
                     borderBottomLeftRadius: "0.1rem",
                     borderBottomRightRadius: "0.1rem",
-                    margin: "0 auto",  marginBottom: "2rem",
+                    margin: "0 auto", marginBottom: "2rem",
                     padding: "1rem",
                     display: "flex",
                     justifyContent: "center",
@@ -245,7 +244,7 @@ const Home = () => {
                     backgroundImage: "url('/img/textures/paper.png')",
                     borderBottomLeftRadius: "0.1rem",
                     borderBottomRightRadius: "0.1rem",
-                    margin: "0 auto",  marginBottom: "2rem",
+                    margin: "0 auto", marginBottom: "2rem",
                     padding: "1rem",
                     display: "flex",
                     justifyContent: "center",
@@ -264,7 +263,7 @@ const Home = () => {
                     backgroundImage: "url('/img/textures/project-paper.png')",
                     borderBottomLeftRadius: "0.1rem",
                     borderBottomRightRadius: "0.1rem",
-                    margin: "0 auto",  marginBottom: "2rem",
+                    margin: "0 auto", marginBottom: "2rem",
                     padding: "1rem",
                     display: "flex",
                     justifyContent: "center",
@@ -283,7 +282,7 @@ const Home = () => {
                     backgroundImage: "url('/img/textures/sandpaper.png')",
                     borderBottomLeftRadius: "0.1rem",
                     borderBottomRightRadius: "0.1rem",
-                    margin: "0 auto",  marginBottom: "2rem",
+                    margin: "0 auto", marginBottom: "2rem",
                     padding: "1rem",
                     display: "flex",
                     justifyContent: "center",
@@ -302,7 +301,7 @@ const Home = () => {
                     backgroundImage: "url('/img/textures/textured-paper.png')",
                     borderBottomLeftRadius: "0.1rem",
                     borderBottomRightRadius: "0.1rem",
-                    margin: "0 auto",  marginBottom: "2rem",
+                    margin: "0 auto", marginBottom: "2rem",
                     padding: "1rem",
                     display: "flex",
                     justifyContent: "center",

@@ -162,19 +162,7 @@ const Navbar = () => {
                   fontSize: "1.2rem",
                   textTransform: 'uppercase',
                 }}
-              >Page Title</span><span> </span>
-            <Link passHref href="/">
-              <span
-                style={{
-                  color: "white",
-                  fontFamily: "Bebas Neue",
-                  fontSize: "1.2rem",
-                  textTransform: 'uppercase',
-                }}
-              >
-                @ Pole Printing
-              </span>
-            </Link>
+              >Page Title</span>
           </Typography>
         </Toolbar>
       </AppBar>
