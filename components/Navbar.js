@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import Link from "next/link";
 
+import { motion, AnimatePresence } from 'framer-motion';
+
 import navbarStyles from "./navbar.module.css";
 
 import AppBar from "@mui/material/AppBar";
@@ -29,9 +31,6 @@ import Create from "@mui/icons-material/MenuBook";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 
 /*import "@fontsource/mate-sc";*/
 import "@fontsource/bebas-neue";
@@ -39,55 +38,77 @@ import "@fontsource/special-elite";
 /*import "@fontsource/tourney";
 import "@fontsource/dotgothic16";*/
 
+
+const NavItem = (props) => {
+
+  return (
+    props.clickType === 'link' && (
+      <Link
+        passHref
+        href={props.link ? props.link : '/'}
+        key={props.title}
+      >
+        <div style={{
+          width: '100%',
+          height: props.height ? props.height : '64px',
+          fontFamily: props.font ? props.font : "Bebas Neue",
+          fontSize: props.fontSize ? props.fontSize : "1rem",
+          backgroundColor: props.backgroundColor ? props.backgroundColor : "#EEE",
+          color: props.color ? props.color : '#222',
+          paddingLeft: '1.5rem',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+        }}>
+          <span>{props.title}</span>
+        </div>
+      </Link>
+    ) ||
+    props.clickType === 'dropdown' && (
+      <div style={{
+        width: '100%',
+        height: props.height ? props.height : '64px',
+        fontFamily: props.font ? props.font : "Bebas Neue",
+        fontSize: props.fontSize ? props.fontSize : "1rem",
+        backgroundColor: props.backgroundColor ? props.backgroundColor : "#EEE",
+        color: props.color ? props.color : '#222',
+        paddingLeft: '1.5rem',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+      }}
+        onClick={props.toggleMenu ? props.toggleMenu : null}
+      >
+        <span>{props.title}</span>
+      </div>
+    ) ||
+    props.clickType === 'subItem' && (
+      <Link
+        passHref
+        href={props.link ? props.link : '/'}
+        key={props.title}
+      >
+        <div style={{
+          width: '100%',
+          height: props.height ? props.height : '40px',
+          fontFamily: props.font ? props.font : "Bebas Neue",
+          fontSize: props.fontSize ? props.fontSize : "1rem",
+          backgroundColor: props.backgroundColor ? props.backgroundColor : "#CCC",
+          color: props.color ? props.color : '#333',
+          paddingLeft: '3rem',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+        }}
+        >
+          <span>{props.title}</span>
+        </div>
+      </Link >
+    )
+  )
+}
+
 const Navbar = () => {
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const [navElements, setNavElements] = useState({
-    titles: [
-      "Send Us A File",
-      "All Products",
-      "For the Trucking Industry",
-      "About Pole Printing",
-    ],
-    secondaryTitles: [
-      null,
-      ["Product 1", "Product 2"],
-      ["Product 1", "Product 2"],
-      ["Company History", "Hours & Directions", "Contact Us"]
-    ],
-    postDivider: [
-      true,
-      false,
-      false,
-    ],
-    links: [
-      "/",
-      "/",
-      "/",
-      "/",
-    ],
-    secondaryLinks: [
-      null,
-      ["/", "/"],
-      ["/", "/"],
-      ["/", "/", "/"]
-    ],
-    font: [
-      "Bebas Neue",
-      "Bebas Neue",
-      "Special Elite",
-      "Special Elite",
-    ],
-  });
 
   const [scrollY, setScrollY] = useState(0);
 
@@ -104,8 +125,30 @@ const Navbar = () => {
     };
   }, []);
 
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [catalogOpen, setCatalogOpen] = useState(false);
+  const [truckingOpen, setTruckingOpen] = useState(false);
+
   return (
     <div className={navbarStyles.root}>
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            style={{
+              zIndex: '99',
+              display: 'absolute',
+              width: '100vw',
+              height: '100vh',
+              top: '0',
+              left: '0',
+              backgroundColor: 'rgba(0,0,0,0.4)',
+            }}
+            onClick={() => setMenuOpen(false)} />
+        )}
+      </AnimatePresence>
       <AppBar
         position="static"
         style={{
@@ -119,54 +162,168 @@ const Navbar = () => {
             className={navbarStyles.menuButton}
             color="inherit"
             aria-label="open drawer"
-            onClick={handleClick}
+            onClick={() => setMenuOpen(true)}
           >
             <MenuIcon />
           </IconButton>
-          <Drawer anchor="left" open={Boolean(anchorEl)} onClose={handleClose}>
-            <div
-              className={navbarStyles.list}
-              role="presentation"
-              onClick={handleClose}
-              onKeyDown={handleClose}
-            >
-              <Divider />
-              <List style={{ color: "#888" }}>
-                {navElements.titles.map((text, index) => (
-                  <Link
-                    passHref
-                    href={navElements.links[index]}
-                    key={index}
-                  >
-                    <ListItem button key={text}>
-                      <ListItemText>
-                        <span
-                          style={{
-                            fontFamily: navElements.font[index],
-                          }}
-                        >
-                          {text}
-                        </span>
-                      </ListItemText>
-                    </ListItem>
-                  </Link>
-                ))}
-              </List>
-            </div>
-          </Drawer>
+
+          <motion.div
+            initial={{ x: -400 }}
+            animate={{ x: menuOpen ? 0 : -400 }}
+            transition={{
+              type: "spring",
+              bounce: 0.0,
+              duration: 1.2
+            }}
+            style={{
+              zIndex: '100',
+              position: 'fixed',
+              top: '0',
+              left: '0',
+              display: 'flex',
+              flexDirection: 'column',
+              width: '300px',
+              maxWidth: '90vw',
+              minHeight: '100vh',
+              backgroundColor: '#EEE',
+            }}>
+
+            <NavItem
+              title="Send Us A File"
+              font="Bebas Neue"
+              fontSize="1rem"
+              height="80px"
+              backgroundColor="#222"
+              color="#EEE"
+              clickType="link"
+              link="/sendAFile"
+              close={() => setMenuOpen(false)}
+            />
+
+            <Divider />
+
+            <NavItem
+              title="Browse Our Catalog"
+              clickType="dropdown"
+              toggleMenu={() => setCatalogOpen(!catalogOpen)}
+              close={() => setMenuOpen(false)}
+            />
+
+            {catalogOpen && (
+              <div>
+
+                <NavItem
+                  title="Personalized Cheques"
+                  clickType="subItem"
+                  link="/product1"
+                  close={() => setMenuOpen(false)}
+                />
+
+                <NavItem
+                  title="Carbonless Forms"
+                  clickType="subItem"
+                  link="/product1"
+                  close={() => setMenuOpen(false)}
+                />
+
+                <NavItem
+                  title="Envelopes"
+                  clickType="subItem"
+                  link="/product1"
+                  close={() => setMenuOpen(false)}
+                />
+
+                <NavItem
+                  title="Security Envelopes"
+                  clickType="subItem"
+                  link="/product1"
+                  close={() => setMenuOpen(false)}
+                />
+
+              </div>
+            )}
+
+            <Divider />
+
+            <NavItem
+              title="Trucking Products"
+              clickType="dropdown"
+              toggleMenu={() => setTruckingOpen(!truckingOpen)}
+              close={() => setMenuOpen(false)}
+            />
+
+            {truckingOpen && (
+              <div>
+
+                <NavItem
+                  title="Log Sheets"
+                  clickType="subItem"
+                  link="/product1"
+                  close={() => setMenuOpen(false)}
+                />
+
+                <NavItem
+                  title="Security Envelopes"
+                  clickType="subItem"
+                  link="/product1"
+                  close={() => setMenuOpen(false)}
+                />
+
+                <NavItem
+                  title="Business Cards"
+                  clickType="subItem"
+                  link="/product1"
+                  close={() => setMenuOpen(false)}
+                />
+
+              </div>
+            )}
+
+            <Divider />
+
+            <NavItem
+              title="Contact Us"
+              clickType="link"
+              link="/sendAFile"
+              close={() => setMenuOpen(false)}
+            />
+
+            <NavItem
+              title="Location &amp; Hours"
+              clickType="link"
+              link="/sendAFile"
+              close={() => setMenuOpen(false)}
+            />
+
+            <NavItem
+              title="Company History"
+              clickType="link"
+              link="/sendAFile"
+              close={() => setMenuOpen(false)}
+            />
+
+            <NavItem
+              title="Careers"
+              clickType="link"
+              link="/sendAFile"
+              close={() => setMenuOpen(false)}
+            />
+
+
+          </motion.div>
           <Typography className={navbarStyles.title} variant="h6" noWrap>
             <span
-                style={{
-                  color: "white",
-                  fontFamily: "Bebas Neue",
-                  fontSize: "1.2rem",
-                  textTransform: 'uppercase',
-                }}
-              >Pole Printing</span>
+              style={{
+                color: "white",
+                fontFamily: "Bebas Neue",
+                fontSize: "1.2rem",
+                textTransform: 'uppercase',
+              }}
+            >Pole Printing</span>
           </Typography>
         </Toolbar>
       </AppBar>
-    </div>
+    </div >
   );
 };
 
