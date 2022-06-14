@@ -196,7 +196,7 @@ const Navbar = () => {
               backgroundColor="#222"
               color="#EEE"
               clickType="link"
-              link="/sendAFile"
+              link="/SendAFile"
               close={() => setMenuOpen(false)}
             />
 
@@ -213,7 +213,7 @@ const Navbar = () => {
               <div>
 
                 <NavItem
-                  title="Personalized Cheques"
+                  title="Business Cards"
                   clickType="subItem"
                   link="/product1"
                   close={() => setMenuOpen(false)}
@@ -228,6 +228,20 @@ const Navbar = () => {
 
                 <NavItem
                   title="Envelopes"
+                  clickType="subItem"
+                  link="/product1"
+                  close={() => setMenuOpen(false)}
+                />
+
+                <NavItem
+                  title="Log Sheets"
+                  clickType="subItem"
+                  link="/product1"
+                  close={() => setMenuOpen(false)}
+                />
+
+                <NavItem
+                  title="Personalized Cheques"
                   clickType="subItem"
                   link="/product1"
                   close={() => setMenuOpen(false)}
@@ -318,6 +332,7 @@ const Navbar = () => {
                 fontFamily: "Bebas Neue",
                 fontSize: "1.2rem",
                 textTransform: 'uppercase',
+                float: 'right',
               }}
             >Pole Printing</span>
           </Typography>
