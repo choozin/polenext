@@ -48,7 +48,7 @@ const Product = () => {
                     <p>Material: {product && product.material}</p>
                     <p>Material Manufacturer: {product && product.manufacturer}</p>
                     <p>Quantities: {product && product.quantities && 
-                        product.quantities.map((qty, index) => <span>{qty}{index !== product.quantities.length-1 && ', '}</span>)
+                        product.quantities.map((qty, index) => <span key={index}>{qty}{index !== product.quantities.length-1 && ', '}</span>)
                     }
                     </p>
                 </div>

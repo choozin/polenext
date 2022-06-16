@@ -20,7 +20,7 @@ const catalog = () => {
                         padding: '0.5rem',
                         textAlign: 'center',
                     }}>
-                    <p>Please take a moment to browse our catalog. We're sure you'll find what you're looking for!</p>
+                    <p>Please take a moment to browse our catalog. We&apos;re sure you&apos;ll find what you&apos;re looking for!</p>
                 </div>
 
                 <Catalog />
