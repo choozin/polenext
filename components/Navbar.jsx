@@ -38,6 +38,8 @@ import "@fontsource/special-elite";
 /*import "@fontsource/tourney";
 import "@fontsource/dotgothic16";*/
 
+import productList from '../lib/productList';
+
 
 const NavItem = (props) => {
 
@@ -100,6 +102,7 @@ const NavItem = (props) => {
           flexDirection: 'column',
           justifyContent: 'center',
         }}
+        onClick={props.close}
         >
           <span>{props.title}</span>
         </div>
@@ -196,7 +199,7 @@ const Navbar = () => {
               backgroundColor="#222"
               color="#EEE"
               clickType="link"
-              link="/SendAFile"
+              link="/submit-a-file"
               close={() => setMenuOpen(false)}
             />
 
@@ -213,44 +216,53 @@ const Navbar = () => {
               <div>
 
                 <NavItem
+                  title="View the Entire Catalog"
+                  backgroundColor="#AAA"
+                  color="#333"
+                  clickType="subItem"
+                  link="/catalog"
+                  close={() => setMenuOpen(false)}
+                />
+
+                <NavItem
                   title="Business Cards"
                   clickType="subItem"
-                  link="/product1"
+                  link="/catalog/business-cards"
                   close={() => setMenuOpen(false)}
                 />
 
                 <NavItem
                   title="Carbonless Forms"
                   clickType="subItem"
-                  link="/product1"
+                  link="/catalog/carbonless-forms"
                   close={() => setMenuOpen(false)}
                 />
 
                 <NavItem
-                  title="Envelopes"
+                  title="Standard Envelopes"
                   clickType="subItem"
-                  link="/product1"
+                  link="/catalog/standard-envelopes"
                   close={() => setMenuOpen(false)}
                 />
 
                 <NavItem
                   title="Log Sheets"
                   clickType="subItem"
-                  link="/product1"
+                  link="/catalog/log-sheets"
                   close={() => setMenuOpen(false)}
                 />
 
                 <NavItem
                   title="Personalized Cheques"
                   clickType="subItem"
-                  link="/product1"
+                  link="/catalog/personalized-cheques"
                   close={() => setMenuOpen(false)}
                 />
 
                 <NavItem
                   title="Security Envelopes"
                   clickType="subItem"
-                  link="/product1"
+                  link="/catalog/security-envelopes"
                   close={() => setMenuOpen(false)}
                 />
 
@@ -270,23 +282,35 @@ const Navbar = () => {
               <div>
 
                 <NavItem
+                  title="View the Trucking Catalog"
+                  clickType="subItem"
+                  link="/catalog"
+                  backgroundColor="#757"
+                  color="#FDF"
+                  close={() => setMenuOpen(false)}
+                />
+
+                <NavItem
                   title="Log Sheets"
                   clickType="subItem"
-                  link="/product1"
+                  link="/catalog/log-sheets"
+                  backgroundColor="#CAC"
                   close={() => setMenuOpen(false)}
                 />
 
                 <NavItem
                   title="Security Envelopes"
                   clickType="subItem"
-                  link="/product1"
+                  link="/catalog/security-envelopes"
+                  backgroundColor="#CAC"
                   close={() => setMenuOpen(false)}
                 />
 
                 <NavItem
                   title="Business Cards"
                   clickType="subItem"
-                  link="/product1"
+                  link="/catalog/business-cards"
+                  backgroundColor="#CAC"
                   close={() => setMenuOpen(false)}
                 />
 
@@ -298,7 +322,7 @@ const Navbar = () => {
             <NavItem
               title="Contact Us"
               clickType="link"
-              link="/sendAFile"
+              link="/submit-a-file"
               close={() => setMenuOpen(false)}
             />
 
@@ -325,17 +349,23 @@ const Navbar = () => {
 
 
           </motion.div>
-          <Typography className={navbarStyles.title} variant="h6" noWrap>
-            <span
-              style={{
-                color: "white",
-                fontFamily: "Bebas Neue",
-                fontSize: "1.2rem",
-                textTransform: 'uppercase',
-                float: 'right',
-              }}
-            >Pole Printing</span>
-          </Typography>
+          <Link
+            passHref
+            href='/'
+            key='homepage'
+          >
+            <Typography className={navbarStyles.title} variant="h6" noWrap>
+              <span
+                style={{
+                  color: "white",
+                  fontFamily: "Bebas Neue",
+                  fontSize: "1.2rem",
+                  textTransform: 'uppercase',
+                  float: 'right',
+                }}
+              >Pole Printing</span>
+            </Typography>
+          </Link>
         </Toolbar>
       </AppBar>
     </div >

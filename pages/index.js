@@ -54,6 +54,7 @@ export default function Index() {
           backgroundColor: "#383838",
           backgroundImage: "url('/img/textures/light-aluminum.png')",
           backgroundAttachment: "fixed",
+          overflowX: 'hidden',
         }}
       >
         <Navbar />
