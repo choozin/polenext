@@ -20,6 +20,7 @@ const ProductBrief = (props) => {
                 width: '200px',
                 height: '200px',
                 border: 'dotted 1px grey',
+                background: 'rgba(255,255,255,0.1)',
                 margin: '20px',
             }}>
             </div>

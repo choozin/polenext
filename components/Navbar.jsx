@@ -167,7 +167,7 @@ const Navbar = () => {
             aria-label="open drawer"
             onClick={() => setMenuOpen(true)}
           >
-            <MenuIcon />
+            <MenuIcon /><span style={{ fontSize: '1rem' }}>MENU</span>
           </IconButton>
 
           <motion.div
