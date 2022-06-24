@@ -25,32 +25,60 @@ const Product = () => {
         <Page
             title={product && product.title}
         >
-            <div
-                style={{
-                    width: '700px',
-                    maxWidth: '92vw',
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                }}>
-                <div style={{
-                    width: '300px',
-                    height: '300px',
-                    border: 'dotted 1px white',
-                    margin: '20px',
-                }}>
+            <div>
+                <div
+                    style={{
+                        width: '700px',
+                        maxWidth: '92vw',
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                    }}>
+                    <div style={{
+                        width: '300px',
+                        height: '300px',
+                        border: 'dotted 1px white',
+                        margin: '20px',
+                    }}>
+                    </div>
+                    <div
+                        style={{
+                            maxWidth: '300px',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-around',
+                        }}>
+                        <div>
+                            <p>Price: {product && product.price}</p>
+                            <p>Product Number: </p>
+                        </div>
+                        <p>Volume: {product && product.quantities &&
+                            product.quantities.map((qty, index) => <button key={index}>{qty}{index !== product.quantities.length - 1 && ', '}</button>)
+                        }
+                        </p>
+                        <label>Quantity<select>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                        </select></label>
+                        <button>Add to Cart</button>
+                    </div>
                 </div>
-                <div 
-                style={{
-                    maxWidth: '300px',
-                }}>
-                    <p>Price: {product && product.price}</p>
+                <div
+                    style={{
+                        width: '700px',
+                        maxWidth: '92vw',
+                        paddingLeft: '1rem',
+                        backgroundColor: 'white',
+                        border: 'solid 0.5rem purple',
+                    }}>
                     <p>Description: {product && product.description}</p>
                     <p>Material: {product && product.material}</p>
                     <p>Material Manufacturer: {product && product.manufacturer}</p>
-                    <p>Quantities: {product && product.quantities && 
-                        product.quantities.map((qty, index) => <span key={index}>{qty}{index !== product.quantities.length-1 && ', '}</span>)
-                    }
-                    </p>
                 </div>
             </div>
         </Page>

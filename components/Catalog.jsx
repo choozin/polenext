@@ -10,20 +10,28 @@ const ProductBrief = (props) => {
     return (
         <div style={{
             width: '240px',
-            height: '360px',
+            height: '420px',
             border: 'solid 1px black',
             borderRadius: '1rem',
             textAlign: 'center',
             margin: '1rem',
+            paddingBottom: '4rem',
         }}>
-            <div style={{
-                width: '200px',
-                height: '200px',
-                border: 'dotted 1px grey',
-                background: 'rgba(255,255,255,0.1)',
-                margin: '20px',
-            }}>
-            </div>
+            <Link
+                passHref
+                href={`/catalog/${props.id}`}
+                key={props.id}
+            >
+                <div style={{
+                    width: '200px',
+                    height: '200px',
+                    border: 'dotted 1px grey',
+                    background: 'rgba(255,255,255,0.1)',
+                    margin: '20px',
+                    cursor: 'pointer',
+                }}>
+                </div>
+            </Link>
             <div style={{
                 width: '100%',
                 display: 'flex',
@@ -38,7 +46,19 @@ const ProductBrief = (props) => {
                     href={`/catalog/${props.id}`}
                     key={props.id}
                 >
-                    <button>View More</button>
+                    <div
+                    style={{
+                        width: '100%',
+                        marginTop: '1rem',
+                    }}>
+                        <button
+                            style={{
+                                width: '128px',
+                                padding: '0.5rem',
+                                margin: '0 auto',
+                            }}>Add to Cart</button>
+                    </div>
+
                 </Link>
             </div>
         </div>

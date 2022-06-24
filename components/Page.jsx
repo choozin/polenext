@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { motion } from 'framer-motion';
 
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const Page = (props) => {
 
@@ -16,24 +17,34 @@ const Page = (props) => {
             <div style={{
                 width: '100%',
                 minHeight: '100vh',
+                overflow: 'hidden',
                 backgroundColor: props.backgroundColor ? props.backgroundColor : '#444',
                 backgroundImage: props.backgroundImage ? props.backgroundImage : "url('/img/textures/light-aluminum.png')",
                 margin: '0',
                 position: 'absolute',
                 display: 'flex',
-                justifyContent: 'center',
+                flexDirection: 'column',
             }}>
-                <Navbar/>
+                <Navbar />
                 <div style={{
                     marginTop: '3rem',
+                    marginBottom: '3rem',
                     display: 'flex',
-                    flexDirection: 'column',
+                    justifyContent: 'center',
                 }}>
-                    <h1 style={{color: '#ddd', margin: '0 auto'}}>{props.title}</h1>
 
-                    {props.children}
+                    <div style={{
+                        marginTop: '3rem',
+                        marginBottom: '3rem',
+                        display: 'flex',
+                        flexDirection: 'column',
+                    }}>
+                        <h1 style={{ color: '#ddd', margin: '0 auto' }}>{props.title}</h1>
+
+                        {props.children}
+                    </div>
                 </div>
-
+                <Footer />
             </div>
         </div>
     )
