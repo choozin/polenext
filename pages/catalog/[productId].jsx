@@ -89,7 +89,7 @@ const Product = () => {
                                     <td><ul style={{ listStyleType: 'none', textAlign: 'center' }}>{product && product.sizes && product.sizes.map(
                                         (size) => {
                                             return (
-                                                <li>
+                                                <li key={size}>
                                                     {size}
                                                     <br />
                                                 </li>
@@ -103,7 +103,7 @@ const Product = () => {
                                     <td><ul style={{ listStyleType: 'none', textAlign: 'center' }}>{product && product.materials && product.materials.map(
                                         (material) => {
                                             return (
-                                                <li>
+                                                <li key={material}>
                                                     {material}
                                                     <br />
                                                 </li>
@@ -117,7 +117,7 @@ const Product = () => {
                                     <td style={{ textAlign: 'center' }}>{product && product.materialColors && product.materialColors.map(
                                         (color, index) => {
                                             return (
-                                                <div style={{ display: 'inline' }}>
+                                                <div style={{ display: 'inline' }} key={color}>
                                                     {color}
                                                     {index + 1 !== product.materialColors.length && ', '}
                                                 </div>
@@ -131,7 +131,7 @@ const Product = () => {
                                     <td style={{ textAlign: 'center' }}>{product && product.printColors && product.printColors.map(
                                         (color, index) => {
                                             return (
-                                                <div style={{ display: 'inline' }}>
+                                                <div style={{ display: 'inline' }} key={color}>
                                                     {color}
                                                     {index + 1 !== product.printColors.length && ', '}
                                                 </div>
@@ -145,7 +145,7 @@ const Product = () => {
                                     <td style={{ textAlign: 'center' }}>{product && product.quantities && product.quantities.map(
                                         (quantity, index) => {
                                             return (
-                                                <div style={{ display: 'inline' }}>
+                                                <div style={{ display: 'inline' }} key={quantity}>
                                                     {quantity}
                                                     {index + 1 !== product.quantities.length && ', '}
                                                 </div>
