@@ -97,7 +97,7 @@ const Product = () => {
                                         }
                                     )}</ul></td>
                                 </tr>
-                                <td style={{ height: '1rem', borderBottom: '1px solid black' }} colspan='2' />
+                                <td style={{ height: '1rem', borderBottom: '1px solid black' }} colSpan='2' />
                                 <tr>
                                     <td>{product && product.materialLabel}:</td>
                                     <td><ul style={{ listStyleType: 'none', textAlign: 'center' }}>{product && product.materials && product.materials.map(
@@ -111,7 +111,7 @@ const Product = () => {
                                         }
                                     )}</ul></td>
                                 </tr>
-                                <td style={{ height: '1rem', borderBottom: '1px solid black' }} colspan='2' />
+                                <td style={{ height: '1rem', borderBottom: '1px solid black' }} colSpan='2' />
                                 <tr>
                                     <td>Product Colour:</td>
                                     <td style={{ textAlign: 'center' }}>{product && product.materialColors && product.materialColors.map(
@@ -125,7 +125,7 @@ const Product = () => {
                                         }
                                     )}</td>
                                 </tr>
-                                <td style={{ height: '1rem', borderBottom: '1px solid black' }} colspan='2' />
+                                <td style={{ height: '1rem', borderBottom: '1px solid black' }} colSpan='2' />
                                 <tr>
                                     <td>Print Colour:</td>
                                     <td style={{ textAlign: 'center' }}>{product && product.printColors && product.printColors.map(
@@ -139,7 +139,7 @@ const Product = () => {
                                         }
                                     )}</td>
                                 </tr>
-                                <td style={{ height: '1rem', borderBottom: '1px solid black' }} colspan='2' />
+                                <td style={{ height: '1rem', borderBottom: '1px solid #000' }} colSpan='2' />
                                 <tr>
                                     <td>Availiable Quantities:</td>
                                     <td style={{ textAlign: 'center' }}>{product && product.quantities && product.quantities.map(
@@ -153,16 +153,16 @@ const Product = () => {
                                         }
                                     )}</td>
                                 </tr>
-                                <td style={{ height: '1rem', borderBottom: '1px solid black' }} colspan='2' />
+                                <td style={{ height: '1rem', borderBottom: '1px solid black' }} colSpan='2' />
                                 <tr>
                                     <td style={{ width: '200px', maxWidth: '40%' }}>Minimum Order Quantity:</td>
                                     <td style={{ width: '380px', maxWidth: '57%', textAlign: 'center', }}>{product && product.minimumOrderQuantity}</td>
                                 </tr>
                                 <tr>
-                                    <td style={{ height: '2rem' }} colspan='2' />
+                                    <td style={{ height: '2rem' }} colSpan='2' />
                                 </tr>
                                 <tr>
-                                    <td style={{ textAlign: 'center', color: 'brown' }} colspan='2' >Product Number: 5555 5555 5555 5555 </td>
+                                    <td style={{ textAlign: 'center', color: 'brown' }} colSpan='2' >Product Number: 5555 5555 5555 5555 </td>
                                 </tr>
                             </table>
 
