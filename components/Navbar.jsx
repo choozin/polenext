@@ -102,7 +102,7 @@ const NavItem = (props) => {
           flexDirection: 'column',
           justifyContent: 'center',
         }}
-        onClick={props.close}
+          onClick={props.close}
         >
           <span>{props.title}</span>
         </div>
@@ -232,6 +232,13 @@ const Navbar = () => {
                 />
 
                 <NavItem
+                  title="Brochures"
+                  clickType="subItem"
+                  link="/catalog/brochures"
+                  close={() => setMenuOpen(false)}
+                />
+
+                <NavItem
                   title="Carbonless Forms"
                   clickType="subItem"
                   link="/catalog/carbonless-forms"
@@ -239,16 +246,37 @@ const Navbar = () => {
                 />
 
                 <NavItem
-                  title="Standard Envelopes"
+                  title="Door Hangers"
                   clickType="subItem"
-                  link="/catalog/standard-envelopes"
+                  link="/catalog/door-hangers"
                   close={() => setMenuOpen(false)}
                 />
 
                 <NavItem
-                  title="Log Sheets"
+                  title="Envelopes"
                   clickType="subItem"
-                  link="/catalog/log-sheets"
+                  link="/catalog/envelopes"
+                  close={() => setMenuOpen(false)}
+                />
+
+                <NavItem
+                  title="Labels & Stickers"
+                  clickType="subItem"
+                  link="/catalog/labels-stickers"
+                  close={() => setMenuOpen(false)}
+                />
+
+                <NavItem
+                  title="Letterheads"
+                  clickType="subItem"
+                  link="/catalog/letterheads"
+                  close={() => setMenuOpen(false)}
+                />
+
+                <NavItem
+                  title="Note Sheets/Graph Paper"
+                  clickType="subItem"
+                  link="/catalog/note-sheets"
                   close={() => setMenuOpen(false)}
                 />
 
@@ -260,9 +288,30 @@ const Navbar = () => {
                 />
 
                 <NavItem
-                  title="Security Envelopes"
+                  title="Postcards"
                   clickType="subItem"
-                  link="/catalog/security-envelopes"
+                  link="/catalog/postcards"
+                  close={() => setMenuOpen(false)}
+                />
+
+                <NavItem
+                  title="Posters"
+                  clickType="subItem"
+                  link="/catalog/posters"
+                  close={() => setMenuOpen(false)}
+                />
+
+                <NavItem
+                  title="Presentation Folders"
+                  clickType="subItem"
+                  link="/catalog/presentation-folders"
+                  close={() => setMenuOpen(false)}
+                />
+
+                <NavItem
+                  title="Tickets"
+                  clickType="subItem"
+                  link="/catalog/tickets"
                   close={() => setMenuOpen(false)}
                 />
 

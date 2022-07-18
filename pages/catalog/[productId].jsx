@@ -28,57 +28,159 @@ const Product = () => {
             <div>
                 <div
                     style={{
-                        width: '700px',
-                        maxWidth: '92vw',
+                        width: '100%',
+                        maxWidth: '1200px',
                         display: 'flex',
+                        justifyContent: 'center',
                         flexWrap: 'wrap',
                     }}>
                     <div style={{
-                        width: '300px',
-                        height: '300px',
-                        border: 'dotted 1px white',
+                        width: '100%',
+                        maxWidth: '320px',
                         margin: '20px',
                     }}>
+
+                        <div style={{
+                            width: '300px',
+                            height: '300px',
+                            border: 'dotted 1px white',
+                            backgroundColor: 'rgba(1,1,1,0.1)',
+                            margin: '0 auto',
+                        }} />
+                        <div style={{ width: '100%', display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+                            <div style={{ width: '50px', height: '40px', backgroundColor: 'rgba(1,1,1,0.5)', margin: '10px' }} />
+                            <div style={{ width: '50px', height: '40px', backgroundColor: 'rgba(1,1,1,0.5)', margin: '10px' }} />
+                            <div style={{ width: '50px', height: '40px', backgroundColor: 'rgba(1,1,1,0.5)', margin: '10px' }} />
+                            <div style={{ width: '50px', height: '40px', backgroundColor: 'rgba(1,1,1,0.5)', margin: '10px' }} />
+                            <div style={{ width: '50px', height: '40px', backgroundColor: 'rgba(1,1,1,0.5)', margin: '10px' }} />
+                            <div style={{ width: '50px', height: '40px', backgroundColor: 'rgba(1,1,1,0.5)', margin: '10px' }} />
+                        </div>
                     </div>
                     <div
                         style={{
-                            maxWidth: '300px',
+                            width: '100%',
+                            maxWidth: '600px',
                             display: 'flex',
                             flexDirection: 'column',
                             justifyContent: 'space-around',
+                            padding: '0.25rem',
+                            marginTop: '1rem',
                         }}>
                         <div>
-                            <p>Price: {product && product.price}</p>
-                            <p>Product Number: </p>
+                            <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
+                                <button style={{
+                                    maxWidth: '280px',
+                                    fontSize: '1.5rem',
+                                    margin: '0 auto',
+                                    marginBottom: '2rem',
+                                    padding: '0.5rem',
+                                }}>Request a Quote</button>
+                            </div>
+                            <table style={{
+                                width: '100%',
+                                padding: '0.75rem',
+                                borderRadius: '0.3rem',
+                                boxShadow: "0rem 0.2rem 0.5rem 0.5rem #333",
+                                backgroundColor: "beige",
+                                backgroundImage: "url('/img/textures/beige-paper.png')",
+                            }}>
+                                <tr>
+                                    <td>Sizes:</td>
+                                    <td><ul style={{ listStyleType: 'none', textAlign: 'center' }}>{product && product.sizes && product.sizes.map(
+                                        (size) => {
+                                            return (
+                                                <li>
+                                                    {size}
+                                                    <br />
+                                                </li>
+                                            )
+                                        }
+                                    )}</ul></td>
+                                </tr>
+                                <td style={{ height: '1rem', borderBottom: '1px solid black' }} colspan='2' />
+                                <tr>
+                                    <td>{product && product.materialLabel}:</td>
+                                    <td><ul style={{ listStyleType: 'none', textAlign: 'center' }}>{product && product.materials && product.materials.map(
+                                        (material) => {
+                                            return (
+                                                <li>
+                                                    {material}
+                                                    <br />
+                                                </li>
+                                            )
+                                        }
+                                    )}</ul></td>
+                                </tr>
+                                <td style={{ height: '1rem', borderBottom: '1px solid black' }} colspan='2' />
+                                <tr>
+                                    <td>Product Colour:</td>
+                                    <td style={{ textAlign: 'center' }}>{product && product.materialColors && product.materialColors.map(
+                                        (color, index) => {
+                                            return (
+                                                <div style={{ display: 'inline' }}>
+                                                    {color}
+                                                    {index + 1 !== product.materialColors.length && ', '}
+                                                </div>
+                                            )
+                                        }
+                                    )}</td>
+                                </tr>
+                                <td style={{ height: '1rem', borderBottom: '1px solid black' }} colspan='2' />
+                                <tr>
+                                    <td>Print Colour:</td>
+                                    <td style={{ textAlign: 'center' }}>{product && product.printColors && product.printColors.map(
+                                        (color, index) => {
+                                            return (
+                                                <div style={{ display: 'inline' }}>
+                                                    {color}
+                                                    {index + 1 !== product.printColors.length && ', '}
+                                                </div>
+                                            )
+                                        }
+                                    )}</td>
+                                </tr>
+                                <td style={{ height: '1rem', borderBottom: '1px solid black' }} colspan='2' />
+                                <tr>
+                                    <td>Availiable Quantities:</td>
+                                    <td style={{ textAlign: 'center' }}>{product && product.quantities && product.quantities.map(
+                                        (quantity, index) => {
+                                            return (
+                                                <div style={{ display: 'inline' }}>
+                                                    {quantity}
+                                                    {index + 1 !== product.quantities.length && ', '}
+                                                </div>
+                                            )
+                                        }
+                                    )}</td>
+                                </tr>
+                                <td style={{ height: '1rem', borderBottom: '1px solid black' }} colspan='2' />
+                                <tr>
+                                    <td style={{ width: '200px', maxWidth: '40%' }}>Minimum Order Quantity:</td>
+                                    <td style={{ width: '380px', maxWidth: '57%', textAlign: 'center', }}>{product && product.minimumOrderQuantity}</td>
+                                </tr>
+                                <tr>
+                                    <td style={{ height: '2rem' }} colspan='2' />
+                                </tr>
+                                <tr>
+                                    <td style={{ textAlign: 'center', color: 'brown' }} colspan='2' >Product Number: 5555 5555 5555 5555 </td>
+                                </tr>
+                            </table>
+
                         </div>
-                        <p>Volume: {product && product.quantities &&
-                            product.quantities.map((qty, index) => <button key={index}>{qty}{index !== product.quantities.length - 1 && ', '}</button>)
-                        }
-                        </p>
-                        <label>Quantity<select>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                        </select></label>
-                        <button>Add to Cart</button>
                     </div>
                 </div>
                 <div
                     style={{
-                        width: '700px',
                         maxWidth: '92vw',
-                        paddingLeft: '1rem',
-                        backgroundColor: 'white',
-                        border: 'solid 0.5rem purple',
+                        padding: '1rem',
+                        backgroundColor: "#FFF",
+                        backgroundImage: "url('/img/textures/exclusive-paper.png')",
+                        margin: '0 auto',
+                        marginTop: '2rem',
+                        textAlign: 'center', 
                     }}>
-                    <p>Description: {product && product.description}</p>
-                    <p>Material: {product && product.material}</p>
-                    <p>Material Manufacturer: {product && product.manufacturer}</p>
+                    <h3 style={{paddingTop: '1rem'}}>Description</h3>
+                    <p>{product && product.description}</p>
                 </div>
             </div>
         </Page>

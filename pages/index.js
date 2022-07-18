@@ -51,7 +51,7 @@ export default function Index() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "#383838",
+          backgroundColor: "#686868",
           backgroundImage: "url('/img/textures/light-aluminum.png')",
           backgroundAttachment: "fixed",
           overflowX: 'hidden',

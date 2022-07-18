@@ -34,12 +34,11 @@ const Page = (props) => {
                 }}>
 
                     <div style={{
-                        marginTop: '3rem',
-                        marginBottom: '3rem',
+                        marginTop: '2rem',
                         display: 'flex',
                         flexDirection: 'column',
                     }}>
-                        <h1 style={{ color: '#ddd', margin: '0 auto' }}>{props.title}</h1>
+                        <h1 style={{ color: '#ddd', margin: '0 auto', marginBottom: '2rem' }}>{props.title}</h1>
 
                         {props.children}
                     </div>

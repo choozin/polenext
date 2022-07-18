@@ -17,6 +17,8 @@ const SendAFile = () => {
 
     const [emailMessage, setEmailMessage] = useState("Default message")
 
+    const [showSendButton, setShowSendButton] = useState(true);
+
     const generateEmailMessage = () => {
         setEmailMessage(
             "New File Submission from " + name + " from " + company + ". <br/> " +
@@ -33,8 +35,8 @@ const SendAFile = () => {
     const onChange = (e) => {
         const files = e.target.files;
         const file = files[0];
-        setFileName(file.name)
-        getBase64(file)
+        file && setFileName(file.name)
+        file && getBase64(file)
     }
 
     const onLoad = (fileString) => {
@@ -137,199 +139,141 @@ const SendAFile = () => {
                         padding: '1rem',
                         display: 'flex',
                         flexDirection: 'column',
+                        color: 'white',
                     }}>
-                        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around', flexWrap: 'flex', marginBottom: '2rem', }}>
-                            <table style={{ width: '340px' }}>
-                                <tr style={{
-                                    color: 'white',
-                                    width: '340px',
-                                    maxWidth: '100%',
-                                }}>
-                                    <td style={{ textAlign: 'left' }}>
-                                        <span>Your Name:&nbsp;&nbsp;</span>
-                                    </td>
-                                    <td style={{ textAlign: 'right' }}>
-                                        <input type='text'
-                                            style={{
-                                                background: 'none',
-                                                border: 'none',
-                                                borderBottom: 'solid 1px white',
-                                                fontSize: '1.2rem',
-                                                fontFamily: 'Courier New',
-                                                color: 'white',
-                                                width: '180px',
-                                            }}
-                                            onChange={(e) => { setName(e.target.value); generateEmailMessage() }}
-                                        />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <span>&nbsp;</span>
-                                </tr>
-                                <tr style={{
-                                    color: 'white',
-                                    width: '300px',
-                                }}>
-                                    <td style={{ textAlign: 'left' }}>
-                                        <span>Company:&nbsp;&nbsp;</span>
-                                    </td>
-                                    <td style={{ textAlign: 'right' }}>
-                                        <input type='text'
-                                            style={{
-                                                background: 'none',
-                                                border: 'none',
-                                                borderBottom: 'solid 1px white',
-                                                fontSize: '1.2rem',
-                                                fontFamily: 'Courier New',
-                                                color: 'white',
-                                                width: '180px',
-                                            }}
-                                            onChange={(e) => { setCompany(e.target.value); generateEmailMessage() }}
-                                        />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <span>&nbsp;</span>
-                                </tr>
-                                <tr style={{
-                                    color: 'white',
-                                    width: '300px',
-                                }}>
-                                    <td style={{ textAlign: 'left' }}>
-                                        <span>Email:&nbsp;&nbsp;</span>
-                                    </td>
-                                    <td style={{ textAlign: 'right' }}>
-                                        <input type='text'
-                                            style={{
-                                                background: 'none',
-                                                border: 'none',
-                                                borderBottom: 'solid 1px white',
-                                                fontSize: '1.2rem',
-                                                fontFamily: 'Courier New',
-                                                color: 'white',
-                                                width: '180px',
-                                            }}
-                                            onChange={(e) => { setEmail(e.target.value); generateEmailMessage() }}
-                                        />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <span>&nbsp;</span>
-                                </tr>
-                                <tr style={{
-                                    color: 'white',
-                                    width: '300px',
-                                }}>
-                                    <td style={{ textAlign: 'left' }}>
-                                        <span>Phone (Optional):&nbsp;&nbsp;</span>
-                                    </td>
-                                    <td style={{ textAlign: 'right' }}>
-                                        <input type='text'
-                                            style={{
-                                                background: 'none',
-                                                border: 'none',
-                                                borderBottom: 'solid 1px white',
-                                                fontSize: '1.2rem',
-                                                fontFamily: 'Courier New',
-                                                color: 'white',
-                                                width: '180px',
-                                            }}
-                                            onChange={(e) => { setPhone(e.target.value); generateEmailMessage() }}
-                                        />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <span>&nbsp;</span>
-                                </tr>
-                                <tr style={{ height: '0px', color: 'white', }}>
-                                    <td colSpan={2}>
-                                        <span>Notes:</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colSpan={2} style={{ height: '0px', marginTop: '-1rem', }}>
-                                        <textarea
-                                            style={{
-
-                                            }}
-                                            cols="40"
-                                            rows="8"
-                                            onChange={(e) => { setNotes(e.target.value); generateEmailMessage() }}
-                                        />
-                                    </td>
-                                </tr>
-                            </table>
-                            <table>
-                                <tr>
-                                    <div style={{
-                                        border: 'solid 1px white',
-                                        borderRadius: '1rem',
-                                        width: '64vw',
-                                        color: 'white',
-                                        fontSize: '4rem',
-                                        maxWidth: '280px',
-                                        maxHeight: '280px',
-                                        height: '64vw',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        justifyContent: 'center',
-                                    }}>
-                                        <div>
-                                            <span>
-                                                {
-                                                    fileName ?
-                                                        fileName.split(".").length - 1 === 1 ?
-                                                            fileName.substring(fileName.indexOf(".") + 1) === ('jpg' || 'jpeg' || 'pdf') ?
-                                                                fileName.substring(fileName.indexOf(".") + 1)
-                                                                :
-                                                                'Invalid File Type'
-                                                            :
-                                                            'Invalid File'
-                                                        :
-                                                        'Empty'
-                                                }
-                                            </span>
-                                            <span>
-
-                                            </span>
-                                        </div>
-
-                                    </div>
-                                </tr>
-
-                                <tr>
-
-                                    <div>
-                                        <span style={{ color: 'white', opacity: '1', }}>{fileName ? fileName : 'Select a File'}</span>
-                                    </div>
-                                </tr>
-                                <tr>
-                                    <div>
-                                        <label style={{
-                                            display: 'inline-block',
-                                            border: 'solid 1px white',
+                        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', marginBottom: '2rem', }}>
+                            <div style={{ maxWidth: '100%', marginBottom: '1rem' }}>
+                                <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
+                                    <span>Your Name:&nbsp;&nbsp;</span>
+                                    <input type='text'
+                                        style={{
+                                            background: 'none',
+                                            border: 'none',
+                                            borderBottom: 'solid 1px white',
+                                            fontSize: '1.2rem',
+                                            fontFamily: 'Courier New',
                                             color: 'white',
-                                            width: '5rem',
-                                            cursor: 'pointer',
-                                            padding: '1rem',
-                                        }}>
-                                            <input type="file" accept="image/jpeg"
-                                                style={{
-                                                    visibility: 'hidden',
-                                                }}
-                                                onChange={onChange}
-                                            />
-                                            <span style={{ position: 'absolute', marginTop: '-1.25rem', marginLeft: '-1.9rem' }}>Upload File</span>
-                                        </label>
-                                    </div>
-                                </tr>
-                                <tr>
-                                    <span>&nbsp;</span>
-                                </tr>
-                                <tr style={{
+                                            width: '180px',
+                                        }}
+                                        onChange={(e) => { setName(e.target.value); generateEmailMessage() }}
+                                    />
+                                </div>
+                                <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
+                                    <span>Company:&nbsp;&nbsp;</span>
+                                    <input type='text'
+                                        style={{
+                                            background: 'none',
+                                            border: 'none',
+                                            borderBottom: 'solid 1px white',
+                                            fontSize: '1.2rem',
+                                            fontFamily: 'Courier New',
+                                            color: 'white',
+                                            width: '180px',
+                                        }}
+                                        onChange={(e) => { setCompany(e.target.value); generateEmailMessage() }}
+                                    />
+                                </div>
+                                <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
+                                    <span>Email:&nbsp;&nbsp;</span>
+                                    <input type='text'
+                                        style={{
+                                            background: 'none',
+                                            border: 'none',
+                                            borderBottom: 'solid 1px white',
+                                            fontSize: '1.2rem',
+                                            fontFamily: 'Courier New',
+                                            color: 'white',
+                                            width: '180px',
+                                        }}
+                                        onChange={(e) => { setEmail(e.target.value); generateEmailMessage() }}
+                                    />
+                                </div>
+                                <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
+                                    <span>Phone:&nbsp;&nbsp;</span>
+                                    <input type='text'
+                                        style={{
+                                            background: 'none',
+                                            border: 'none',
+                                            borderBottom: 'solid 1px white',
+                                            fontSize: '1.2rem',
+                                            fontFamily: 'Courier New',
+                                            color: 'white',
+                                            width: '180px',
+                                        }}
+                                        onChange={(e) => { setPhone(e.target.value); generateEmailMessage() }}
+                                    />
+                                </div>
+                                <div>
+                                    <span>Notes:<br/></span>
+                                    <textarea
+                                        style={{
+                                            width: '100%', 
+                                        }}
+                                        rows="8"
+                                        onChange={(e) => { setNotes(e.target.value); generateEmailMessage() }}
+                                    />
+                                </div>
+                            </div>
+
+
+
+                            <div>
+                                <div style={{
+                                    border: 'solid 1px white',
+                                    borderRadius: '1rem',
+                                    width: '64vw',
                                     color: 'white',
-                                    width: '100%',
+                                    fontSize: '4rem',
+                                    maxWidth: '280px',
+                                    maxHeight: '280px',
+                                    height: '64vw',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    justifyContent: 'center',
+                                    marginBottom: '1rem', 
                                 }}>
+                                    <div>
+                                        <span>
+                                            {
+                                                fileName ?
+                                                    fileName.split(".").length - 1 === 1 ?
+                                                        fileName.substring(fileName.indexOf(".") + 1) === ('jpg' || 'jpeg' || 'pdf') ?
+                                                            fileName.substring(fileName.indexOf(".") + 1)
+                                                            :
+                                                            'Invalid File Type'
+                                                        :
+                                                        'Invalid File'
+                                                    :
+                                                    'Empty'
+                                            }
+                                        </span>
+                                        <br/>
+                                        <span style={{ color: 'white', opacity: '1', fontSize: '1rem',  }}>{fileName ? fileName : 'Select a File'}</span>
+                                        
+                                    </div>
+
+                                </div>
+
+                                <div>
+                                    <label style={{
+                                        display: 'inline-block',
+                                        border: 'solid 1px white',
+                                        color: 'white',
+                                        width: '5rem',
+                                        cursor: 'pointer',
+                                        padding: '1rem',
+                                        marginBottom: '1rem', 
+                                    }}>
+                                        <input type="file" accept="image/jpeg"
+                                            style={{
+                                                visibility: 'hidden',
+                                            }}
+                                            onChange={onChange}
+                                        />
+                                        <span style={{ position: 'absolute', marginTop: '-1.25rem', marginLeft: '-1.9rem' }}>Upload File</span>
+                                    </label>
+                                </div>
+                                <div>
                                     <select
                                         style={{
                                             background: 'none',
@@ -367,8 +311,8 @@ const SendAFile = () => {
                                             Log Book
                                         </option>
                                     </select>
-                                </tr>
-                            </table>
+                                </div>
+                            </div>
                         </div>
                         <div style={{ width: '100%', }}>
                             <button

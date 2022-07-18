@@ -32,35 +32,20 @@ const ProductBrief = (props) => {
                 }}>
                 </div>
             </Link>
-            <div style={{
-                width: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-            }}>
+            <Link
+                passHref
+                href={`/catalog/${props.id}`}
+                key={props.id}
+            >
+                <div style={{
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                }}>
 
-                <h4>{props.title}</h4>
-                <span style={{ color: 'transparent', textShadow: '0 0 1rem black', }}>{props.price}</span>
-                <span>Call for Pricing</span>
-                <Link
-                    passHref
-                    href={`/catalog/${props.id}`}
-                    key={props.id}
-                >
-                    <div
-                    style={{
-                        width: '100%',
-                        marginTop: '1rem',
-                    }}>
-                        <button
-                            style={{
-                                width: '128px',
-                                padding: '0.5rem',
-                                margin: '0 auto',
-                            }}>Add to Cart</button>
-                    </div>
-
-                </Link>
-            </div>
+                    <h4>{props.title}</h4>
+                </div>
+            </Link>
         </div>
     )
 }
@@ -74,7 +59,23 @@ const Catalog = () => {
             justifyContent: 'center',
         }}>
             {productList.map((product) => {
-                return (<ProductBrief key={product.id} id={product.id} title={product.title} price={product.price} />)
+                return (<ProductBrief
+                    key={product.id}
+                    id={product.id}
+                    title={product.title}
+                    description={product.description}
+                    minimumOrderQuantity={product.minimumOrderQuantity}
+                    quantities={product.quantities}
+                    quantitiesLabel={product.quantitiesLabel}
+                    sizes={product.sizes}
+                    images={product.images}
+                    materials={product.materials}
+                    materialLabel={product.materialLabel}
+                    materialColors={product.materialColors}
+                    printColors={product.printColors}
+                    optionalFeatures={product.optionalFeatures}
+                    tags={product.tags}
+                />)
             })}
         </div>
     )
