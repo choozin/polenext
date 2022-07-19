@@ -19,10 +19,7 @@
     "framer-motion": "^6.3.11",
     "next": "12.1.6",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
-  },
-  "devDependencies": {
-    "eslint": "7.32.0",
-    "eslint-config-next": "12.1.6"
+    "react-dom": "18.1.0",
+    "vercel": "^19.1.2"
   }
 }

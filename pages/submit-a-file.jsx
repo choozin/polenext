@@ -14,10 +14,12 @@ const SendAFile = () => {
     const [phone, setPhone] = useState("");
     const [product, setProduct] = useState("");
     const [notes, setNotes] = useState("");
+    const [base64, setBase64] = useState("");
+    const [fileName, setFileName] = useState();
 
     const [emailMessage, setEmailMessage] = useState("Default message")
 
-    const [showSendButton, setShowSendButton] = useState(true);
+    const [sendButtonState, setSendButtonState] = useState('unsent');
 
     const generateEmailMessage = () => {
         setEmailMessage(
@@ -29,8 +31,6 @@ const SendAFile = () => {
         )
     }
 
-    const [base64, setBase64] = useState("");
-    const [fileName, setFileName] = useState();
 
     const onChange = (e) => {
         const files = e.target.files;
@@ -55,7 +55,7 @@ const SendAFile = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-
+        setSendButtonState('sending')
         fetch(process.env.SENDEMAILPATH, {
             mode: "no-cors",
             method: "POST",
@@ -73,7 +73,7 @@ const SendAFile = () => {
                 fileName: fileName,
             })
         }).then(() => {
-            alert('sent, but need to refresh development server to send again')
+            setSendButtonState('sent')
         })
     }
 
@@ -204,10 +204,10 @@ const SendAFile = () => {
                                     />
                                 </div>
                                 <div>
-                                    <span>Notes:<br/></span>
+                                    <span>Notes:<br /></span>
                                     <textarea
                                         style={{
-                                            width: '100%', 
+                                            width: '100%',
                                         }}
                                         rows="8"
                                         onChange={(e) => { setNotes(e.target.value); generateEmailMessage() }}
@@ -230,7 +230,7 @@ const SendAFile = () => {
                                     display: 'flex',
                                     flexDirection: 'column',
                                     justifyContent: 'center',
-                                    marginBottom: '1rem', 
+                                    marginBottom: '1rem',
                                 }}>
                                     <div>
                                         <span>
@@ -247,9 +247,9 @@ const SendAFile = () => {
                                                     'Empty'
                                             }
                                         </span>
-                                        <br/>
-                                        <span style={{ color: 'white', opacity: '1', fontSize: '1rem',  }}>{fileName ? fileName : 'Select a File'}</span>
-                                        
+                                        <br />
+                                        <span style={{ color: 'white', opacity: '1', fontSize: '1rem', }}>{fileName ? fileName : 'No File Currently Uploaded'}</span>
+
                                     </div>
 
                                 </div>
@@ -257,12 +257,14 @@ const SendAFile = () => {
                                 <div>
                                     <label style={{
                                         display: 'inline-block',
-                                        border: 'solid 1px white',
-                                        color: 'white',
+                                        border: 'solid 4px white',
+                                        backgroundColor: '#EEF',
+                                        color: '#88A',
                                         width: '5rem',
                                         cursor: 'pointer',
                                         padding: '1rem',
-                                        marginBottom: '1rem', 
+                                        marginBottom: '1rem',
+                                        boxShadow: '0 0.1rem 0.75rem 0.1rem #EEF',
                                     }}>
                                         <input type="file" accept="image/jpeg"
                                             style={{
@@ -315,8 +317,21 @@ const SendAFile = () => {
                             </div>
                         </div>
                         <div style={{ width: '100%', }}>
-                            <button
-                                onClick={handleSubmit}>Send Email</button>
+                            {
+                                sendButtonState === 'unsent' ?
+                                    name.length > 1 && email.length > 4 ?
+                                        <button onClick={handleSubmit}>Send Email</button>
+                                        :
+                                        <span>Please complete the required fields.</span>
+                                    :
+                                    sendButtonState === 'sending' ?
+                                        <span>Sending...</span>
+                                        :
+                                        sendButtonState === 'sent' ?
+                                            <span>Sent</span>
+                                            :
+                                            <span>Error</span>
+                            }
                         </div>
                     </div>
 

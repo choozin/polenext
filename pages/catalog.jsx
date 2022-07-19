@@ -8,8 +8,7 @@ const catalog = () => {
         >
             <div
                 style={{
-                    width: '1000px',
-                    maxWidth: '92vw',
+                    width: '100%',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
