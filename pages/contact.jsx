@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 
 import Navbar from '../components/Navbar';
 
-const SendAFile = () => {
+const Contact = () => {
 
     const [name, setName] = useState("");
     const [company, setCompany] = useState("");
@@ -27,7 +27,7 @@ const SendAFile = () => {
 
     const generateEmailMessage = () => {
         setEmailMessage(
-            "New File Submission from " + name + " of " + company + ". <br/> " +
+            "New Message from " + name + " of " + company + ". <br/> " +
             "Email: " + email + " <br/> " +
             "Phone: " + phone + " <br/> " +
             "Product: " + product + " <br/> " +
@@ -129,16 +129,15 @@ const SendAFile = () => {
                         <span>10&cent;</span>
                     </div>
 
-                    <h2 style={{ fontSize: '2rem', marginTop: '1rem', }}>Send Us A File</h2>
+                    <h2 style={{ fontSize: '2rem', marginTop: '1rem', }}>Contact Pole Printing</h2>
 
                     <div style={{
                         width: '100%',
                         maxWidth: '750px',
                         minHeight: '440px',
                         margin: '0 auto',
-                        backgroundColor: "darkblue",
-                        backgroundImage: "url('/img/textures/project-paper.png')",
-                        border: 'solid white 0.5rem',
+                        backgroundColor: "#222",
+                        backgroundImage: "url('/img/textures/notebook-dark.png')",
                         transform: 'rotate(-10deg)',
                         boxShadow: '0.1rem 0.5rem 0.25rem #444',
                         padding: '1rem',
@@ -208,129 +207,22 @@ const SendAFile = () => {
                                         onChange={(e) => { setPhone(e.target.value); generateEmailMessage() }}
                                     />
                                 </div>
-                                <div>
-                                    <span>Notes:<br /></span>
-                                    <textarea
-                                        style={{
-                                            width: '100%',
-                                        }}
-                                        rows="8"
-                                        onChange={(e) => { setNotes(e.target.value); generateEmailMessage() }}
-                                    />
-                                </div>
                             </div>
-
-
-
-                            <div>
-                                <div style={{
-                                    border: 'solid 1px white',
-                                    borderRadius: '1rem',
-                                    width: '64vw',
-                                    color: 'white',
-                                    fontSize: '4rem',
-                                    maxWidth: '280px',
-                                    maxHeight: '280px',
-                                    height: '64vw',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    justifyContent: 'center',
-                                    marginBottom: '1rem',
-                                }}>
-                                    <div>
-                                        <span>
-                                            {
-                                                fileName ?
-                                                    fileName.split(".").length - 1 === 1 ?
-                                                        fileName.substring(fileName.indexOf(".") + 1) === ('jpg' || 'jpeg' || 'pdf') ?
-                                                            fileName.substring(fileName.indexOf(".") + 1)
-                                                            :
-                                                            'Invalid File Type'
-                                                        :
-                                                        'Invalid File'
-                                                    :
-                                                    'Empty'
-                                            }
-                                        </span>
-                                        <br />
-                                        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                                            <span style={{ color: fileSize ? Math.ceil(fileSize/1024) < maxFileSize ? '#4D4' : 'red' : 'white', opacity: '1', fontSize: '1rem', }}>
-                                                {fileName ? fileName : 'No File Currently Uploaded'}<br/>
-                                                {fileSize ? Math.ceil(fileSize/1024)+' KB' : ''}<br/>
-                                                {fileSize ? Math.ceil(fileSize/1024) < maxFileSize ? '' : 'File must be less than '+maxFileSize+'KB' : 'Max File Size of '+maxFileSize+'KB'}<br/>
-                                            </span>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div>
-                                    <label style={{
-                                        display: 'inline-block',
-                                        border: 'solid 4px white',
-                                        backgroundColor: '#EEF',
-                                        color: '#88A',
-                                        width: '5rem',
-                                        cursor: 'pointer',
-                                        padding: '1rem',
-                                        marginBottom: '1rem',
-                                        boxShadow: '0 0.1rem 0.75rem 0.1rem #EEF',
-                                    }}>
-                                        <input type="file" accept="image/jpeg"
-                                            style={{
-                                                visibility: 'hidden',
-                                            }}
-                                            onChange={onChange}
-                                        />
-                                        <span style={{ position: 'absolute', marginTop: '-1.25rem', marginLeft: '-1.9rem' }}>Upload File</span>
-                                    </label>
-                                </div>
-                                <div>
-                                    <select
-                                        style={{
-                                            background: 'none',
-                                            border: 'none',
-                                            borderBottom: 'solid 1px white',
-                                            fontSize: '1.2rem',
-                                            fontFamily: 'Courier New',
-                                            color: 'white',
-                                            width: '180px',
-                                        }}
-                                        onChange={(e) => setProduct(e.target.value)}
-                                    >
-                                        <option value="Business Card"
-                                            style={{
-                                                background: 'none',
-                                                border: 'none',
-                                                borderBottom: 'solid 1px white',
-                                                fontSize: '1.2rem',
-                                                fontFamily: 'Courier New',
-                                                color: 'white',
-                                                width: '180px',
-                                            }}>
-                                            Business Card
-                                        </option>
-                                        <option value="Log Book"
-                                            style={{
-                                                background: 'none',
-                                                border: 'none',
-                                                borderBottom: 'solid 1px white',
-                                                fontSize: '1.2rem',
-                                                fontFamily: 'Courier New',
-                                                color: 'white',
-                                                width: '180px',
-                                            }}>
-                                            Log Book
-                                        </option>
-                                    </select>
-                                </div>
+                            <div style={{ width: '100%' }}>
+                                <span>Notes:<br /></span>
+                                <textarea
+                                    style={{
+                                        width: '100%',
+                                    }}
+                                    rows="8"
+                                    onChange={(e) => { setNotes(e.target.value); generateEmailMessage() }}
+                                />
                             </div>
                         </div>
                         <div style={{ width: '100%', }}>
                             {
                                 sendButtonState === 'unsent' ?
-                                    name.length > 1 && email.length > 4 && Math.ceil(fileSize/1024) < maxFileSize ?
+                                    name.length > 1 && email.length > 4 && notes.length > 1 ?
                                         <button onClick={handleSubmit}>Send Email</button>
                                         :
                                         <span>Please complete the required fields.</span>
@@ -354,4 +246,4 @@ const SendAFile = () => {
     )
 }
 
-export default SendAFile;
+export default Contact;

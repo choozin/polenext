@@ -52,7 +52,7 @@ const NavItem = (props) => {
       >
         <div style={{
           width: '100%',
-          height: props.height ? props.height : '64px',
+          height: props.height ? props.height : '48px',
           fontFamily: props.font ? props.font : "Bebas Neue",
           fontSize: props.fontSize ? props.fontSize : "1rem",
           backgroundColor: props.backgroundColor ? props.backgroundColor : "#EEE",
@@ -69,7 +69,7 @@ const NavItem = (props) => {
     props.clickType === 'dropdown' && (
       <div style={{
         width: '100%',
-        height: props.height ? props.height : '64px',
+        height: props.height ? props.height : '48px',
         fontFamily: props.font ? props.font : "Bebas Neue",
         fontSize: props.fontSize ? props.fontSize : "1rem",
         backgroundColor: props.backgroundColor ? props.backgroundColor : "#EEE",
@@ -81,7 +81,7 @@ const NavItem = (props) => {
       }}
         onClick={props.toggleMenu ? props.toggleMenu : null}
       >
-        <span>{props.title}</span>
+        <span>{props.title}&nbsp;{props.catalogOpen ? '⇯' : '⇩'}</span>
       </div>
     ) ||
     props.clickType === 'subItem' && (
@@ -92,7 +92,7 @@ const NavItem = (props) => {
       >
         <div style={{
           width: '100%',
-          height: props.height ? props.height : '40px',
+          height: props.height ? props.height : '38px',
           fontFamily: props.font ? props.font : "Bebas Neue",
           fontSize: props.fontSize ? props.fontSize : "1rem",
           backgroundColor: props.backgroundColor ? props.backgroundColor : "#CCC",
@@ -192,10 +192,24 @@ const Navbar = () => {
             }}>
 
             <NavItem
+              title="Pole Printing Inc"
+              font="Bebas Neue"
+              fontSize="2rem"
+              height="60px"
+              backgroundColor="#CCC"
+              color="#777"
+              clickType="link"
+              link="/"
+              close={() => setMenuOpen(false)}
+            />
+
+            <Divider />
+
+            <NavItem
               title="Send Us A File"
               font="Bebas Neue"
               fontSize="1rem"
-              height="80px"
+              height="60px"
               backgroundColor="#222"
               color="#EEE"
               clickType="link"
@@ -206,14 +220,15 @@ const Navbar = () => {
             <Divider />
 
             <NavItem
-              title="Browse Our Catalog"
+              title="Printing Products"
               clickType="dropdown"
               toggleMenu={() => setCatalogOpen(!catalogOpen)}
+              catalogOpen={catalogOpen}
               close={() => setMenuOpen(false)}
             />
 
             {catalogOpen && (
-              <div>
+              <div style={{ overflowY: 'scroll', height: '40vh', width: '100%', border: 'solid 1px #777'}}>
 
                 <NavItem
                   title="View the Entire Catalog"
@@ -321,81 +336,25 @@ const Navbar = () => {
             <Divider />
 
             <NavItem
-              title="Trucking Products"
-              clickType="dropdown"
-              toggleMenu={() => setTruckingOpen(!truckingOpen)}
-              close={() => setMenuOpen(false)}
-            />
-
-            {truckingOpen && (
-              <div>
-
-                <NavItem
-                  title="View the Trucking Catalog"
-                  clickType="subItem"
-                  link="/catalog"
-                  backgroundColor="#757"
-                  color="#FDF"
-                  close={() => setMenuOpen(false)}
-                />
-
-                <NavItem
-                  title="Log Sheets"
-                  clickType="subItem"
-                  link="/catalog/log-sheets"
-                  backgroundColor="#CAC"
-                  close={() => setMenuOpen(false)}
-                />
-
-                <NavItem
-                  title="Security Envelopes"
-                  clickType="subItem"
-                  link="/catalog/security-envelopes"
-                  backgroundColor="#CAC"
-                  close={() => setMenuOpen(false)}
-                />
-
-                <NavItem
-                  title="Business Cards"
-                  clickType="subItem"
-                  link="/catalog/business-cards"
-                  backgroundColor="#CAC"
-                  close={() => setMenuOpen(false)}
-                />
-
-              </div>
-            )}
-
-            <Divider />
-
-            <NavItem
               title="Contact Us"
               clickType="link"
-              link="/submit-a-file"
+              link="/contact"
               close={() => setMenuOpen(false)}
             />
 
             <NavItem
               title="Location &amp; Hours"
               clickType="link"
-              link="/sendAFile"
+              link="/location-and-hours"
               close={() => setMenuOpen(false)}
             />
 
             <NavItem
               title="Company History"
               clickType="link"
-              link="/sendAFile"
+              link="/about-us"
               close={() => setMenuOpen(false)}
             />
-
-            <NavItem
-              title="Careers"
-              clickType="link"
-              link="/sendAFile"
-              close={() => setMenuOpen(false)}
-            />
-
 
           </motion.div>
           <Link

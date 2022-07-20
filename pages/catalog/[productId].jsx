@@ -81,8 +81,8 @@ const Product = () => {
                                 padding: '0.75rem',
                                 borderRadius: '0.3rem',
                                 boxShadow: "0rem 0.2rem 0.5rem 0.5rem #333",
-                                backgroundColor: "beige",
-                                backgroundImage: "url('/img/textures/beige-paper.png')",
+                                backgroundColor: "white",
+                                backgroundImage: "url('/img/textures/paper.png')",
                             }}>
                                 <tr>
                                     <td>Sizes:</td>
@@ -174,13 +174,23 @@ const Product = () => {
                         maxWidth: '92vw',
                         padding: '1rem',
                         backgroundColor: "#FFF",
-                        backgroundImage: "url('/img/textures/exclusive-paper.png')",
+                        backgroundImage: "url('/img/textures/notebook-dark.png')",
                         margin: '0 auto',
                         marginTop: '2rem',
-                        textAlign: 'center', 
+                        marginBottom: '2rem',
+                        textAlign: 'center',
                     }}>
-                    <h3 style={{paddingTop: '1rem'}}>Description</h3>
+                    <h3 style={{ paddingTop: '1rem' }}>Description</h3>
                     <p>{product && product.description}</p>
+                </div>
+                <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
+                    <button style={{
+                        maxWidth: '280px',
+                        fontSize: '1.5rem',
+                        margin: '0 auto',
+                        marginBottom: '2rem',
+                        padding: '0.5rem',
+                    }}>Request a Quote</button>
                 </div>
             </div>
         </Page>
