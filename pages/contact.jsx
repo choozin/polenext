@@ -92,8 +92,8 @@ const Contact = () => {
                     flexDirection: "column",
                     justifyContent: "center",
                     alignItems: "center",
-                    backgroundColor: "#222",
-                    backgroundImage: "url('/img/textures/light-aluminum.png')",
+                    backgroundColor: "#242",
+                    backgroundImage: "url('/img/textures/pool-table.png')",
                     backgroundAttachment: "fixed",
                     overflow: 'hidden',
                 }}
@@ -103,7 +103,7 @@ const Contact = () => {
                 <div style={{
                     width: '80vw',
                     minHeight: '400px',
-                    backgroundColor: "#634938",
+                    backgroundColor: "#EEE",
                     backgroundImage: "url('/img/textures/cardboard-flat.png')",
                     padding: '1rem',
                     fontFamily: 'Bebas Neue',
@@ -209,7 +209,7 @@ const Contact = () => {
                                 </div>
                             </div>
                             <div style={{ width: '100%' }}>
-                                <span>Notes:<br /></span>
+                                <span>The Message:<br /></span>
                                 <textarea
                                     style={{
                                         width: '100%',
@@ -225,7 +225,10 @@ const Contact = () => {
                                     name.length > 1 && email.length > 4 && notes.length > 1 ?
                                         <button onClick={handleSubmit}>Send Email</button>
                                         :
-                                        <span>Please complete the required fields.</span>
+                                        <div>
+                                            <span>Please complete the required fields.</span><br />
+                                            <span style={{ fontSize: '70%', marginTop: '0' }}>(Your Name, Email, and The Message)</span>
+                                        </div>
                                     :
                                     sendButtonState === 'sending' ?
                                         <span>Sending...</span>

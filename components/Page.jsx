@@ -18,12 +18,13 @@ const Page = (props) => {
                 width: '100%',
                 minHeight: '100vh',
                 overflow: 'hidden',
-                backgroundColor: props.backgroundColor ? props.backgroundColor : '#444',
-                backgroundImage: props.backgroundImage ? props.backgroundImage : "url('/img/textures/light-aluminum.png')",
+                backgroundColor: props.backgroundColor ? props.backgroundColor : '#564938',
+                backgroundImage: props.backgroundImage ? props.backgroundImage : "url('/img/textures/cardboard.png')",
                 margin: '0',
                 position: 'absolute',
                 display: 'flex',
                 flexDirection: 'column',
+                fontFamily: 'Bebas Neue', 
             }}>
                 <Navbar />
                 <div style={{
@@ -37,8 +38,10 @@ const Page = (props) => {
                         marginTop: '2rem',
                         display: 'flex',
                         flexDirection: 'column',
+                        minHeight: '75vh',
                     }}>
-                        <h1 style={{ color: '#ddd', margin: '0 auto', marginBottom: '2rem' }}>{props.title}</h1>
+                        <h1 style={{ color: '#ddd', margin: '0 auto', marginBottom: '2rem', fontSize: '3rem',
+                            textShadow: '2px 2px black, -2px 2px black, 2px -2px black, -2px -2px black' }}>{props.title}</h1>
 
                         {props.children}
                     </div>

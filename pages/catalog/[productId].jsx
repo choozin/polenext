@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
 
+import { motion, AnimatePresence } from 'framer-motion';
+
 import Page from '../../components/Page';
 import { productList } from '../../lib/productList';
 
@@ -8,6 +10,63 @@ import "@fontsource/bebas-neue";
 import "@fontsource/permanent-marker";
 import "@fontsource/shadows-into-light";
 import "@fontsource/special-elite";
+
+const GetQuote = (props) => {
+
+
+    return (
+        <span>Get Quote!</span>
+    )
+}
+
+const ImagePreview = (props) => {
+
+
+    return (
+        <div style={{
+            width: '100vw',
+            height: '100vh',
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: 'rgba(0,0,0,0.7)',
+        }}>
+            <div style={{
+                width: '95vw',
+                maxWidth: '800px',
+                minHeight: '600px',
+                border: 'solid 1rem white',
+                background: 'rgba(255,255,255,0.7)',
+                zIndex: '100',
+            }}>
+                <div style={{
+                    fontSize: '1.5rem',
+                    padding: '1rem',
+                    float: 'right',
+                    border: 'none',
+                    borderBottomLeftRadius: '1rem',
+                    backgroundColor: '#444',
+                    color: '#DDD',
+                    cursor: 'pointer',
+                }}
+                onClick={() => props.close(false)}>Close</div>
+            </div>
+            <div style={{
+                width: '100%',
+                height: '100%',
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                opacity: '0',
+                zIndex: '50',
+            }} onClick={() => props.close(false)}/>
+        </div>
+    )
+
+}
 
 const Product = () => {
     const router = useRouter()
@@ -17,6 +76,10 @@ const Product = () => {
         title: 'Loading...'
     });
 
+    let images = ['1', '2', '3', '4', '5', '6']
+    
+    const [isImagePreviewOpen, setIsImagePreviewOpen] = useState(false)
+
     useEffect(() => {
         setProduct(productList.find(p => p.id === productId));
     }, [productId])
@@ -24,6 +87,8 @@ const Product = () => {
     return (
         <Page
             title={product && product.title}
+            backgroundColor="#2e2d29"
+            backgroundImage="url('/img/textures/wood-pattern.png')"
         >
             <div>
                 <div
@@ -46,14 +111,20 @@ const Product = () => {
                             border: 'dotted 1px white',
                             backgroundColor: 'rgba(1,1,1,0.1)',
                             margin: '0 auto',
-                        }} />
+                        }} 
+                        onClick={() => setIsImagePreviewOpen(true)}/>
+                        {
+                            isImagePreviewOpen && <ImagePreview close={() => setIsImagePreviewOpen()}/>
+                        }
+                        
                         <div style={{ width: '100%', display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-                            <div style={{ width: '50px', height: '40px', backgroundColor: 'rgba(1,1,1,0.5)', margin: '10px' }} />
-                            <div style={{ width: '50px', height: '40px', backgroundColor: 'rgba(1,1,1,0.5)', margin: '10px' }} />
-                            <div style={{ width: '50px', height: '40px', backgroundColor: 'rgba(1,1,1,0.5)', margin: '10px' }} />
-                            <div style={{ width: '50px', height: '40px', backgroundColor: 'rgba(1,1,1,0.5)', margin: '10px' }} />
-                            <div style={{ width: '50px', height: '40px', backgroundColor: 'rgba(1,1,1,0.5)', margin: '10px' }} />
-                            <div style={{ width: '50px', height: '40px', backgroundColor: 'rgba(1,1,1,0.5)', margin: '10px' }} />
+                            {images.map((image) => {
+                                return <motion.div
+                                    initial={{ scale: 1 }}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.97 }}
+                                    style={{ width: '50px', height: '40px', backgroundColor: 'rgba(1,1,1,0.5)', margin: '10px' }} />
+                            })}
                         </div>
                     </div>
                     <div
@@ -68,13 +139,22 @@ const Product = () => {
                         }}>
                         <div>
                             <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
-                                <button style={{
-                                    maxWidth: '280px',
-                                    fontSize: '1.5rem',
-                                    margin: '0 auto',
-                                    marginBottom: '2rem',
-                                    padding: '0.5rem',
-                                }}>Request a Quote</button>
+                                <motion.button
+                                    initial={{ scale: 1 }}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    style={{
+                                        maxWidth: '280px',
+                                        fontSize: '1.5rem',
+                                        margin: '0 auto',
+                                        marginBottom: '2rem',
+                                        padding: '0.5rem',
+                                        background: 'rgba(196,160,32, 0.5)',
+                                        border: 'solid 2px #FEA',
+                                        borderRadius: '1rem',
+                                        color: '#FEA',
+                                        fontFamily: 'Bebas Neue',
+                                    }}>Get Your Quote</motion.button>
                             </div>
                             <table style={{
                                 width: '100%',
@@ -184,13 +264,22 @@ const Product = () => {
                     <p>{product && product.description}</p>
                 </div>
                 <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
-                    <button style={{
-                        maxWidth: '280px',
-                        fontSize: '1.5rem',
-                        margin: '0 auto',
-                        marginBottom: '2rem',
-                        padding: '0.5rem',
-                    }}>Request a Quote</button>
+                    <motion.button
+                        initial={{ scale: 1 }}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.97 }}
+                        style={{
+                            maxWidth: '280px',
+                            fontSize: '1.5rem',
+                            margin: '0 auto',
+                            marginBottom: '2rem',
+                            padding: '0.5rem',
+                            background: 'rgba(196,160,32, 0.5)',
+                            border: 'solid 2px #FEA',
+                            borderRadius: '1rem',
+                            color: '#FEA',
+                            fontFamily: 'Bebas Neue',
+                        }}>Get Your Quote</motion.button>
                 </div>
             </div>
         </Page>

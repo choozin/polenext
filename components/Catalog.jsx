@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link'
 
+import { motion, AnimatePresence } from 'framer-motion';
 
 import { productList } from '../lib/productList';
 
@@ -8,15 +9,22 @@ import { productList } from '../lib/productList';
 const ProductBrief = (props) => {
 
     return (
-        <div style={{
-            width: '240px',
-            height: '420px',
-            border: 'solid 1px black',
-            borderRadius: '1rem',
-            textAlign: 'center',
-            margin: '1rem',
-            paddingBottom: '4rem',
-        }}>
+        <motion.div
+            initial={{ scale: 1 }}
+            whileHover={{ scale: 1.05}} 
+            whileTap={{ scale: 0.97 }} 
+            exit={{ scale: 1 }} 
+            style={{
+                width: '240px',
+                height: '320px',
+                textAlign: 'center',
+                fontSize: '1.5rem',
+                margin: '1rem',
+                paddingBottom: '4rem',
+                backgroundColor: "#FFF", //"#634938",
+                backgroundImage: "url('/img/textures/clean-gray-paper.png')",
+                boxShadow: '0.1rem 0.25rem 0.25rem 0.25rem rgba(16,8,4,0.5)',
+            }}>
             <Link
                 passHref
                 href={`/catalog/${props.id}`}
@@ -46,7 +54,7 @@ const ProductBrief = (props) => {
                     <h4>{props.title}</h4>
                 </div>
             </Link>
-        </div>
+        </motion.div>
     )
 }
 
