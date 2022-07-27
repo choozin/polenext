@@ -37,7 +37,8 @@ const ImagePreview = (props) => {
             <div style={{
                 width: '95vw',
                 maxWidth: '800px',
-                minHeight: '600px',
+                height: '600px',
+                maxHeight: '88vh',
                 border: 'solid 1rem white',
                 background: 'rgba(255,255,255,0.7)',
                 zIndex: '100',

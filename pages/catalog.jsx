@@ -4,7 +4,7 @@ import Page from '../components/Page';
 const catalog = () => {
     return (
         <Page
-            title='Our Catalog'
+            title='Browse Our Catalog'
         >
             <div
                 style={{

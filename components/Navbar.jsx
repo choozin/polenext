@@ -228,7 +228,7 @@ const Navbar = () => {
             />
 
             {catalogOpen && (
-              <div style={{ overflowY: 'scroll', height: '40vh', width: '100%', border: 'solid 1px #777'}}>
+              <div style={{ overflowY: 'scroll', height: '40vh', width: '100%', border: 'solid 1px #777' }}>
 
                 <NavItem
                   title="View the Entire Catalog"
@@ -357,14 +357,17 @@ const Navbar = () => {
             />
 
           </motion.div>
-          <Link
-            passHref
-            href='/'
-            key='homepage'
-          >
-            <Typography className={navbarStyles.title} variant="h6" noWrap>
+          <div style={{
+            width: '100%',
+          }}>
+            <Link
+              passHref
+              href='/'
+              key='homepage'
+            >
               <span
                 style={{
+                  width: '200px',
                   color: "white",
                   fontFamily: "Bebas Neue",
                   fontSize: "1.2rem",
@@ -372,8 +375,8 @@ const Navbar = () => {
                   float: 'right',
                 }}
               >Pole Printing</span>
-            </Typography>
-          </Link>
+            </Link>
+          </div>
         </Toolbar>
       </AppBar>
     </div >

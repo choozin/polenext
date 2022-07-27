@@ -18,6 +18,7 @@ const SendAFile = () => {
     const [notes, setNotes] = useState("");
     const [base64, setBase64] = useState("");
     const [fileName, setFileName] = useState();
+    const [fileType, setFileType] = useState();
     const [fileSize, setFileSize] = useState();
 
     const [maxFileSize, setMaxFileSize] = useState(4000); // may be able to raise if email server allows
@@ -46,6 +47,7 @@ const SendAFile = () => {
         const files = e.target.files;
         const file = files[0];
         file && setFileName(file.name)
+        file && setFileType(file.type)
         file && getBase64(file)
         file && setFileSize(file.size)
     }
@@ -98,6 +100,10 @@ const SendAFile = () => {
 
     return (
         <div className="App">
+            <Head>
+                <title>Submit a File | Pole Printing Inc.</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            </Head>
             <div
                 style={{
                     width: '100vw',
@@ -256,10 +262,10 @@ const SendAFile = () => {
                                             {
                                                 fileName ?
                                                     fileName.split(".").length - 1 === 1 ?
-                                                        fileName.substring(fileName.indexOf(".") + 1) === ('jpg' || 'jpeg' || 'pdf') ?
-                                                            fileName.substring(fileName.indexOf(".") + 1)
+                                                        fileType.substring(fileType.indexOf("/") + 1) === 'jpeg' || fileType.substring(fileType.indexOf("/") + 1) === 'pdf' || fileType.substring(fileType.indexOf("/") + 1) === 'png' ?
+                                                            fileType.substring(fileType.indexOf("/") + 1) //fileName.substring(fileName.indexOf(".") + 1)
                                                             :
-                                                            'Invalid File Type'
+                                                            'Invalid File Type: '+fileType.substring(fileType.indexOf("/") + 1)
                                                         :
                                                         'Invalid File'
                                                     :
@@ -294,7 +300,7 @@ const SendAFile = () => {
                                             marginBottom: '1rem',
                                             boxShadow: '0 0.1rem 0.75rem 0.1rem #EEF',
                                         }}>
-                                        <input type="file" accept="image/jpeg"
+                                        <input type="file" accept="pdf|image/*"
                                             style={{
                                                 visibility: 'hidden',
                                             }}

@@ -11,7 +11,7 @@ const Page = (props) => {
     return (
         <div>
             <Head>
-                <title>{props.title}</title>
+                <title>{props.title} | Pole Printing Inc.</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
             <div style={{

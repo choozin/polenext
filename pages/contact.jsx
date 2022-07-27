@@ -84,6 +84,10 @@ const Contact = () => {
 
     return (
         <div className="App">
+            <Head>
+                <title>Contact Us | Pole Printing Inc.</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            </Head>
             <div
                 style={{
                     width: '100vw',
