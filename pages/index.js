@@ -45,6 +45,10 @@ import "@fontsource/special-elite";
 export default function Index() {
   return (
     <div className="App">
+      <Head>
+        <title>Pole Printing Inc.</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <div
         style={{
           display: "flex",
@@ -151,7 +155,7 @@ export default function Index() {
                 justifyContent: 'center',
                 marginTop: '4vh',
               }}>
-              <PhoneIcon/><span>519 786 5112</span><br />
+              <PhoneIcon /><span>519 786 5112</span><br />
             </motion.div>
 
             <motion.div
@@ -169,7 +173,7 @@ export default function Index() {
                 justifyContent: 'center',
                 marginTop: '0.5rem',
               }}>
-              <EmailIcon/><span>contact@poleprinting.ca</span><br />
+              <EmailIcon /><span>contact@poleprinting.ca</span><br />
             </motion.div>
 
             <motion.div
@@ -187,7 +191,7 @@ export default function Index() {
                 justifyContent: 'center',
                 marginTop: '0.5rem',
               }}>
-              <PushPinIcon/><span>89 King St E, Forest, ON N0N 1J0</span>
+              <PushPinIcon /><span>89 King St E, Forest, ON N0N 1J0</span>
             </motion.div>
 
           </div>
