@@ -9,6 +9,8 @@ import HelpCenterIcon from '@mui/icons-material/HelpCenter';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 
+import Catalog from '../components/Catalog';
+
 import "@fontsource/bebas-neue";
 import "@fontsource/permanent-marker";
 import "@fontsource/shadows-into-light";
@@ -64,7 +66,8 @@ const Home = () => {
                     fontFamily: "Bebas Neue",
                 }}
             >
-                <h2>Let&apos;s Get Started</h2>
+                <h2>Our Top Products
+                </h2>
                 <div style={{
                     width: '100%',
                     display: 'flex',
@@ -98,7 +101,7 @@ const Home = () => {
                                     backgroundColor: "purple",
                                     color: 'white',
                                     fontSize: '1.2rem',
-                                }}><UploadFileIcon /><br />Send Us A File
+                                }}><UploadFileIcon /><br />Business Cards
                             </motion.button>
                         </div>
                     
@@ -123,7 +126,7 @@ const Home = () => {
                                 backgroundColor: "purple",
                                 color: 'white',
                                 fontSize: '1.2rem',
-                            }}><HelpCenterIcon /><br />Request A Quote
+                            }}><HelpCenterIcon /><br />Carbonless Forms
                         </motion.button>
                     </div>
                     </div>
@@ -152,7 +155,7 @@ const Home = () => {
                                     backgroundColor: "purple",
                                     color: 'white',
                                     fontSize: '1.2rem',
-                                }}><MenuBookIcon /><br />Browse Our Catalog
+                                }}><MenuBookIcon /><br />Envelopes
                             </button>
                         </div>
                         <div style={{
@@ -173,7 +176,7 @@ const Home = () => {
                                     backgroundColor: "purple",
                                     color: 'white',
                                     fontSize: '1.2rem',
-                                }}><LocalShippingIcon /><br />Trucking Products
+                                }}><LocalShippingIcon /><br />Cheques
                             </button>
                         </div>
                     </div>
@@ -258,7 +261,6 @@ const Home = () => {
                 <motion.div
                     style={{
                         width: "100%",
-                        height: "400px",
                         backgroundColor: "#181818",
                         backgroundImage: "url('/img/textures/black-paper.png')",
                         borderBottomLeftRadius: "0.1rem",
@@ -267,11 +269,11 @@ const Home = () => {
                         padding: "1rem",
                         display: "flex",
                         justifyContent: "center",
-                        fontFamily: "Permanent Marker",
-                        color: '#CCC',
+                        color: '#444',
                     }}
                 >
                     <h3>Black Paper</h3>
+                    <Catalog/>
                 </motion.div>
             </motion.div>
 

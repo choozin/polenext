@@ -55,8 +55,8 @@ export default function Index() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "#686868",
-          backgroundImage: "url('/img/textures/light-aluminum.png')",
+          backgroundColor: "#634938",
+          backgroundImage: "url('/img/textures/cardboard.png')",
           backgroundAttachment: "fixed",
           overflowX: 'hidden',
         }}
@@ -173,7 +173,7 @@ export default function Index() {
                 justifyContent: 'center',
                 marginTop: '0.5rem',
               }}>
-              <EmailIcon /><span>contact@poleprinting.ca</span><br />
+              <EmailIcon /><span>contact@pole.ca</span><br />
             </motion.div>
 
             <motion.div

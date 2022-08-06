@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useEffect, useState } from 'react';
 
 import { motion, AnimatePresence } from 'framer-motion';
@@ -101,7 +102,7 @@ const SendAFile = () => {
     return (
         <div className="App">
             <Head>
-                <title>Submit a File | Pole Printing Inc.</title>
+                <title>Send Us A File | Pole Printing Inc.</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
             <div

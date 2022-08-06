@@ -18,7 +18,7 @@ const Page = (props) => {
                 width: '100%',
                 minHeight: '100vh',
                 overflow: 'hidden',
-                backgroundColor: props.backgroundColor ? props.backgroundColor : '#564938',
+                backgroundColor: props.backgroundColor ? props.backgroundColor : '#634938',
                 backgroundImage: props.backgroundImage ? props.backgroundImage : "url('/img/textures/cardboard.png')",
                 margin: '0',
                 position: 'absolute',
