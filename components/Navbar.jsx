@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -35,6 +36,7 @@ import Divider from "@mui/material/Divider";
 /*import "@fontsource/mate-sc";*/
 import "@fontsource/bebas-neue";
 import "@fontsource/special-elite";
+import "@fontsource/stardos-stencil";
 /*import "@fontsource/tourney";
 import "@fontsource/dotgothic16";*/
 
@@ -111,7 +113,7 @@ const NavItem = (props) => {
   )
 }
 
-const Navbar = () => {
+const Navbar = ( props ) => {
 
   const [scrollY, setScrollY] = useState(0);
 
@@ -155,8 +157,10 @@ const Navbar = () => {
       <AppBar
         position="static"
         style={{
-          background: "rgba(32, 32, 32, " + scrollY / 400 + ")",
+          background: "rgba(240, 240, 240, " + scrollY / 400 + ")",
           boxShadow: "none",
+          color: '#222',
+          fontFamily: 'Special Elite',
         }}
       >
         <Toolbar>
@@ -167,7 +171,7 @@ const Navbar = () => {
             aria-label="open drawer"
             onClick={() => setMenuOpen(true)}
           >
-            <MenuIcon /><span style={{ fontSize: '1rem' }}>MENU</span>
+            <span style={{ fontSize: '1.2rem', fontFamily: 'Special Elite', paddingTop: '0.25rem', textShadow: '1px 1px white, -1px 1px white, 1px -1px white, -1px -1px white' }}>Menu</span>
           </IconButton>
 
           <motion.div
@@ -360,22 +364,21 @@ const Navbar = () => {
           <div style={{
             width: '100%',
           }}>
-            <Link
-              passHref
-              href='/'
-              key='homepage'
-            >
-              <span
-                style={{
-                  width: '200px',
-                  color: "white",
-                  fontFamily: "Bebas Neue",
-                  fontSize: "1.2rem",
-                  textTransform: 'uppercase',
-                  float: 'right',
-                }}
-              >Pole Printing</span>
-            </Link>
+            <div style={{
+              float: 'right',
+              opacity: props.showLogo ? 1 : scrollY / 400,
+              background: props.showLogo && 'rgba(255,255,255,0.7)',
+              borderRadius: '16px',
+              padding: '3px'
+            }}>
+              <Link
+                passHref
+                href='/'
+                key='homepage'
+              >
+                <Image src='/img/common/logo.png' width='56px' height='32px' />
+              </Link>
+            </div>
           </div>
         </Toolbar>
       </AppBar>

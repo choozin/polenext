@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
 import { useState } from "react";
@@ -43,29 +42,21 @@ import "@fontsource/permanent-marker";
 import "@fontsource/shadows-into-light";
 import "@fontsource/special-elite";
 
-import WorkInProgress from "../components/WorkInProgress";
-
 export default function Index() {
-
-
-  const [blockWithWIP, setBlockWithWIP] = useState(true);
-
   return (
     <div className="App">
       <Head>
         <title>Pole Printing Inc.</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-
-      {blockWithWIP && <WorkInProgress unsetWIP={() => setBlockWithWIP(false)}/>}
       <div
         style={{
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "#DDD",//"#634938",
-          backgroundImage: "url('/img/textures/paper-2.png')",//"url('/img/textures/cardboard.png')",
+          backgroundColor: "#222",//"#634938",
+          backgroundImage: "url('/img/textures/purty-wood.png')",//"url('/img/textures/cardboard.png')",
           backgroundAttachment: "fixed",
           overflowX: 'hidden',
         }}
@@ -82,36 +73,53 @@ export default function Index() {
         }}>
 
           <div style={{
-            minHeight: '64%',
-            position: 'fixed',
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            zIndex: '1',
-            fontFamily: 'Special Elite',
+            minHeight: '64%'
           }}>
 
-            <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              duration: 0.5,
-            }}
-            style={{
+            <div style={{
               width: '100%',
               display: 'flex',
               justifyContent: 'center',
               marginTop: '0vh',
             }}>
-              <div
+              <motion.div
+                initial={{ y: -400 }}
+                animate={{ y: 0 }}
+                transition={{
+                  type: "spring",
+                  bounce: 0.2,
+                  duration: 1.2
+                }}
                 style={{
-                  width: '320px',
+                  width: '300px',
+                  height: '183px',
                   maxWidth: '88vw',
                   maxHeight: '50vh',
-                  padding: '10px',
-                }}>
-                <Image src='/img/common/polelogo.png' width='300px' height='225px' layout='responsive' />
-              </div>
+                  border: 'dashed 2px #304',
+                  borderBottom: 'solid 8px #304',
+                  backgroundImage: "url('/img/common/polelogo.png')",
+                }}>Pole Printing Logo</motion.div>
+            </div>
+
+            <motion.div
+              initial={{ x: 1000 }}
+              animate={{ x: 0 }}
+              transition={{
+                type: "spring",
+                bounce: 0,
+                duration: 1.2
+              }}
+              style={{
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                fontFamily: 'Times New Roman',
+                fontSize: '29px',
+                color: '#304',
+                textTransform: 'uppercase',
+                fontWeight: 'bold',
+              }}>
+              <span>Pole Printing Inc.</span>
             </motion.div>
 
             <motion.div
@@ -127,10 +135,10 @@ export default function Index() {
                 display: 'flex',
                 justifyContent: 'center',
                 marginTop: '2vh',
-                color: '#444',
-                fontSize: '1.5rem',
+                color: '#A08',
+                textShadow: '1px 1px 0 #304, 1px -1px 0 #304, -1px 1px 0 #304, -1px -1px 0 #304',
               }}>
-              <span>Proudly serving South-Western Ontario for over 45 years.</span>
+              <span>Over 35 Years in Service</span>
             </motion.div>
 
             <motion.div
@@ -147,12 +155,11 @@ export default function Index() {
                 display: 'flex',
                 justifyContent: 'center',
                 marginTop: '4vh',
-                color: '#444',
               }}>
-              <PhoneIcon /><a href='5197865112' style={{ paddingTop: '0.35rem', }}>519 786 5112</a><br />
+              <PhoneIcon /><span>519 786 5112</span><br />
             </motion.div>
 
-            <Link href='/contact'><motion.div
+            <motion.div
               initial={{ y: 700 }}
               animate={{ y: 0 }}
               transition={{
@@ -166,10 +173,9 @@ export default function Index() {
                 display: 'flex',
                 justifyContent: 'center',
                 marginTop: '0.5rem',
-                color: '#444',
               }}>
-              <EmailIcon /><span style={{ paddingTop: '0.35rem', }}>Send Us An Email</span><br />
-            </motion.div></Link>
+              <EmailIcon /><span>contact@pole.ca</span><br />
+            </motion.div>
 
             <motion.div
               initial={{ y: 700 }}
@@ -185,9 +191,8 @@ export default function Index() {
                 display: 'flex',
                 justifyContent: 'center',
                 marginTop: '0.5rem',
-                color: '#444',
               }}>
-              <PushPinIcon /><span style={{ paddingTop: '0.35rem', }}>89 King St East, Forest, ON N0N 1J0</span>
+              <PushPinIcon /><span>89 King St E, Forest, ON N0N 1J0</span>
             </motion.div>
 
           </div>

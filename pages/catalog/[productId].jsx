@@ -1,4 +1,6 @@
 import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
 
@@ -11,6 +13,7 @@ import "@fontsource/bebas-neue";
 import "@fontsource/permanent-marker";
 import "@fontsource/shadows-into-light";
 import "@fontsource/special-elite";
+import "@fontsource/stardos-stencil";
 
 const styles = {
 
@@ -75,7 +78,7 @@ const QuoteDialogue = ({ close, product }) => {
                 <div style={{ border: 'dashed 4px blue', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', }}>
                     <h3 style={{ marginTop: '-3rem', fontSize: '2rem', marginBottom: '0' }}>Get a Quote</h3>
                     <p>This is some filler words to fill the space.</p>
-                    <label style={styles.quoteLabel}>
+                    {product && product.sizes && product.sizes.length > 0 && <label style={styles.quoteLabel}>
                         <span>Size:</span>
                         {
                             product && product.sizes && product.sizes.length > 1 ?
@@ -87,8 +90,8 @@ const QuoteDialogue = ({ close, product }) => {
                                 :
                                 <span style={styles.quoteSpan}>{product.sizes && product.sizes[0]}</span>
                         }
-                    </label>
-                    <label style={styles.quoteLabel}>
+                    </label>}
+                    {product && product.materials && product.materials.length > 0 && <label style={styles.quoteLabel}>
                         <span>{product && product.materialLabel}</span>
                         {
                             product && product.materials && product.materials.length > 1 ?
@@ -100,17 +103,33 @@ const QuoteDialogue = ({ close, product }) => {
                                 :
                                 <span style={styles.quoteSpan}>{product.materials && product.materials[0]}</span>
                         }
-                    </label>
-                    <p>This is some filler words to fill the space1.</p>
-                    <p>This is some filler words to fill the space.</p>
-                    <p>This is some filler words to fill the space.</p>
-                    <p>This is some filler words to fill the space.</p>
-                    <p>This is some filler words to fill the space.</p>
-                    <p>This is some filler words to fill the space.</p>
-                    <p>This is some filler words to fill the space.</p>
-                    <p>This is some filler words to fill the space.</p>
-                    <p>This is some filler words to fill the space.</p>
-                    <p>This is some filler words to fill the space.</p>
+                    </label>}
+                    {product && product.materialColors && product.materialColors.length > 0 && <label style={styles.quoteLabel}>
+                        <span>Product Color</span>
+                        {
+                            product && product.materialColors && product.materialColors.length > 1 ?
+                                <select style={{ maxWidth: '180px' }}>
+                                    {product.materialColors.map((color) => {
+                                        return <option>{color}</option>
+                                    })}
+                                </select>
+                                :
+                                <span style={styles.quoteSpan}>{product.materialColors && product.materialColors[0]}</span>
+                        }
+                    </label>}
+                    {product && product.printColors && product.printColors.length > 0 && <label style={styles.quoteLabel}>
+                        <span>{product && product.printLabel ? product.printLabel : 'Print Colour:'}</span>
+                        {
+                            product && product.printColors && product.printColors.length > 1 ?
+                                <select style={{ maxWidth: '180px' }}>
+                                    {product.printColors.map((color) => {
+                                        return <option>{color}</option>
+                                    })}
+                                </select>
+                                :
+                                <span style={styles.quoteSpan}>{product.printColors && product.printColors[0]}</span>
+                        }
+                    </label>}
                 </div>
             </div>
             <div style={{
@@ -126,7 +145,7 @@ const QuoteDialogue = ({ close, product }) => {
     )
 }
 
-const ImagePreview = (props) => {
+const ImagePreview = ({ close, images, imageIndex, title }) => {
 
 
     return (
@@ -140,27 +159,36 @@ const ImagePreview = (props) => {
             alignItems: 'center',
             justifyContent: 'center',
             background: 'rgba(0,0,0,0.7)',
+            zIndex: '100',
         }}>
             <div style={{
                 width: '95vw',
                 maxWidth: '800px',
-                height: '600px',
+                height: '100%',
+                minHeight: '400px',
                 maxHeight: '88vh',
                 border: 'solid 1rem white',
-                background: 'rgba(255,255,255,0.7)',
+                background: 'rgba(228,228,228,1)',
                 zIndex: '100',
+                overflow: 'hidden',
+                position: 'relative',
             }}>
                 <div style={{
                     fontSize: '1.5rem',
                     padding: '1rem',
-                    float: 'right',
+                    right: '0',
+                    bottom: '0',
                     border: 'none',
-                    borderBottomLeftRadius: '1rem',
+                    position: 'absolute',
+                    borderTopLeftRadius: '1rem',
                     backgroundColor: '#444',
                     color: '#DDD',
                     cursor: 'pointer',
+                    zIndex: '40',
                 }}
-                    onClick={() => props.close(false)}>Close</div>
+                    onClick={() => close(false)}>Close</div>
+
+                <Image src={images && images.length > 0 ? images[imageIndex] : ''} layout='fill' objectFit='contain' alt={title} />
             </div>
             <div style={{
                 width: '100%',
@@ -189,6 +217,9 @@ const Product = () => {
     const [isImagePreviewOpen, setIsImagePreviewOpen] = useState(false)
     const [isQuoteDialogueOpen, setIsQuoteDialogueOpen] = useState(false)
 
+    const [imageFileName, setImageFileName] = useState('booklet1rotated.jpg')
+    const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
     useEffect(() => {
         setProduct(productList.find(p => p.id === productId));
     }, [productId])
@@ -196,8 +227,8 @@ const Product = () => {
     return (
         <Page
             title={product && product.title}
-            backgroundColor="#634938"
-            backgroundImage="url('/img/textures/cardboard.png')"
+            backgroundColor="#222" //"#634938"
+            backgroundImage="url('/img/textures/purty-wood.png')" //"url('/img/textures/cardboard.png')"
         >
             <div>
                 <div
@@ -210,29 +241,36 @@ const Product = () => {
                     }}>
                     <div style={{
                         width: '100%',
-                        maxWidth: '320px',
+                        maxWidth: '300px',
                         margin: '20px',
                     }}>
 
                         <div style={{
+                            position: 'relative',
                             width: '300px',
-                            height: '300px',
-                            border: 'dotted 1px white',
-                            backgroundColor: 'rgba(1,1,1,0.1)',
+                            minHeight: '226px',
+                            border: 'solid 1px white',
                             margin: '0 auto',
+                            marginBottom: '1rem',
+                            cursor: 'zoom-in',
                         }}
-                            onClick={() => setIsImagePreviewOpen(true)} />
+                            onClick={() => setIsImagePreviewOpen(true)} >
+                            <Image src={product && product.images && product.images.length > 0 ? product.images[currentImageIndex] : '/img/products/business_cards1.jpg'} layout='fill' objectFit='contain' alt={product && product.title} />
+                        </div>
                         {
-                            isImagePreviewOpen && <ImagePreview close={() => setIsImagePreviewOpen()} />
+                            isImagePreviewOpen && <ImagePreview close={() => setIsImagePreviewOpen()} images={product && product.images && product.images.length > 0 && product.images} imageIndex={currentImageIndex} title={product && product.title && product.title} />
                         }
 
                         <div style={{ width: '100%', display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-                            {images.map((image) => {
+                            {product && product.images && product.images.length > 0 && product.images.map((image, index) => {
                                 return <motion.div
                                     initial={{ scale: 1 }}
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.97 }}
-                                    style={{ width: '50px', height: '40px', backgroundColor: 'rgba(1,1,1,0.5)', margin: '10px' }} />
+                                    style={{ width: '50px', height: '38px', backgroundColor: 'rgba(1,1,1,0.5)', margin: '10px', border: '1px solid white', cursor: 'pointer', position: 'relative' }}
+                                    onClick={() => setCurrentImageIndex(index)} >
+                                    <Image src={image} layout='fill' objectFit="contain" />
+                                </motion.div>
                             })}
                         </div>
                     </div>
@@ -247,7 +285,7 @@ const Product = () => {
                             marginTop: '1rem',
                         }}>
                         <div>
-                            <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
+                            <div style={{ width: '100%', display: 'flex', }}>
                                 <motion.button
                                     initial={{ scale: 1 }}
                                     whileHover={{ scale: 1.05 }}
@@ -265,6 +303,23 @@ const Product = () => {
                                         fontFamily: 'Bebas Neue',
                                     }}
                                     onClick={() => setIsQuoteDialogueOpen(true)}>Get Your Quote</motion.button>
+                                <Link href='/submit-a-file'><motion.button
+                                    initial={{ scale: 1 }}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    style={{
+                                        maxWidth: '280px',
+                                        fontSize: '1.5rem',
+                                        margin: '0 auto',
+                                        marginBottom: '2rem',
+                                        padding: '0.5rem',
+                                        background: 'rgba(32,32,196, 0.5)',
+                                        border: 'solid 2px #CCF',
+                                        borderRadius: '1rem',
+                                        color: '#CCF',
+                                        fontFamily: 'Bebas Neue',
+                                    }}
+                                >Send Us A File</motion.button></Link>
                             </div>
                             {
                                 isQuoteDialogueOpen && <QuoteDialogue close={() => setIsQuoteDialogueOpen(false)} product={product} />
@@ -327,7 +382,7 @@ const Product = () => {
                                 </>}
                                 {product && product.printColors && product.printColors.length > 0 && <>
                                     <tr>
-                                        <td>Print Colour:</td>
+                                        <td>{product && product.printLabel ? product.printLabel : 'Print Colour'}:</td>
                                         <td style={{ textAlign: 'center' }}>{product && product.printColors && product.printColors.map(
                                             (color, index) => {
                                                 return (
@@ -382,25 +437,7 @@ const Product = () => {
                     }}>
                     <h3 style={{ paddingTop: '1rem' }}>Description</h3>
                     <p>{product && product.description}</p>
-                    <p>**Please note, our prefered method of payment is via e-transfer. We will provide you with the receiving address via email when you request your quote. <br/>Other payment methods also available upon request.**</p>
-                </div>
-                <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
-                    <motion.button
-                        initial={{ scale: 1 }}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.97 }}
-                        style={{
-                            maxWidth: '280px',
-                            fontSize: '1.5rem',
-                            margin: '0 auto',
-                            marginBottom: '2rem',
-                            padding: '0.5rem',
-                            background: 'rgba(196,160,32, 0.5)',
-                            border: 'solid 2px #FEA',
-                            borderRadius: '1rem',
-                            color: '#FEA',
-                            fontFamily: 'Bebas Neue',
-                        }}>Get Your Quote</motion.button>
+                    <p>**Please note, our prefered method of payment is via e-transfer. We will provide you with the receiving address via email when you request your quote. <br />Other payment methods also available upon request.**</p>
                 </div>
             </div>
         </Page>

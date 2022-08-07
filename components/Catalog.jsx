@@ -65,6 +65,7 @@ const Catalog = () => {
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'center',
+            color: '#333',
         }}>
             {productList.map((product) => {
                 return (<ProductBrief

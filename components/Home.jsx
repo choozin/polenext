@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import Link from 'next/link';
 import { motion } from "framer-motion";
 
 import PhoneIcon from '@mui/icons-material/Phone';
@@ -8,8 +10,13 @@ import UploadFileIcon from '@mui/icons-material/UploadFile';
 import HelpCenterIcon from '@mui/icons-material/HelpCenter';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import CardMembershipIcon from '@mui/icons-material/CardMembership';
+import CopyAllIcon from '@mui/icons-material/CopyAll';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import PriceCheckIcon from '@mui/icons-material/PriceCheck';
 
 import Catalog from '../components/Catalog';
+import Map from '../components/Map';
 
 import "@fontsource/bebas-neue";
 import "@fontsource/permanent-marker";
@@ -33,6 +40,8 @@ const Home = () => {
         }
     };
 
+    const [displayFullCatalog, setDisplayFullCatalog] = useState(false);
+
     return (
         <div style={{
             width: '100%',
@@ -47,23 +56,24 @@ const Home = () => {
                     type: "spring",
                     bounce: 0.2,
                     duration: 1.0,
-                    delay: 2.0,
+                    delay: 1.0,
                 }}
                 style={{
                     width: "100%",
                     overflow: 'hidden',
-                    backgroundColor: "#EEE",
-                    backgroundImage: "url('/img/textures/paper-2.png')",
+                    backgroundColor: "#111",
+                    backgroundImage: "url('/img/textures/black-paper.png')",
                     borderBottomLeftRadius: "0.1rem",
                     borderBottomRightRadius: "0.1rem",
-                    margin: "0 auto", marginBottom: "2rem", marginBottom: "2rem",
+                    margin: "0 auto",
                     padding: "1rem",
                     display: "flex",
                     flexDirection: 'column',
                     textAlign: 'center',
-                    boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-                    color: '#444',
+                    boxShadow: "0rem 0rem 0.5rem 0.5rem rgba(1,1,1,0.7)",
+                    color: '#CCC',
                     fontFamily: "Bebas Neue",
+                    zIndex: '12',
                 }}
             >
                 <h2>Our Top Products
@@ -85,12 +95,12 @@ const Home = () => {
                             display: 'flex',
                             flexDirection: 'column',
                             justifyContent: 'space-between',
-                            minHeight: '280px',
+                            minHeight: '150px',
                             width: '200px',
                         }}>
-                            <span>Etiam id justo semper, lacinia mi ut, volutpat dolor. Morbi aliquam sit. Sed varius elit a ligula maximus mattis. Mauris at lacus nunc. Mauris nec nisi ut odio condimentum congue a eget nisl. Duis mattis ex id magna dignissim elementum. Sed blandit interdum dui. Vivamus id purus risus.</span>
-                            <motion.button
-                                whileHover={{ scale: 1.2, transition: { duration: 0.5} }}
+                            <span>Nothing makes a great first impression like an eye-catching business card.</span>
+                            <Link href='/catalog/business-cards'><motion.button
+                                whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
                                 whileFocus={{ scale: 1.2 }}
                                 style={{
                                     textAlign: 'center',
@@ -98,37 +108,41 @@ const Home = () => {
                                     height: '80px',
                                     border: 'solid 0.1rem white',
                                     borderRadius: '1rem',
-                                    backgroundColor: "purple",
-                                    color: 'white',
+                                    background: "url('/img/products/businesscards2thumb.jpg')",
+                                    backgroundPosition: 'center',
+                                    color: '#111',
                                     fontSize: '1.2rem',
-                                }}><UploadFileIcon /><br />Business Cards
-                            </motion.button>
+                                    fontFamily: 'Bebas Neue',
+                                }}><CardMembershipIcon /><br />Business Cards
+                            </motion.button></Link>
                         </div>
-                    
 
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'space-between',
-                        minHeight: '280px',
-                        width: '200px',
-                    }}>
-                        <span>Etiam id justo semper, lacinia mi ut, volutpat dolor. Morbi aliquam sit. Sed varius elit a ligula maximus mattis. Mauris at lacus nunc. Mauris nec nisi ut odio condimentum congue a eget nisl. Duis mattis ex id magna dignissim elementum. Sed blandit interdum dui. Vivamus id purus risus.</span>
-                        <motion.button
-                            whileHover={{ scale: 1.2, transition: { duration: 0.5} }}
-                            whileFocus={{ scale: 1.2 }}
-                            style={{
-                                textAlign: 'center',
-                                width: '200px',
-                                height: '80px',
-                                border: 'solid 0.1rem white',
-                                borderRadius: '1rem',
-                                backgroundColor: "purple",
-                                color: 'white',
-                                fontSize: '1.2rem',
-                            }}><HelpCenterIcon /><br />Carbonless Forms
-                        </motion.button>
-                    </div>
+
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-between',
+                            minHeight: '150px',
+                            width: '200px',
+                        }}>
+                            <span>For quick, on-the-go instant copies of any document the Carbonless Form is the perfect solution.</span>
+                            <Link href='/catalog/carbonless-forms'><motion.button
+                                whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
+                                whileFocus={{ scale: 1.2 }}
+                                style={{
+                                    textAlign: 'center',
+                                    width: '200px',
+                                    height: '80px',
+                                    border: 'solid 0.1rem white',
+                                    borderRadius: '1rem',
+                                    background: "url('/img/products/businesscards2thumb.jpg')",
+                                    backgroundPosition: 'center',
+                                    color: '#111',
+                                    fontSize: '1.2rem',
+                                    fontFamily: 'Bebas Neue',
+                                }}><CopyAllIcon /><br />Carbonless Forms
+                            </motion.button></Link>
+                        </div>
                     </div>
                     <div style={{
                         display: 'flex',
@@ -141,47 +155,70 @@ const Home = () => {
                             display: 'flex',
                             flexDirection: 'column',
                             justifyContent: 'space-between',
-                            minHeight: '280px',
+                            minHeight: '150px',
                             width: '200px',
                         }}>
-                            <span>Etiam id justo semper, lacinia mi ut, volutpat dolor. Morbi aliquam sit. Sed varius elit a ligula maximus mattis. Mauris at lacus nunc. Mauris nec nisi ut odio condimentum congue a eget nisl. Duis mattis ex id magna dignissim elementum. Sed blandit interdum dui. Vivamus id purus risus.</span>
-                            <button
+                            <span>Custom envelopes are a surefire way to represent your brand in a professional manner.</span>
+                            <Link href='/catalog/envelopes'><button
                                 style={{
                                     textAlign: 'center',
                                     width: '200px',
                                     height: '80px',
                                     border: 'solid 0.1rem white',
                                     borderRadius: '1rem',
-                                    backgroundColor: "purple",
-                                    color: 'white',
+                                    background: "url('/img/products/businesscards2thumb.jpg')",
+                                    backgroundPosition: 'center',
+                                    color: '#111',
                                     fontSize: '1.2rem',
-                                }}><MenuBookIcon /><br />Envelopes
-                            </button>
+                                    fontFamily: 'Bebas Neue',
+                                }}><MailOutlineIcon /><br />Envelopes
+                            </button></Link>
                         </div>
                         <div style={{
                             display: 'flex',
                             flexDirection: 'column',
                             justifyContent: 'space-between',
-                            minHeight: '280px',
+                            minHeight: '150px',
                             width: '200px',
                         }}>
-                            <span>Etiam id justo semper, lacinia mi ut, volutpat dolor. Morbi aliquam sit. Sed varius elit a ligula maximus mattis. Mauris at lacus nunc. Mauris nec nisi ut odio condimentum congue a eget nisl. Duis mattis ex id magna dignissim elementum. Sed blandit interdum dui. Vivamus id purus risus.</span>
-                            <button
+                            <span>Personalized cheques are an essential tool for any business' purchasing needs.</span>
+                            <Link href='/catalog/cheques'><button
                                 style={{
                                     textAlign: 'center',
                                     width: '200px',
                                     height: '80px',
                                     border: 'solid 0.1rem white',
                                     borderRadius: '1rem',
-                                    backgroundColor: "purple",
-                                    color: 'white',
+                                    background: "url('/img/products/businesscards2thumb.jpg')",
+                                    backgroundPosition: 'center',
+                                    color: '#111',
                                     fontSize: '1.2rem',
-                                }}><LocalShippingIcon /><br />Cheques
-                            </button>
+                                    fontFamily: 'Bebas Neue',
+                                }}><PriceCheckIcon /><br />Cheques
+                            </button></Link>
                         </div>
                     </div>
                 </div>
+                <span onClick={() => setDisplayFullCatalog(!displayFullCatalog)}>{displayFullCatalog ? 'Hide the Catalog' : 'View the Entire Catalog'}</span>
+                {displayFullCatalog && <Catalog />}
             </motion.div>
+
+            <div style={{
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignContent: 'center',
+                alignItems: 'center',
+                background: "url('/img/textures/cardboard.png')",
+                backgroundAttachment: 'fixed',
+                backgroundColor: '#634938',
+                minHeight: '100vh',
+                zIndex: '10',
+            }}>
+                <h3>Location &amp; Hours</h3>
+                <Map />
+            </div>
 
             <div style={{
                 width: '100%',
@@ -273,7 +310,7 @@ const Home = () => {
                     }}
                 >
                     <h3>Black Paper</h3>
-                    <Catalog/>
+                    <Catalog />
                 </motion.div>
             </motion.div>
 

@@ -103,7 +103,7 @@ const Contact = () => {
                     overflow: 'hidden',
                 }}
             >
-                <Navbar />
+                <Navbar showLogo='true' />
 
                 <div style={{
                     width: '80vw',

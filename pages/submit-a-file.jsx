@@ -22,7 +22,7 @@ const SendAFile = () => {
     const [fileType, setFileType] = useState();
     const [fileSize, setFileSize] = useState();
 
-    const [maxFileSize, setMaxFileSize] = useState(4000); // may be able to raise if email server allows
+    const [maxFileSize, setMaxFileSize] = useState(10000); // may be able to raise if email server allows
 
 
     const [emailMessage, setEmailMessage] = useState("Default message")
@@ -114,7 +114,7 @@ const SendAFile = () => {
                     justifyContent: "center",
                     alignItems: "center",
                     backgroundColor: "#222",
-                    backgroundImage: "url('/img/textures/light-aluminum.png')",
+                    backgroundImage: "url('/img/textures/purty-wood.png')",
                     backgroundAttachment: "fixed",
                     overflow: 'hidden',
                 }}
@@ -157,6 +157,7 @@ const SendAFile = () => {
                         maxWidth: '750px',
                         minHeight: '440px',
                         margin: '0 auto',
+                        marginTop: '-0.5rem',
                         backgroundColor: "darkblue",
                         backgroundImage: "url('/img/textures/project-paper.png')",
                         border: 'solid white 0.5rem',
@@ -278,7 +279,7 @@ const SendAFile = () => {
                                             <span style={{ color: fileSize ? Math.ceil(fileSize / 1024) < maxFileSize ? '#4D4' : 'red' : 'white', opacity: '1', fontSize: '1rem', }}>
                                                 {fileName ? fileName : 'No File Currently Uploaded'}<br />
                                                 {fileSize ? Math.ceil(fileSize / 1024) + ' KB' : ''}<br />
-                                                {fileSize ? Math.ceil(fileSize / 1024) < maxFileSize ? '' : 'File must be less than ' + maxFileSize + 'KB' : 'Max File Size of ' + maxFileSize + 'KB'}<br />
+                                                {fileSize ? Math.ceil(fileSize / 1024) < maxFileSize ? '' : 'File must be less than ' + maxFileSize + 'KB' : 'Max File Size of ' + maxFileSize/1000 + 'MB'}<br />
                                             </span>
                                         </div>
 
