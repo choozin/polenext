@@ -24,6 +24,7 @@ const ProductBrief = (props) => {
                 backgroundColor: "#FFF", //"#634938",
                 backgroundImage: "url('/img/textures/clean-gray-paper.png')",
                 boxShadow: '0.1rem 0.25rem 0.25rem 0.25rem rgba(16,8,4,0.5)',
+                textShadow: 'none',
             }}>
             <Link
                 passHref

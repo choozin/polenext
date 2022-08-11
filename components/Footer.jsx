@@ -8,11 +8,12 @@ const Footer = () => {
             width: '100vw',
             overflow: 'hidden',
             display: 'flex',
+            background: "url('/img/textures/paper-1.png')",
             backgroundColor: 'white',
-            background: "url('/img/textures/cream-paper.png')",
             color: '#333',
             justifyContent: 'space-around',
             flexWrap: 'wrap',
+            opacity: '1',
         }}>
             <div style={{
                 padding: '1rem',
