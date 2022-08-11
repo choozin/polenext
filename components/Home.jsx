@@ -210,7 +210,7 @@ const Home = () => {
                                     fontSize: '1.2rem',
                                     fontFamily: 'Bebas Neue',
                                     marginTop: '1rem',
-                                }}>Learn More<br/>About Envelopes
+                                }}>Learn More<br/>About Cheques
                             </motion.button></Link>
                         </div>
                     </div>
