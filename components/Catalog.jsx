@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { motion, AnimatePresence } from 'framer-motion';
@@ -13,10 +14,9 @@ const ProductBrief = (props) => {
             initial={{ scale: 1 }}
             whileHover={{ scale: 1.05}} 
             whileTap={{ scale: 0.97 }} 
-            exit={{ scale: 1 }} 
             style={{
                 width: '240px',
-                height: '320px',
+                height: '240px',
                 textAlign: 'center',
                 fontSize: '1.5rem',
                 margin: '1rem',
@@ -32,12 +32,13 @@ const ProductBrief = (props) => {
             >
                 <div style={{
                     width: '200px',
-                    height: '200px',
-                    border: 'dotted 1px grey',
+                    height: '150px',
                     background: 'rgba(255,255,255,0.1)',
                     margin: '20px',
                     cursor: 'pointer',
+                    position: 'relative',
                 }}>
+                    <Image src={props.images ? props.images.length > 0 ? props.images[0] : '/img/common/image_not_found.png' : '/img/common/image_not_found.png'} layout='fill' objectFit='contain'/>
                 </div>
             </Link>
             <Link
@@ -51,7 +52,7 @@ const ProductBrief = (props) => {
                     flexDirection: 'column',
                 }}>
 
-                    <h4>{props.title}</h4>
+                    <h4 style={{margin: '0 auto', }}>{props.title}</h4>
                 </div>
             </Link>
         </motion.div>

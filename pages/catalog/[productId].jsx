@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import { motion, AnimatePresence } from 'framer-motion';
 
 import Page from '../../components/Page';
+import QuoteDialogue from '../../components/QuoteDialogue';
 import { productList } from '../../lib/productList';
 
 import "@fontsource/bebas-neue";
@@ -14,136 +15,6 @@ import "@fontsource/permanent-marker";
 import "@fontsource/shadows-into-light";
 import "@fontsource/special-elite";
 import "@fontsource/stardos-stencil";
-
-const styles = {
-
-    quoteSpan: {
-        color: '#444',
-        backgroundColor: '#CCC',
-        padding: '2px 10px',
-        borderRadius: '3px',
-    },
-
-    quoteLabel: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        width: '300px',
-        marginBottom: '1rem',
-        fontSize: '1.2rem',
-    },
-
-}
-
-const QuoteDialogue = ({ close, product }) => {
-
-
-    return (
-        <div style={{
-            width: '100vw',
-            height: '100vh',
-            position: 'fixed',
-            top: '0',
-            left: '0',
-            paddingTop: '2rem',
-            display: 'flex',
-            justifyContent: 'center',
-            zIndex: '100',
-            background: 'rgba(0,0,0,0.7)',
-        }}>
-            <div style={{
-                width: '95vw',
-                maxWidth: '800px',
-                height: '1200px',
-                maxHeight: '88vh',
-                border: 'solid 4px white',
-                borderRadius: '1rem',
-                background: '#EEE',
-                zIndex: '100',
-                overflowY: 'scroll',
-            }}>
-                <div style={{
-                    fontSize: '1.5rem',
-                    padding: '1rem',
-                    display: 'absolute',
-                    float: 'right',
-                    border: 'none',
-                    borderBottomLeftRadius: '1rem',
-                    backgroundColor: '#444',
-                    color: '#DDD',
-                    cursor: 'pointer',
-                    zIndex: '20',
-                }}
-                    onClick={close}>Close
-                </div>
-                <div style={{ border: 'dashed 4px blue', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', }}>
-                    <h3 style={{ marginTop: '-3rem', fontSize: '2rem', marginBottom: '0' }}>Get a Quote</h3>
-                    <p>This is some filler words to fill the space.</p>
-                    {product && product.sizes && product.sizes.length > 0 && <label style={styles.quoteLabel}>
-                        <span>Size:</span>
-                        {
-                            product && product.sizes && product.sizes.length > 1 ?
-                                <select style={{ maxWidth: '180px' }}>
-                                    {product.sizes.map((size) => {
-                                        return <option>{size}</option>
-                                    })}
-                                </select>
-                                :
-                                <span style={styles.quoteSpan}>{product.sizes && product.sizes[0]}</span>
-                        }
-                    </label>}
-                    {product && product.materials && product.materials.length > 0 && <label style={styles.quoteLabel}>
-                        <span>{product && product.materialLabel}</span>
-                        {
-                            product && product.materials && product.materials.length > 1 ?
-                                <select style={{ maxWidth: '180px' }}>
-                                    {product.materials.map((material) => {
-                                        return <option>{material}</option>
-                                    })}
-                                </select>
-                                :
-                                <span style={styles.quoteSpan}>{product.materials && product.materials[0]}</span>
-                        }
-                    </label>}
-                    {product && product.materialColors && product.materialColors.length > 0 && <label style={styles.quoteLabel}>
-                        <span>Product Color</span>
-                        {
-                            product && product.materialColors && product.materialColors.length > 1 ?
-                                <select style={{ maxWidth: '180px' }}>
-                                    {product.materialColors.map((color) => {
-                                        return <option>{color}</option>
-                                    })}
-                                </select>
-                                :
-                                <span style={styles.quoteSpan}>{product.materialColors && product.materialColors[0]}</span>
-                        }
-                    </label>}
-                    {product && product.printColors && product.printColors.length > 0 && <label style={styles.quoteLabel}>
-                        <span>{product && product.printLabel ? product.printLabel : 'Print Colour:'}</span>
-                        {
-                            product && product.printColors && product.printColors.length > 1 ?
-                                <select style={{ maxWidth: '180px' }}>
-                                    {product.printColors.map((color) => {
-                                        return <option>{color}</option>
-                                    })}
-                                </select>
-                                :
-                                <span style={styles.quoteSpan}>{product.printColors && product.printColors[0]}</span>
-                        }
-                    </label>}
-                </div>
-            </div>
-            <div style={{
-                width: '100%',
-                height: '100%',
-                position: 'absolute',
-                top: '0',
-                left: '0',
-                opacity: '0',
-                zIndex: '50',
-            }} onClick={close} />
-        </div>
-    )
-}
 
 const ImagePreview = ({ close, images, imageIndex, title }) => {
 
@@ -168,7 +39,7 @@ const ImagePreview = ({ close, images, imageIndex, title }) => {
                 minHeight: '400px',
                 maxHeight: '88vh',
                 border: 'solid 1rem white',
-                background: 'rgba(228,228,228,1)',
+                background: 'rgba(0,0,0,1)',
                 zIndex: '100',
                 overflow: 'hidden',
                 position: 'relative',
@@ -188,7 +59,7 @@ const ImagePreview = ({ close, images, imageIndex, title }) => {
                 }}
                     onClick={() => close(false)}>Close</div>
 
-                <Image src={images && images.length > 0 ? images[imageIndex] : ''} layout='fill' objectFit='contain' alt={title} />
+                <Image src={images && images.length > 0 ? images[imageIndex] : '/img/common/image_not_found.png'} layout='fill' objectFit='contain' alt={title} />
             </div>
             <div style={{
                 width: '100%',
@@ -217,7 +88,6 @@ const Product = () => {
     const [isImagePreviewOpen, setIsImagePreviewOpen] = useState(false)
     const [isQuoteDialogueOpen, setIsQuoteDialogueOpen] = useState(false)
 
-    const [imageFileName, setImageFileName] = useState('booklet1rotated.jpg')
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
     useEffect(() => {
@@ -250,12 +120,13 @@ const Product = () => {
                             width: '300px',
                             minHeight: '226px',
                             border: 'solid 1px white',
+                            backgroundColor: 'black',
                             margin: '0 auto',
                             marginBottom: '1rem',
                             cursor: 'zoom-in',
                         }}
                             onClick={() => setIsImagePreviewOpen(true)} >
-                            <Image src={product && product.images && product.images.length > 0 ? product.images[currentImageIndex] : '/img/products/business_cards1.jpg'} layout='fill' objectFit='contain' alt={product && product.title} />
+                            <Image src={product && product.images && product.images.length > 0 ? product.images[currentImageIndex] : '/img/common/image_not_found.png'} layout='fill' objectFit='contain' alt={product && product.title} />
                         </div>
                         {
                             isImagePreviewOpen && <ImagePreview close={() => setIsImagePreviewOpen()} images={product && product.images && product.images.length > 0 && product.images} imageIndex={currentImageIndex} title={product && product.title && product.title} />
@@ -435,7 +306,7 @@ const Product = () => {
                         marginBottom: '2rem',
                         textAlign: 'center',
                     }}>
-                    <h3 style={{ paddingTop: '1rem' }}>Description</h3>
+                    <h3 style={{ paddingTop: '1rem' }}>About {product && product.title}</h3>
                     <p>{product && product.description}</p>
                     <p>**Please note, our prefered method of payment is via e-transfer. We will provide you with the receiving address via email when you request your quote. <br />Other payment methods also available upon request.**</p>
                 </div>

@@ -22,6 +22,7 @@ import "@fontsource/bebas-neue";
 import "@fontsource/permanent-marker";
 import "@fontsource/shadows-into-light";
 import "@fontsource/special-elite";
+import { useEffect } from 'react';
 
 
 const Home = () => {
@@ -61,8 +62,8 @@ const Home = () => {
                 style={{
                     width: "100%",
                     overflow: 'hidden',
-                    backgroundColor: "#111",
-                    backgroundImage: "url('/img/textures/black-paper.png')",
+                    backgroundColor: '#533928',
+                    backgroundImage: "url('/img/textures/cardboard.png')",
                     borderBottomLeftRadius: "0.1rem",
                     borderBottomRightRadius: "0.1rem",
                     margin: "0 auto",
@@ -71,18 +72,21 @@ const Home = () => {
                     flexDirection: 'column',
                     textAlign: 'center',
                     boxShadow: "0rem 0rem 0.5rem 0.5rem rgba(1,1,1,0.7)",
-                    color: '#CCC',
+                    color: '#DDD',
+                    textShadow: '-2px 2px black',
                     fontFamily: "Bebas Neue",
                     zIndex: '12',
                 }}
             >
-                <h2>Our Top Products
+                <h2 style={{ lineHeight: '0' }}>Our Top Products
                 </h2>
                 <div style={{
                     width: '100%',
                     display: 'flex',
                     flexWrap: 'wrap',
                     justifyContent: 'space-around',
+                    marginTop: '-2rem',
+                    marginBottom: '1rem',
                 }}>
                     <div style={{
                         display: 'flex',
@@ -98,6 +102,7 @@ const Home = () => {
                             minHeight: '150px',
                             width: '200px',
                         }}>
+                            <h4 style={{ fontSize: '1.4rem', marginBottom: '1rem' }}><CardMembershipIcon /><br />Business Cards</h4>
                             <span>Nothing makes a great first impression like an eye-catching business card.</span>
                             <Link href='/catalog/business-cards'><motion.button
                                 whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
@@ -113,7 +118,8 @@ const Home = () => {
                                     color: '#111',
                                     fontSize: '1.2rem',
                                     fontFamily: 'Bebas Neue',
-                                }}><CardMembershipIcon /><br />Business Cards
+                                    marginTop: '1rem',
+                                }}>Learn More<br/>About Business Cards
                             </motion.button></Link>
                         </div>
 
@@ -125,6 +131,7 @@ const Home = () => {
                             minHeight: '150px',
                             width: '200px',
                         }}>
+                            <h4 style={{ fontSize: '1.4rem', marginBottom: '1rem' }}><CopyAllIcon /><br />Carbonless Forms</h4>
                             <span>For quick, on-the-go instant copies of any document the Carbonless Form is the perfect solution.</span>
                             <Link href='/catalog/carbonless-forms'><motion.button
                                 whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
@@ -140,7 +147,8 @@ const Home = () => {
                                     color: '#111',
                                     fontSize: '1.2rem',
                                     fontFamily: 'Bebas Neue',
-                                }}><CopyAllIcon /><br />Carbonless Forms
+                                    marginTop: '1rem',
+                                }}>Learn More<br/>About Carbonless Forms
                             </motion.button></Link>
                         </div>
                     </div>
@@ -158,8 +166,11 @@ const Home = () => {
                             minHeight: '150px',
                             width: '200px',
                         }}>
+                            <h4 style={{ fontSize: '1.4rem', marginBottom: '1rem' }}><MailOutlineIcon /><br />Envelopes</h4>
                             <span>Custom envelopes are a surefire way to represent your brand in a professional manner.</span>
-                            <Link href='/catalog/envelopes'><button
+                            <Link href='/catalog/envelopes'><motion.button
+                                whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
+                                whileFocus={{ scale: 1.2 }}
                                 style={{
                                     textAlign: 'center',
                                     width: '200px',
@@ -171,8 +182,9 @@ const Home = () => {
                                     color: '#111',
                                     fontSize: '1.2rem',
                                     fontFamily: 'Bebas Neue',
-                                }}><MailOutlineIcon /><br />Envelopes
-                            </button></Link>
+                                    marginTop: '1rem',
+                                }}>Learn More<br/>About Envelopes
+                            </motion.button></Link>
                         </div>
                         <div style={{
                             display: 'flex',
@@ -181,8 +193,11 @@ const Home = () => {
                             minHeight: '150px',
                             width: '200px',
                         }}>
+                            <h4 style={{ fontSize: '1.4rem', marginBottom: '1rem' }}><PriceCheckIcon sx={{ color: '#FFF' }} /><br />Cheques</h4>
                             <span>Personalized cheques are an essential tool for any business' purchasing needs.</span>
-                            <Link href='/catalog/cheques'><button
+                            <Link href='/catalog/cheques'><motion.button
+                                whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
+                                whileFocus={{ scale: 1.2 }}
                                 style={{
                                     textAlign: 'center',
                                     width: '200px',
@@ -194,284 +209,74 @@ const Home = () => {
                                     color: '#111',
                                     fontSize: '1.2rem',
                                     fontFamily: 'Bebas Neue',
-                                }}><PriceCheckIcon /><br />Cheques
-                            </button></Link>
+                                    marginTop: '1rem',
+                                }}>Learn More<br/>About Envelopes
+                            </motion.button></Link>
                         </div>
                     </div>
                 </div>
-                <span onClick={() => setDisplayFullCatalog(!displayFullCatalog)}>{displayFullCatalog ? 'Hide the Catalog' : 'View the Entire Catalog'}</span>
+                <motion.span
+                    whileHover={{ color: '#4BD' }}
+                    style={{ border: 'solid 1px #4BD', borderRadius: '0.5rem', width: '140px', margin: '0 auto', }}
+                    onClick={() => setDisplayFullCatalog(!displayFullCatalog)}>{displayFullCatalog ? 'Hide the Catalog' : 'View the Entire Catalog'}</motion.span>
                 {displayFullCatalog && <Catalog />}
             </motion.div>
 
-            <div style={{
-                width: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignContent: 'center',
-                alignItems: 'center',
-                background: "url('/img/textures/cardboard.png')",
-                backgroundAttachment: 'fixed',
-                backgroundColor: '#634938',
-                minHeight: '100vh',
-                zIndex: '10',
-            }}>
-                <h3>Location &amp; Hours</h3>
-                <Map />
-            </div>
-
-            <div style={{
-                width: '100%',
-                display: 'flex',
-                justifyContent: 'space-around',
-                marginBottom: '2rem',
-                flexWrap: 'wrap',
-            }}>
-                <motion.div
-                >
-                    <motion.div
-                        style={{
-                            maxWidth: "92vw",
-                            width: "300px",
-                            height: "400px",
-                            backgroundColor: "beige",
-                            backgroundImage: "url('/img/textures/beige-paper.png')",
-                            borderBottomLeftRadius: "0.1rem",
-                            borderBottomRightRadius: "0.1rem",
-                            marginBottom: "2rem",
-                            padding: "1rem",
-                            display: "flex",
-                            justifyContent: "center",
-                            boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-                        }}
-                    >
-                        <h3>Beige Paper</h3>
-                    </motion.div>
-                </motion.div>
-                <div
-                    style={{
-                        maxWidth: "92vw",
-                        width: "700px",
-                        height: "400px",
-                        backgroundColor: "#634938",
-                        backgroundImage: "url('/img/textures/cardboard.png')",
-                        borderBottomLeftRadius: "0.1rem",
-                        borderBottomRightRadius: "0.1rem",
-                        marginBottom: "2rem",
-                        padding: "1rem",
-                        display: "flex",
-                        justifyContent: "center",
-                        boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-                    }}
-                >
-                    <h3>Cardboard</h3>
-                </div>
-            </div>
-
-            <motion.div
+            <div id="hours"
                 style={{
-                    width: "80vw",
-                    maxWidth: "700px",
-                    backgroundColor: "#FFF",
-                    backgroundImage: "url('/img/textures/exclusive-paper.png')",
-                    borderBottomLeftRadius: "0.1rem",
-                    borderBottomRightRadius: "0.1rem",
-                    margin: "0 auto", marginBottom: "2rem", marginBottom: "2rem",
-                    padding: "1rem",
-                    display: "flex",
+                    width: '100%',
+                    display: 'flex',
                     flexDirection: 'column',
-                    textAlign: 'center',
-                    justifyContent: "center",
-                    boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-                    fontFamily: "Bebas Neue",
-                }}
-            >
-                <h2>Welcome to Pole Printing!</h2>
-                <p>We offer high-quality printing services to customers throughout Southwestern Ontario.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat nec ex quis ultrices. Pellentesque euismod id quam sit amet facilisis. In hac habitasse platea dictumst. Etiam feugiat dolor eget lacinia hendrerit. Donec nec magna pulvinar, mattis tellus viverra, dapibus quam. Ut euismod lacus nulla, sit amet pulvinar risus mollis non. Morbi dapibus eget dolor non tempus. Sed in auctor diam. Proin diam nunc, commodo eget posuere eu, sodales sit amet velit. Pellentesque imperdiet, ante et imperdiet dictum, orci augue accumsan libero, nec tincidunt diam nibh vel neque. Nullam blandit sed velit sit amet mollis. Praesent euismod blandit velit, ac facilisis risus semper vitae. Integer euismod, ipsum eu bibendum iaculis, nunc justo auctor nibh, et consectetur mauris ligula eget risus. Quisque pharetra urna vitae magna eleifend, id commodo leo finibus. Suspendisse tincidunt augue eu diam maximus, cursus vehicula augue mollis. Nullam laoreet diam in lacinia rutrum.</p>
-                <p>Etiam id justo semper, lacinia mi ut, volutpat dolor. Morbi aliquam sit amet eros quis laoreet. Sed varius elit a ligula maximus mattis. Mauris at lacus nunc. Mauris nec nisi ut odio condimentum congue a eget nisl. Duis mattis ex id magna dignissim elementum. Sed blandit interdum dui. Vivamus id purus risus.</p>
-            </motion.div>
+                    justifyContent: 'center',
+                    alignContent: 'center',
+                    alignItems: 'center',
+                    background: "url('/img/textures/black-paper.png')",
+                    backgroundAttachment: 'fixed',
+                    backgroundColor: '#111',
+                    minHeight: '100vh',
+                    zIndex: '10',
+                }}>
+                <h2 style={{
+                    color: '#EEE',
+                    fontFamily: 'Bebas Neue',
+                    fontSize: '1.5rem',
+                    textShadow: '1px 1px black ',
+                }}>Location &amp; Hours</h2>
+                <div style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    justifyContent: 'space-around',
+                    width: '100%',
+                    maxWidth: '1200px',
+                }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            textAlign: 'center',
+                        }}>
+                        <Map />
+                        <p style={{ padding: '0.5rem', paddingTop: '0.8rem', backgroundColor: '#EEE', borderRadius: '0.5rem', fontFamily: 'Special Elite' }}>89 King Street East<br />Forest, Ontario<br />N0N 1J0</p>
+                    </div>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            textAlign: 'center',
+                            width: '420px',
+                            maxWidth: '92vw',
+                            fontSize: '1.2rem',
+                            color: '#E0DFDF',
+                            fontFamily: 'Special Elite',
+                        }}>
+                        <p>We are conveniently located in beautiful downtown Forest at the intersection of Highways 21 &amp; 12 on the south-eastern corner.</p>
+                        <h4 style={{ marginBottom: '0.5rem', marginTop: '3rem', fontSize: '1.2rem', color: '#FFF', textShadow: '2px 2px black, -2px 2px black, 2px -2px black, -2px -2px black, ' }}>Hours</h4>
+                        <p>Monday to Friday<br /><span style={{ fontSize: '1rem' }}>8am to 4pm</span></p><p>Saturday &amp; Sunday<br /><span style={{ fontSize: '1rem' }}>Closed</span></p>
+                    </div>
+                </div>
 
-
-            <motion.div
-            >
-                <motion.div
-                    style={{
-                        width: "100%",
-                        backgroundColor: "#181818",
-                        backgroundImage: "url('/img/textures/black-paper.png')",
-                        borderBottomLeftRadius: "0.1rem",
-                        borderBottomRightRadius: "0.1rem",
-                        margin: "0 auto", marginBottom: "2rem", marginBottom: "2rem",
-                        padding: "1rem",
-                        display: "flex",
-                        justifyContent: "center",
-                        color: '#444',
-                    }}
-                >
-                    <h3>Black Paper</h3>
-                    <Catalog />
-                </motion.div>
-            </motion.div>
-
-            <motion.div
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true, amount: 0.8 }}
-            >
-                <motion.div
-                    variants={cardVariants}
-                    style={{
-                        width: "96vw",
-                        maxWidth: "1000px",
-                        height: "400px",
-                        backgroundColor: "#634938",
-                        backgroundImage: "url('/img/textures/cardboard-flat.png')",
-                        borderBottomLeftRadius: "0.1rem",
-                        borderBottomRightRadius: "0.1rem",
-                        margin: "0 auto", marginBottom: "2rem", marginBottom: "2rem",
-                        padding: "1rem",
-                        display: "flex",
-                        justifyContent: "center",
-                        boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-                        fontFamily: "Special Elite",
-                        color: '#333',
-                    }}
-                >
-                    <h3>Cardboard Flat</h3>
-                </motion.div>
-            </motion.div>
-            <div
-                style={{
-                    width: "96vw",
-                    maxWidth: "600px",
-                    height: "400px",
-                    backgroundColor: "#DFD",
-                    backgroundImage: "url('/img/textures/graphy.png')",
-                    borderBottomLeftRadius: "0.1rem",
-                    borderBottomRightRadius: "0.1rem",
-                    margin: "0 auto", marginBottom: "2rem",
-                    padding: "1rem",
-                    display: "flex",
-                    justifyContent: "center",
-                    boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-                }}
-            >
-                <h3>Graphy</h3>
-            </div>
-
-            <div
-                style={{
-                    width: "96vw",
-                    maxWidth: "1000px",
-                    height: "400px",
-                    backgroundColor: "#FFF",
-                    backgroundImage: "url('/img/textures/groovepaper.png')",
-                    borderBottomLeftRadius: "0.1rem",
-                    borderBottomRightRadius: "0.1rem",
-                    margin: "0 auto", marginBottom: "2rem",
-                    padding: "1rem",
-                    display: "flex",
-                    justifyContent: "center",
-                    boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-                }}
-            >
-                <h3>Groove Paper</h3>
-            </div>
-
-            <div
-                style={{
-                    width: "96vw",
-                    maxWidth: "1000px",
-                    height: "400px",
-                    backgroundColor: "#FFF",
-                    backgroundImage: "url('/img/textures/notebook-dark.png')",
-                    borderBottomLeftRadius: "0.1rem",
-                    borderBottomRightRadius: "0.1rem",
-                    margin: "0 auto", marginBottom: "2rem",
-                    padding: "1rem",
-                    display: "flex",
-                    justifyContent: "center",
-                    boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-                }}
-            >
-                <h3>Notebook Dark</h3>
-            </div>
-
-            <div
-                style={{
-                    width: "96vw",
-                    maxWidth: "1000px",
-                    height: "400px",
-                    backgroundColor: "#FFF",
-                    backgroundImage: "url('/img/textures/paper.png')",
-                    borderBottomLeftRadius: "0.1rem",
-                    borderBottomRightRadius: "0.1rem",
-                    margin: "0 auto", marginBottom: "2rem",
-                    padding: "1rem",
-                    display: "flex",
-                    justifyContent: "center",
-                    boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-                }}
-            >
-                <h3>Paper</h3>
-            </div>
-
-            <div
-                style={{
-                    width: "96vw",
-                    maxWidth: "1000px",
-                    height: "400px",
-                    backgroundColor: "darkblue",
-                    backgroundImage: "url('/img/textures/project-paper.png')",
-                    borderBottomLeftRadius: "0.1rem",
-                    borderBottomRightRadius: "0.1rem",
-                    margin: "0 auto", marginBottom: "2rem",
-                    padding: "1rem",
-                    display: "flex",
-                    justifyContent: "center",
-                    boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-                }}
-            >
-                <h3>Project Paper</h3>
-            </div>
-
-            <div
-                style={{
-                    width: "96vw",
-                    maxWidth: "1000px",
-                    height: "400px",
-                    backgroundColor: "#FFF",
-                    backgroundImage: "url('/img/textures/sandpaper.png')",
-                    borderBottomLeftRadius: "0.1rem",
-                    borderBottomRightRadius: "0.1rem",
-                    margin: "0 auto", marginBottom: "2rem",
-                    padding: "1rem",
-                    display: "flex",
-                    justifyContent: "center",
-                    boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-                }}
-            >
-                <h3>Sandpaper</h3>
-            </div>
-
-            <div
-                style={{
-                    width: "96vw",
-                    maxWidth: "1000px",
-                    height: "400px",
-                    backgroundColor: "#FFF",
-                    backgroundImage: "url('/img/textures/textured-paper.png')",
-                    borderBottomLeftRadius: "0.1rem",
-                    borderBottomRightRadius: "0.1rem",
-                    margin: "0 auto", marginBottom: "2rem",
-                    padding: "1rem",
-                    display: "flex",
-                    justifyContent: "center",
-                    boxShadow: "0rem 0rem 0.5rem 0.5rem #333",
-                }}
-            >
-                <h3>Textured Paper</h3>
             </div>
         </div >
     )

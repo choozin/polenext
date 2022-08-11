@@ -117,6 +117,7 @@ const SendAFile = () => {
                     backgroundImage: "url('/img/textures/purty-wood.png')",
                     backgroundAttachment: "fixed",
                     overflow: 'hidden',
+                    paddingTop: '60px',
                 }}
             >
                 <Navbar />

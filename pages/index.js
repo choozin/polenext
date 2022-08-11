@@ -13,7 +13,7 @@ import PushPinIcon from '@mui/icons-material/PushPin';
 
 import Navbar from "../components/Navbar";
 import Home from "../components/Home";
-import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 
 //import lightAluminum from "/img/textures/light-aluminum.png";
 /*import beigePaper from "/img/textures/beige-paper.png";
@@ -48,7 +48,7 @@ import WorkInProgress from "../components/WorkInProgress";
 export default function Index() {
 
 
-  const [blockWithWIP, setBlockWithWIP] = useState(true);
+  const [blockWithWIP, setBlockWithWIP] = useState(false);
 
   return (
     <div className="App">
@@ -129,6 +129,7 @@ export default function Index() {
                 marginTop: '2vh',
                 color: '#444',
                 fontSize: '1.5rem',
+                textAlign: 'center', 
               }}>
               <span>Proudly serving South-Western Ontario for over 45 years.</span>
             </motion.div>
@@ -149,7 +150,7 @@ export default function Index() {
                 marginTop: '4vh',
                 color: '#444',
               }}>
-              <PhoneIcon /><a href='5197865112' style={{ paddingTop: '0.35rem', }}>519 786 5112</a><br />
+              <PhoneIcon /><a href='tel:5197865112' style={{ paddingTop: '0.35rem', cursor: 'pointer', }}>519 786 5112</a><br />
             </motion.div>
 
             <Link href='/contact'><motion.div
@@ -168,7 +169,7 @@ export default function Index() {
                 marginTop: '0.5rem',
                 color: '#444',
               }}>
-              <EmailIcon /><span style={{ paddingTop: '0.35rem', }}>Send Us An Email</span><br />
+              <EmailIcon /><span style={{ paddingTop: '0.35rem', cursor: 'pointer', }}>Send Us An Email</span><br />
             </motion.div></Link>
 
             <motion.div
@@ -187,13 +188,14 @@ export default function Index() {
                 marginTop: '0.5rem',
                 color: '#444',
               }}>
-              <PushPinIcon /><span style={{ paddingTop: '0.35rem', }}>89 King St East, Forest, ON N0N 1J0</span>
+              <PushPinIcon /><span style={{ paddingTop: '0.35rem'   }}>89 King St East, Forest, ON N0N 1J0</span>
             </motion.div>
 
           </div>
         </div>
 
         <Home />
+        <Footer />
       </div>
     </div>
   );

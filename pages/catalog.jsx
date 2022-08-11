@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import Catalog from '../components/Catalog';
 import Page from '../components/Page';
 
@@ -16,10 +18,12 @@ const catalog = () => {
                 <div
                     style={{
                         width: '400px',
+                        maxWidth: '100vw',
                         padding: '0.5rem',
                         textAlign: 'center',
+                        color: '#DDD', 
                     }}>
-                    <p>Please take a moment to browse our catalog. We&apos;re sure you&apos;ll find what you&apos;re looking for!</p>
+                    <p>If there&apos;s a custom print job you can&apos;t find listed below,<br/>please <Link href='/contact'><span style={{ color: '#4BD', cursor: 'pointer', }}>contact us here.</span></Link><br/><br/>We&apos;ll find you a solution!</p>
                 </div>
 
                 <Catalog />

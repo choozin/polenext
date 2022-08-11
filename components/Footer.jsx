@@ -8,8 +8,9 @@ const Footer = () => {
             width: '100vw',
             overflow: 'hidden',
             display: 'flex',
-            backgroundColor: '#333',
-            color: 'white',
+            backgroundColor: 'white',
+            background: "url('/img/textures/cream-paper.png')",
+            color: '#333',
             justifyContent: 'space-around',
             flexWrap: 'wrap',
         }}>

@@ -52,7 +52,32 @@ const NavItem = (props) => {
         href={props.link ? props.link : '/'}
         key={props.title}
       >
-        <div style={{
+        <motion.div
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.99 }}
+          style={{
+            width: '100%',
+            height: props.height ? props.height : '48px',
+            fontFamily: props.font ? props.font : "Bebas Neue",
+            fontSize: props.fontSize ? props.fontSize : "1rem",
+            backgroundColor: props.backgroundColor ? props.backgroundColor : "#EEE",
+            color: props.color ? props.color : '#222',
+            paddingLeft: '1.5rem',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+          }}>
+          <span style={{ cursor: 'pointer' }}>{props.title}</span>
+        </motion.div>
+      </Link>
+    ) ||
+    props.clickType === 'dropdown' && (
+      <motion.div
+        initial={{ scale: 1 }}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.99 }}
+        style={{
           width: '100%',
           height: props.height ? props.height : '48px',
           fontFamily: props.font ? props.font : "Bebas Neue",
@@ -63,28 +88,11 @@ const NavItem = (props) => {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-        }}>
-          <span>{props.title}</span>
-        </div>
-      </Link>
-    ) ||
-    props.clickType === 'dropdown' && (
-      <div style={{
-        width: '100%',
-        height: props.height ? props.height : '48px',
-        fontFamily: props.font ? props.font : "Bebas Neue",
-        fontSize: props.fontSize ? props.fontSize : "1rem",
-        backgroundColor: props.backgroundColor ? props.backgroundColor : "#EEE",
-        color: props.color ? props.color : '#222',
-        paddingLeft: '1.5rem',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-      }}
+        }}
         onClick={props.toggleMenu ? props.toggleMenu : null}
       >
-        <span>{props.title}&nbsp;{props.catalogOpen ? '⇯' : '⇩'}</span>
-      </div>
+        <span style={{ cursor: 'pointer' }}>{props.title}&nbsp;{props.catalogOpen ? '⇯' : '⇩'}</span>
+      </motion.div>
     ) ||
     props.clickType === 'subItem' && (
       <Link
@@ -92,28 +100,32 @@ const NavItem = (props) => {
         href={props.link ? props.link : '/'}
         key={props.title}
       >
-        <div style={{
-          width: '100%',
-          height: props.height ? props.height : '38px',
-          fontFamily: props.font ? props.font : "Bebas Neue",
-          fontSize: props.fontSize ? props.fontSize : "1rem",
-          backgroundColor: props.backgroundColor ? props.backgroundColor : "#CCC",
-          color: props.color ? props.color : '#333',
-          paddingLeft: '3rem',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-        }}
+        <motion.div
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.99 }}
+          style={{
+            width: '100%',
+            height: props.height ? props.height : '38px',
+            fontFamily: props.font ? props.font : "Bebas Neue",
+            fontSize: props.fontSize ? props.fontSize : "1rem",
+            backgroundColor: props.backgroundColor ? props.backgroundColor : "#CCC",
+            color: props.color ? props.color : '#333',
+            paddingLeft: '3rem',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+          }}
           onClick={props.close}
         >
-          <span>{props.title}</span>
-        </div>
+          <span style={{ cursor: 'pointer' }}>{props.title}</span>
+        </motion.div>
       </Link >
     )
   )
 }
 
-const Navbar = ( props ) => {
+const Navbar = (props) => {
 
   const [scrollY, setScrollY] = useState(0);
 
@@ -157,9 +169,9 @@ const Navbar = ( props ) => {
       <AppBar
         position="static"
         style={{
-          background: "rgba(240, 240, 240, " + scrollY / 400 + ")",
-          boxShadow: "none",
-          color: '#222',
+          background: "rgba(40, 40, 40, " + scrollY / 400 + ")",
+          boxShadow: 'none',
+          color: '#EEE',
           fontFamily: 'Special Elite',
         }}
       >
@@ -171,7 +183,7 @@ const Navbar = ( props ) => {
             aria-label="open drawer"
             onClick={() => setMenuOpen(true)}
           >
-            <span style={{ fontSize: '1.2rem', fontFamily: 'Special Elite', paddingTop: '0.25rem', textShadow: '1px 1px white, -1px 1px white, 1px -1px white, -1px -1px white' }}>Menu</span>
+            <MenuIcon sx={{ color: 'white', }} /><span style={{ fontSize: '1.2rem', fontFamily: 'Special Elite', paddingTop: '0.25rem', textShadow: '1px 1px #111, -1px 1px #111, 1px -1px #111, -1px -1px #111' }}>Menu</span>
           </IconButton>
 
           <motion.div
@@ -232,7 +244,7 @@ const Navbar = ( props ) => {
             />
 
             {catalogOpen && (
-              <div style={{ overflowY: 'scroll', height: '40vh', width: '100%', border: 'solid 1px #777' }}>
+              <div style={{ overflowY: 'scroll', overflowX: 'hidden', height: '40vh', width: '100%', border: 'solid 1px #777' }}>
 
                 <NavItem
                   title="View the Entire Catalog"
@@ -314,13 +326,6 @@ const Navbar = ( props ) => {
                 />
 
                 <NavItem
-                  title="Posters"
-                  clickType="subItem"
-                  link="/catalog/posters"
-                  close={() => setMenuOpen(false)}
-                />
-
-                <NavItem
                   title="Presentation Folders"
                   clickType="subItem"
                   link="/catalog/presentation-folders"
@@ -328,9 +333,11 @@ const Navbar = ( props ) => {
                 />
 
                 <NavItem
-                  title="Tickets"
+                  title="Other Products"
+                  backgroundColor="#BBB"
+                  color="#222"
                   clickType="subItem"
-                  link="/catalog/tickets"
+                  link="/catalog"
                   close={() => setMenuOpen(false)}
                 />
 
@@ -349,14 +356,7 @@ const Navbar = ( props ) => {
             <NavItem
               title="Location &amp; Hours"
               clickType="link"
-              link="/location-and-hours"
-              close={() => setMenuOpen(false)}
-            />
-
-            <NavItem
-              title="Company History"
-              clickType="link"
-              link="/about-us"
+              link="/#hours"
               close={() => setMenuOpen(false)}
             />
 
@@ -367,9 +367,10 @@ const Navbar = ( props ) => {
             <div style={{
               float: 'right',
               opacity: props.showLogo ? 1 : scrollY / 400,
-              background: props.showLogo && 'rgba(255,255,255,0.7)',
+              background: props.showLogo && '#EEE',
               borderRadius: '16px',
-              padding: '3px'
+              padding: '3px',
+              cursor: 'pointer',
             }}>
               <Link
                 passHref
