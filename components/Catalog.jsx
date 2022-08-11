@@ -70,7 +70,7 @@ const Catalog = () => {
             color: '#333',
         }}>
             {productList.map((product) => {
-                return (<ProductBrief
+                return (product.primaryProduct && <ProductBrief
                     key={product.id}
                     id={product.id}
                     title={product.title}
