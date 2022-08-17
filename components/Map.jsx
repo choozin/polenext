@@ -15,6 +15,7 @@ const Map = () => {
         <div
             style={{
                 width: '495px',
+                maxWidth: '100vw',
                 height: '375px',
                 position: 'relative',
                 border: 'solid 5px #333',

@@ -155,7 +155,7 @@ const Product = () => {
                         }}>
                         <div>
                             <div style={{ width: '100%', display: 'flex', }}>
-                                <a><motion.button
+                                <motion.button
                                     initial={{ scale: 1 }}
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
@@ -171,8 +171,8 @@ const Product = () => {
                                         color: '#FEA',
                                         fontFamily: 'Bebas Neue',
                                     }}
-                                    onClick={() => setIsQuoteDialogueOpen(true)}>Get Your Quote</motion.button></a>
-                                <Link passHref href='/submit-a-file'><a><motion.button
+                                    onClick={() => setIsQuoteDialogueOpen(true)}>Get Your Quote</motion.button>
+                                <Link passHref href='/submit-a-file'><motion.button
                                     initial={{ scale: 1 }}
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
@@ -188,7 +188,7 @@ const Product = () => {
                                         color: '#CCF',
                                         fontFamily: 'Bebas Neue',
                                     }}
-                                >Send Us A File</motion.button></a></Link>
+                                >Send Us A File</motion.button></Link>
                             </div>
                             {
                                 isQuoteDialogueOpen && <QuoteDialogue close={() => setIsQuoteDialogueOpen(false)} product={product} />

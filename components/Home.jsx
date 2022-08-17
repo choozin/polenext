@@ -81,7 +81,7 @@ const Home = () => {
                 <h2 style={{ lineHeight: '0' }}>Our Top Products
                 </h2>
                 <div style={{
-                    width: '100%',
+                    width: '96%',
                     display: 'flex',
                     flexWrap: 'wrap',
                     justifyContent: 'space-around',
