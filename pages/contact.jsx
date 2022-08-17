@@ -72,7 +72,7 @@ const Contact = () => {
             //
             body: JSON.stringify({
                 from: { name: name, address: process.env.SENDEMAILRECIPIENT },
-                to: 'collegeprocam@gmail.com', //process.env.SENDEMAILRECIPIENT,
+                to: 'poles@xcelco.on.ca', //process.env.SENDEMAILRECIPIENT,
                 message: emailMessage,
                 base64Data: base64,
                 subject: "Message from " + name,

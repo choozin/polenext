@@ -74,7 +74,7 @@ const QuoteDialogue = ({ close, product }) => {
             //
             body: JSON.stringify({
                 from: { name: name, address: 'collegeprocam@gmail.com' }, //process.env.SENDEMAILRECIPIENT },
-                to: 'ctaylor17@outlook.com', //process.env.SENDEMAILRECIPIENT,
+                to: 'poles@xcelco.on.ca', //process.env.SENDEMAILRECIPIENT,
                 message: emailMessage,
                 base64Data: 'base64',
                 subject: 'Quote Request - ' + product.title,
