@@ -20,6 +20,7 @@ const Page = (props) => {
                     content={props.description}
                     key="desc"
                 />
+                <link rel="shortcut icon" href="/favicon.ico" />
             </Head>
             <div style={{
                 width: '100%',

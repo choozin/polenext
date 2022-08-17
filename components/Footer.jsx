@@ -15,6 +15,7 @@ const Footer = () => {
             justifyContent: 'space-around',
             flexWrap: 'wrap',
             opacity: '1',
+            zIndex: '2',
         }}>
             <div style={{
                 padding: '1rem',

@@ -53,13 +53,14 @@ export default function Index() {
   return (
     <div className="App">
       <Head>
-        <title>Pole Printing Inc. | Custom Printing Serving Forest &amp; South-Western Ontario</title>
+        <title>Pole Printing Inc. | Custom Printing in Forest Ontario</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="description"
-          content="Pole Printing offers professional custom print jobs for everything ranging from business cards to carbonless forms. We've been proudly serving South-Western Ontario for over 45 years."
+          content="Pole Printing offers professional custom print jobs for everythingfrom business cards to carbonless forms, and everything in between!"
           key="desc"
         />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
 
       {blockWithWIP && <WorkInProgress unsetWIP={() => setBlockWithWIP(false)} />}
@@ -115,7 +116,7 @@ export default function Index() {
                   maxHeight: '50vh',
                   padding: '10px',
                 }}>
-                <Image src='/img/common/polelogo.png' width='300px' height='225px' layout='responsive' />
+                <h1><Image src='/img/common/polelogo.png' width='300px' height='225px' layout='responsive' alt="Pole Printing Inc." /></h1>
               </div>
             </motion.div>
 

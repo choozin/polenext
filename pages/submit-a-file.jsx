@@ -31,11 +31,11 @@ const SendAFile = () => {
 
     useEffect(() => {
         generateEmailMessage();
-    },[name, company, email, phone, product, notes])
+    }, [name, company, email, phone, product, notes])
 
     const generateEmailMessage = () => {
         setEmailMessage(
-            "Name: " + name + " <br/> " + 
+            "Name: " + name + " <br/> " +
             "Company: " + company + " <br/> " +
             "Email: " + email + " <br/> " +
             "Phone: " + phone + " <br/> " +
@@ -106,6 +106,12 @@ const SendAFile = () => {
             <Head>
                 <title>Send Us A File | Pole Printing Inc.</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <meta
+                    name="description"
+                    content="Submit a file to Pole Printing for your custom printed project."
+                    key="desc"
+                />
+                <link rel="shortcut icon" href="/favicon.ico" />
             </Head>
             <div
                 style={{
@@ -270,7 +276,7 @@ const SendAFile = () => {
                                                         fileType.substring(fileType.indexOf("/") + 1) === 'jpeg' || fileType.substring(fileType.indexOf("/") + 1) === 'pdf' || fileType.substring(fileType.indexOf("/") + 1) === 'png' ?
                                                             fileType.substring(fileType.indexOf("/") + 1) //fileName.substring(fileName.indexOf(".") + 1)
                                                             :
-                                                            'Invalid File Type: '+fileType.substring(fileType.indexOf("/") + 1)
+                                                            'Invalid File Type: ' + fileType.substring(fileType.indexOf("/") + 1)
                                                         :
                                                         'Invalid File'
                                                     :
@@ -282,7 +288,7 @@ const SendAFile = () => {
                                             <span style={{ color: fileSize ? Math.ceil(fileSize / 1024) < maxFileSize ? '#4D4' : 'red' : 'white', opacity: '1', fontSize: '1rem', }}>
                                                 {fileName ? fileName : 'No File Currently Uploaded'}<br />
                                                 {fileSize ? Math.ceil(fileSize / 1024) + ' KB' : ''}<br />
-                                                {fileSize ? Math.ceil(fileSize / 1024) < maxFileSize ? '' : 'File must be less than ' + maxFileSize + 'KB' : 'Max File Size of ' + maxFileSize/1000 + 'MB'}<br />
+                                                {fileSize ? Math.ceil(fileSize / 1024) < maxFileSize ? '' : 'File must be less than ' + maxFileSize + 'KB' : 'Max File Size of ' + maxFileSize / 1000 + 'MB'}<br />
                                             </span>
                                         </div>
 
