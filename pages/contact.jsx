@@ -71,10 +71,11 @@ const Contact = () => {
             },
             //
             body: JSON.stringify({
-                from: { name: "File Submitted from " + name, address: process.env.SENDEMAILRECIPIENT },
+                from: { name: name, address: process.env.SENDEMAILRECIPIENT },
                 to: 'collegeprocam@gmail.com', //process.env.SENDEMAILRECIPIENT,
                 message: emailMessage,
                 base64Data: base64,
+                subject: "Message from " + name,
                 date: new Date(),
                 fileName: fileName,
             })
@@ -228,7 +229,23 @@ const Contact = () => {
                             {
                                 sendButtonState === 'unsent' ?
                                     name.length > 1 && email.length > 4 && notes.length > 1 ?
-                                        <button onClick={handleSubmit}>Send Email</button>
+                                        <motion.button
+                                            whileHover={{ scale: 1.05 }}
+                                            whiteTap={{ scale: 0.95 }}
+                                            style={{
+                                                border: 'ridge 4px gold',
+                                                backgroundColor: '#FFB',
+                                                color: 'white',
+                                                width: '7rem',
+                                                cursor: 'pointer',
+                                                padding: '0.5rem',
+                                                marginBottom: '1rem',
+                                                boxShadow: '0 0.1rem 1.5rem 0.2rem #FFD',
+                                                fontFamily: 'Bebas Neue',
+                                                fontSize: '1.5rem',
+                                                textShadow: '1px 1px gold, -1px 1px gold, 1px -1px gold, -1px -1px gold'
+                                            }}
+                                            onClick={handleSubmit}>Send Email</motion.button>
                                         :
                                         <div>
                                             <span>Please complete the required fields.</span><br />

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Link from 'next/link'
 
 const Footer = () => {
 
@@ -27,7 +28,7 @@ const Footer = () => {
                 padding: '1rem',
             }}>
                 <span>Sitemap</span><br/>
-                <span>Privacy Policy</span><br/>
+                <Link href='/privacy' passHref><a>Privacy Policy</a></Link><br/>
                 <span></span><br/>
                 <span>Copyright Pole Printing Inc. 2022</span><br/>
             </div>

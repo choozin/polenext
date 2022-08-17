@@ -68,7 +68,7 @@ const NavItem = (props) => {
             flexDirection: 'column',
             justifyContent: 'center',
           }}>
-          <span style={{ cursor: 'pointer' }}>{props.title}</span>
+          <a style={{ cursor: 'pointer' }}>{props.title}</a>
         </motion.div>
       </Link>
     ) ||
@@ -91,7 +91,7 @@ const NavItem = (props) => {
         }}
         onClick={props.toggleMenu ? props.toggleMenu : null}
       >
-        <span style={{ cursor: 'pointer' }}>{props.title}&nbsp;{props.catalogOpen ? '⇯' : '⇩'}</span>
+        <a style={{ cursor: 'pointer' }}>{props.title}&nbsp;{props.catalogOpen ? '⇯' : '⇩'}</a>
       </motion.div>
     ) ||
     props.clickType === 'subItem' && (
@@ -118,7 +118,7 @@ const NavItem = (props) => {
           }}
           onClick={props.close}
         >
-          <span style={{ cursor: 'pointer' }}>{props.title}</span>
+          <a style={{ cursor: 'pointer' }}>{props.title}</a>
         </motion.div>
       </Link >
     )

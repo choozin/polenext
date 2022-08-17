@@ -53,11 +53,16 @@ export default function Index() {
   return (
     <div className="App">
       <Head>
-        <title>Pole Printing Inc.</title>
+        <title>Pole Printing Inc. | Custom Printing Serving Forest &amp; South-Western Ontario</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="description"
+          content="Pole Printing offers professional custom print jobs for everything ranging from business cards to carbonless forms. We've been proudly serving South-Western Ontario for over 45 years."
+          key="desc"
+        />
       </Head>
 
-      {blockWithWIP && <WorkInProgress unsetWIP={() => setBlockWithWIP(false)}/>}
+      {blockWithWIP && <WorkInProgress unsetWIP={() => setBlockWithWIP(false)} />}
       <div
         style={{
           display: "flex",
@@ -91,18 +96,18 @@ export default function Index() {
             fontFamily: 'Special Elite',
           }}>
 
-            <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              duration: 0.5,
-            }}
-            style={{
-              width: '100%',
-              display: 'flex',
-              justifyContent: 'center',
-              marginTop: '0vh',
-            }}>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                duration: 0.5,
+              }}
+              style={{
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                marginTop: '0vh',
+              }}>
               <div
                 style={{
                   width: '320px',
@@ -129,7 +134,7 @@ export default function Index() {
                 marginTop: '2vh',
                 color: '#444',
                 fontSize: '1.5rem',
-                textAlign: 'center', 
+                textAlign: 'center',
               }}>
               <span>Proudly serving South-Western Ontario for over 45 years.</span>
             </motion.div>
@@ -188,7 +193,7 @@ export default function Index() {
                 marginTop: '0.5rem',
                 color: '#444',
               }}>
-              <PushPinIcon /><span style={{ paddingTop: '0.35rem'   }}>89 King St East, Forest, ON N0N 1J0</span>
+              <PushPinIcon /><span style={{ paddingTop: '0.35rem' }}>89 King St East, Forest, ON N0N 1J0</span>
             </motion.div>
 
           </div>

@@ -104,7 +104,7 @@ const Home = () => {
                         }}>
                             <h4 style={{ fontSize: '1.4rem', marginBottom: '1rem' }}><CardMembershipIcon /><br />Business Cards</h4>
                             <span>Nothing makes a great first impression like an eye-catching business card.</span>
-                            <Link href='/catalog/business-cards'><motion.button
+                            <Link href='/catalog/business-cards'><a><motion.button
                                 whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
                                 whileFocus={{ scale: 1.2 }}
                                 style={{
@@ -120,7 +120,7 @@ const Home = () => {
                                     fontFamily: 'Bebas Neue',
                                     marginTop: '1rem',
                                 }}>Learn More<br/>About Business Cards
-                            </motion.button></Link>
+                            </motion.button></a></Link>
                         </div>
 
 
@@ -133,7 +133,7 @@ const Home = () => {
                         }}>
                             <h4 style={{ fontSize: '1.4rem', marginBottom: '1rem' }}><CopyAllIcon /><br />Carbonless Forms</h4>
                             <span>For quick, on-the-go instant copies of any document the Carbonless Form is the perfect solution.</span>
-                            <Link href='/catalog/carbonless-forms'><motion.button
+                            <Link href='/catalog/carbonless-forms'><a><motion.button
                                 whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
                                 whileFocus={{ scale: 1.2 }}
                                 style={{
@@ -142,14 +142,14 @@ const Home = () => {
                                     height: '80px',
                                     border: 'solid 0.1rem white',
                                     borderRadius: '1rem',
-                                    background: "url('/img/products/businesscards2thumb.jpg')",
+                                    background: "url('/img/products/carbonlessformsthumb.jpg')",
                                     backgroundPosition: 'center',
                                     color: '#111',
                                     fontSize: '1.2rem',
                                     fontFamily: 'Bebas Neue',
                                     marginTop: '1rem',
                                 }}>Learn More<br/>About Carbonless Forms
-                            </motion.button></Link>
+                            </motion.button></a></Link>
                         </div>
                     </div>
                     <div style={{
@@ -168,7 +168,7 @@ const Home = () => {
                         }}>
                             <h4 style={{ fontSize: '1.4rem', marginBottom: '1rem' }}><MailOutlineIcon /><br />Envelopes</h4>
                             <span>Custom envelopes are a surefire way to represent your brand in a professional manner.</span>
-                            <Link href='/catalog/envelopes'><motion.button
+                            <Link href='/catalog/envelopes'><a><motion.button
                                 whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
                                 whileFocus={{ scale: 1.2 }}
                                 style={{
@@ -177,14 +177,14 @@ const Home = () => {
                                     height: '80px',
                                     border: 'solid 0.1rem white',
                                     borderRadius: '1rem',
-                                    background: "url('/img/products/businesscards2thumb.jpg')",
+                                    background: "url('/img/products/envelopesthumb.jpg')",
                                     backgroundPosition: 'center',
                                     color: '#111',
                                     fontSize: '1.2rem',
                                     fontFamily: 'Bebas Neue',
                                     marginTop: '1rem',
                                 }}>Learn More<br/>About Envelopes
-                            </motion.button></Link>
+                            </motion.button></a></Link>
                         </div>
                         <div style={{
                             display: 'flex',
@@ -195,7 +195,7 @@ const Home = () => {
                         }}>
                             <h4 style={{ fontSize: '1.4rem', marginBottom: '1rem' }}><PriceCheckIcon sx={{ color: '#FFF' }} /><br />Cheques</h4>
                             <span>Personalized cheques are an essential tool for any business' purchasing needs.</span>
-                            <Link href='/catalog/cheques'><motion.button
+                            <Link href='/catalog/cheques'><a><motion.button
                                 whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
                                 whileFocus={{ scale: 1.2 }}
                                 style={{
@@ -204,14 +204,14 @@ const Home = () => {
                                     height: '80px',
                                     border: 'solid 0.1rem white',
                                     borderRadius: '1rem',
-                                    background: "url('/img/products/businesscards2thumb.jpg')",
+                                    background: "url('/img/products/envelopethumb.jpg')",
                                     backgroundPosition: 'center',
                                     color: '#111',
                                     fontSize: '1.2rem',
                                     fontFamily: 'Bebas Neue',
                                     marginTop: '1rem',
                                 }}>Learn More<br/>About Cheques
-                            </motion.button></Link>
+                            </motion.button></a></Link>
                         </div>
                     </div>
                 </div>

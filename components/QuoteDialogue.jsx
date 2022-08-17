@@ -21,17 +21,17 @@ const styles = {
 
 const QuoteDialogue = ({ close, product }) => {
 
-    const [name, setName] = useState("");
-    const [company, setCompany] = useState("");
-    const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
+    const [name, setName] = useState();
+    const [company, setCompany] = useState("N/A");
+    const [email, setEmail] = useState();
+    const [phone, setPhone] = useState("N/A");
 
-    const [size, setSize] = useState(product.sizes[0]);
-    const [material, setMaterial] = useState(product.materials[0]);
-    const [materialColor, setMaterialColor] = useState(product.materialColors[0]);
-    const [printColor, setPrintColor] = useState(product.printColors[0]);
-    const [inSetsOf, setInSetsOf] = useState(product.quantities[0]);
-    const [quantity, setQuantity] = useState(product.minimumOrderQuantity);
+    const [size, setSize] = useState(product.sizes ? product.sizes.length > 0 ? product.sizes[0] : 'N/A' : 'N/A');
+    const [material, setMaterial] = useState(product.materials ? product.materials.length > 0 ? product.materials[0] : 'N/A' : 'N/A');
+    const [materialColor, setMaterialColor] = useState(product.materialColor ? product.materialColor.length > 0 ? product.materialColors[0] : 'N/A' : 'N/A');
+    const [printColor, setPrintColor] = useState(product.printColors ? product.printColors.length > 0 ? product.printColors[0] : 'N/A' : 'N/A');
+    const [inSetsOf, setInSetsOf] = useState(product.quantities ? product.quantities.length > 0 ? product.quantities[0] : 'N/A' : 'N/A');
+    const [quantity, setQuantity] = useState(product.minimumOrderQuantity ? product.minimumOrderQuantity.length > 0 ? product.minimumOrderQuantity : 'N/A' : 'N/A');
     const [notes, setNotes] = useState("");
 
     const [emailMessage, setEmailMessage] = useState("Default message")
@@ -71,10 +71,13 @@ const QuoteDialogue = ({ close, product }) => {
             },
             //
             body: JSON.stringify({
-                from: { name: "File Submitted from " + name, address: 'collegeprocam@gmail.com' }, //process.env.SENDEMAILRECIPIENT },
+                from: { name: name, address: 'collegeprocam@gmail.com' }, //process.env.SENDEMAILRECIPIENT },
                 to: 'ctaylor17@outlook.com', //process.env.SENDEMAILRECIPIENT,
                 message: emailMessage,
+                base64Data: 'base64',
+                subject: 'Quote Request - ' + product.title,
                 date: new Date(),
+                fileName: 'fileName',
             })
         }).then(() => {
             setSendButtonState('sent')
@@ -189,15 +192,10 @@ const QuoteDialogue = ({ close, product }) => {
                     </label>}
                     {product && product.minimumOrderQuantity && <label style={styles.quoteLabel}>
                         <span>Quantity:</span>
-                        {
-                            product && product.minimumOrderQuantity ? <input type="number" style={styles.quoteNumberPicker} min={product && product.minimumOrderQuantity && product.minimumOrderQuantity.substring(product.minimumOrderQuantity.search(/\d/), product.minimumOrderQuantity.indexOf(' ', product.minimumOrderQuantity.search(/\d/)))} placeholder={product && product.minimumOrderQuantity && product.minimumOrderQuantity.substring(product.minimumOrderQuantity.search(/\d/), product.minimumOrderQuantity.indexOf(' ', product.minimumOrderQuantity.search(/\d/))) + ' minimum'} onChange={(e) => { setQuantity(e.target.value); generateEmailMessage() }} value={quantity}></input>        //.length > 1 ?
-                                /*<select style={{ maxWidth: '180px' }}>
-                                    {product.printColors.map((color) => {
-                                        return <option>{color}</option>
-                                    })}
-                                </select>*/
+                        {/*
+                            product && product.minimumOrderQuantity ? <input type="number" style={styles.quoteNumberPicker} min={product && product.minimumOrderQuantity && Number(product.minimumOrderQuantity.substring(product.minimumOrderQuantity.search(/\d/), product.minimumOrderQuantity.indexOf(' ', product.minimumOrderQuantity.search(/\d/))))} placeholder={product && product.minimumOrderQuantity && product.minimumOrderQuantity.substring(product.minimumOrderQuantity.search(/\d/), product.minimumOrderQuantity.indexOf(' ', product.minimumOrderQuantity.search(/\d/))) + ' minimum'} onChange={(e) => { setQuantity(Number(e.target.value)); generateEmailMessage() }} value={Number(quantity)}></input>        //.length > 1 ?
                                 :
-                                <input type="number" style={styles.quoteNumberPicker} />
+                                <input type="number" style={styles.quoteNumberPicker} />*/
                         }
                     </label>}
                 </div>
@@ -279,8 +277,23 @@ const QuoteDialogue = ({ close, product }) => {
                 <div style={{ width: '100%', display: 'flex', justifyContent: 'center', textAlign: 'center', }}>
                     {
                         sendButtonState === 'unsent' ?
-                            name.length > 1 && email.length > 4 ?
-                                <button onClick={handleSubmit}>Request Quote</button>
+                            name && name.length > 1 && email && email.length > 4 ?
+                                <motion.button
+                                    whileHover={{ scale: 1.05 }}
+                                    whiteTap={{ scale: 0.95 }}
+                                    style={{
+                                        border: 'ridge 4px gold',
+                                        backgroundColor: '#FFB',
+                                        color: 'white',
+                                        width: '7rem',
+                                        cursor: 'pointer',
+                                        padding: '0.5rem',
+                                        marginBottom: '1rem',
+                                        boxShadow: '0 0.1rem 1.5rem 0.2rem #FFD',
+                                        fontFamily: 'Bebas Neue',
+                                        fontSize: '1.5rem',
+                                        textShadow: '1px 1px gold, -1px 1px gold, 1px -1px gold, -1px -1px gold'
+                                    }} onClick={handleSubmit}>Send File</motion.button>
                                 :
                                 <div>
                                     <span>Please complete the required fields.</span><br />

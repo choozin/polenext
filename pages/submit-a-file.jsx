@@ -35,7 +35,8 @@ const SendAFile = () => {
 
     const generateEmailMessage = () => {
         setEmailMessage(
-            "New File Submission from " + name + " of " + company + ". <br/> " +
+            "Name: " + name + " <br/> " + 
+            "Company: " + company + " <br/> " +
             "Email: " + email + " <br/> " +
             "Phone: " + phone + " <br/> " +
             "Product: " + product + " <br/> " +
@@ -79,10 +80,11 @@ const SendAFile = () => {
             },
             //
             body: JSON.stringify({
-                from: { name: "File Submitted from " + name, address: 'collegeprocam@gmail.com' }, //process.env.SENDEMAILRECIPIENT },
+                from: { name: name, address: 'collegeprocam@gmail.com' }, //process.env.SENDEMAILRECIPIENT },
                 to: 'ctaylor17@outlook.com', //process.env.SENDEMAILRECIPIENT,
                 message: emailMessage,
                 base64Data: base64,
+                subject: "File Submission from " + name,
                 date: new Date(),
                 fileName: fileName,
             })

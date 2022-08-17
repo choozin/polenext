@@ -59,7 +59,7 @@ const ImagePreview = ({ close, images, imageIndex, title }) => {
                 }}
                     onClick={() => close(false)}>Close</div>
 
-                <Image src={images && images.length > 0 ? images[imageIndex] : '/img/common/image_not_found.png'} layout='fill' objectFit='contain' alt={title} />
+                <Image src={images && images.length > 0 ? images[imageIndex] : '/img/common/image_not_found.png'} layout='fill' objectFit='contain' alt={title + ' from Pole Printing in Forest Ontario'} />
             </div>
             <div style={{
                 width: '100%',
@@ -79,9 +79,7 @@ const Product = () => {
     const router = useRouter()
     const { productId } = router.query;
 
-    const [product, setProduct] = useState({
-        title: 'Loading...'
-    });
+    const [product, setProduct] = useState(null);
 
     let images = ['1', '2', '3', '4', '5', '6']
 
@@ -140,7 +138,7 @@ const Product = () => {
                                     whileTap={{ scale: 0.97 }}
                                     style={{ width: '50px', height: '38px', backgroundColor: 'rgba(1,1,1,0.5)', margin: '10px', border: '1px solid white', cursor: 'pointer', position: 'relative' }}
                                     onClick={() => setCurrentImageIndex(index)} >
-                                    <Image src={image} layout='fill' objectFit="contain" />
+                                    <Image src={image} layout='fill' objectFit="contain" alt={product.title} />
                                 </motion.div>
                             })}
                         </div>
@@ -157,7 +155,7 @@ const Product = () => {
                         }}>
                         <div>
                             <div style={{ width: '100%', display: 'flex', }}>
-                                <motion.button
+                                <a><motion.button
                                     initial={{ scale: 1 }}
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
@@ -173,8 +171,8 @@ const Product = () => {
                                         color: '#FEA',
                                         fontFamily: 'Bebas Neue',
                                     }}
-                                    onClick={() => setIsQuoteDialogueOpen(true)}>Get Your Quote</motion.button>
-                                <Link href='/submit-a-file'><motion.button
+                                    onClick={() => setIsQuoteDialogueOpen(true)}>Get Your Quote</motion.button></a>
+                                <Link passHref href='/submit-a-file'><a><motion.button
                                     initial={{ scale: 1 }}
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
@@ -190,7 +188,7 @@ const Product = () => {
                                         color: '#CCF',
                                         fontFamily: 'Bebas Neue',
                                     }}
-                                >Send Us A File</motion.button></Link>
+                                >Send Us A File</motion.button></a></Link>
                             </div>
                             {
                                 isQuoteDialogueOpen && <QuoteDialogue close={() => setIsQuoteDialogueOpen(false)} product={product} />

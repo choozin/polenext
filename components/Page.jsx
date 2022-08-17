@@ -15,6 +15,11 @@ const Page = (props) => {
             <Head>
                 <title>{props.title} | Pole Printing Inc.</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <meta
+                    name="description"
+                    content={props.description}
+                    key="desc"
+                />
             </Head>
             <div style={{
                 width: '100%',
@@ -26,7 +31,7 @@ const Page = (props) => {
                 position: 'absolute',
                 display: 'flex',
                 flexDirection: 'column',
-                fontFamily: 'Bebas Neue', 
+                fontFamily: 'Bebas Neue',
             }}>
                 <Navbar showLogo='true' />
                 <div style={{
@@ -42,8 +47,10 @@ const Page = (props) => {
                         flexDirection: 'column',
                         minHeight: '75vh',
                     }}>
-                        <h1 style={{ color: '#ddd', margin: '0 auto', marginBottom: '2rem', fontSize: '3rem', fontFamily: 'Bebas Neue', color: '#DDD', 
-                            textShadow: '2px 2px black, -2px 2px black, 2px -2px black, -2px -2px black' }}>{props.title}</h1>
+                        <h1 style={{
+                            color: '#ddd', margin: '0 auto', marginBottom: '2rem', fontSize: '3rem', fontFamily: 'Bebas Neue', color: '#DDD',
+                            textShadow: '2px 2px black, -2px 2px black, 2px -2px black, -2px -2px black'
+                        }}>{props.title}</h1>
 
                         {props.children}
                     </div>

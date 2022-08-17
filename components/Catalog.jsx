@@ -39,7 +39,7 @@ const ProductBrief = (props) => {
                     cursor: 'pointer',
                     position: 'relative',
                 }}>
-                    <Image src={props.images ? props.images.length > 0 ? props.images[0] : '/img/common/image_not_found.png' : '/img/common/image_not_found.png'} layout='fill' objectFit='contain'/>
+                    <a><Image src={props.images ? props.images.length > 0 ? props.images[0] : '/img/common/image_not_found.png' : '/img/common/image_not_found.png'} layout='fill' objectFit='contain' alt={props.title + ' from Pole Printing'}/></a>
                 </div>
             </Link>
             <Link
@@ -53,7 +53,7 @@ const ProductBrief = (props) => {
                     flexDirection: 'column',
                 }}>
 
-                    <h4 style={{margin: '0 auto', }}>{props.title}</h4>
+                    <a><h4 style={{margin: '0 auto', }}>{props.title}</h4></a>
                 </div>
             </Link>
         </motion.div>
