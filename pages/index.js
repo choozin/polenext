@@ -57,7 +57,7 @@ export default function Index() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="description"
-          content="Pole Printing offers professional custom print jobs for everythingfrom business cards to carbonless forms, and everything in between!"
+          content="Pole Printing offers professional custom print jobs for everything from business cards to carbonless forms, and everything in between!"
           key="desc"
         />
         <link rel="shortcut icon" href="/favicon.ico" />
