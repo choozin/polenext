@@ -273,7 +273,7 @@ const Home = () => {
                         }}>
                         <p>We are conveniently located in beautiful downtown Forest at the intersection of Highway 21 &amp; Townsend Line on the south-eastern corner.</p>
                         <h4 style={{ marginBottom: '0.5rem', marginTop: '3rem', fontSize: '1.2rem', color: '#FFF', textShadow: '2px 2px black, -2px 2px black, 2px -2px black, -2px -2px black, ' }}>Hours</h4>
-                        <p>Monday to Friday<br /><span style={{ fontSize: '1rem' }}>8am to 4pm</span></p><p>Saturday &amp; Sunday<br /><span style={{ fontSize: '1rem' }}>Closed</span></p>
+                        <p>Monday to Friday<br /><span style={{ fontSize: '1rem' }}>8am to 4pm</span></p><p>Saturday &amp; Sunday<br /><span style={{ fontSize: '1rem', marginBottom: '2rem' }}>Closed</span></p>
                     </div>
                 </div>
 

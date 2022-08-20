@@ -90,6 +90,7 @@ const Product = () => {
 
     useEffect(() => {
         setProduct(productList.find(p => p.id === productId));
+        setCurrentImageIndex(0);
     }, [productId])
 
     return (
