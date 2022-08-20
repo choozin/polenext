@@ -104,7 +104,7 @@ const Home = () => {
                         }}>
                             <h4 style={{ fontSize: '1.4rem', marginBottom: '1rem' }}><CardMembershipIcon /><br />Business Cards</h4>
                             <span>Nothing makes a great first impression like an eye-catching business card.</span>
-                            <Link href='/catalog/business-cards'><a><motion.button
+                            <Link passHref href='/catalog/business-cards'><a><motion.button
                                 whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
                                 whileFocus={{ scale: 1.2 }}
                                 style={{
@@ -133,7 +133,7 @@ const Home = () => {
                         }}>
                             <h4 style={{ fontSize: '1.4rem', marginBottom: '1rem' }}><CopyAllIcon /><br />Carbonless Forms</h4>
                             <span>For quick, on-the-go instant copies of any document the Carbonless Form is the perfect solution.</span>
-                            <Link href='/catalog/carbonless-forms'><a><motion.button
+                            <Link passHref href='/catalog/carbonless-forms'><a><motion.button
                                 whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
                                 whileFocus={{ scale: 1.2 }}
                                 style={{
@@ -168,7 +168,7 @@ const Home = () => {
                         }}>
                             <h4 style={{ fontSize: '1.4rem', marginBottom: '1rem' }}><MailOutlineIcon /><br />Envelopes</h4>
                             <span>Custom envelopes are a surefire way to represent your brand in a professional manner.</span>
-                            <Link href='/catalog/envelopes'><a><motion.button
+                            <Link passHref href='/catalog/envelopes'><a><motion.button
                                 whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
                                 whileFocus={{ scale: 1.2 }}
                                 style={{
@@ -194,8 +194,8 @@ const Home = () => {
                             width: '200px',
                         }}>
                             <h4 style={{ fontSize: '1.4rem', marginBottom: '1rem' }}><PriceCheckIcon sx={{ color: '#FFF' }} /><br />Cheques</h4>
-                            <span>Personalized cheques are an essential tool for any business' purchasing needs.</span>
-                            <Link href='/catalog/cheques'><a><motion.button
+                            <span>Customized cheques are an essential tool for any business' purchasing needs.</span>
+                            <Link passHref href='/catalog/cheques'><a><motion.button
                                 whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
                                 whileFocus={{ scale: 1.2 }}
                                 style={{
@@ -271,7 +271,7 @@ const Home = () => {
                             color: '#E0DFDF',
                             fontFamily: 'Special Elite',
                         }}>
-                        <p>We are conveniently located in beautiful downtown Forest at the intersection of Highways 21 &amp; 12 on the south-eastern corner.</p>
+                        <p>We are conveniently located in beautiful downtown Forest at the intersection of Highways 21 &amp; Townsend Line on the south-eastern corner.</p>
                         <h4 style={{ marginBottom: '0.5rem', marginTop: '3rem', fontSize: '1.2rem', color: '#FFF', textShadow: '2px 2px black, -2px 2px black, 2px -2px black, -2px -2px black, ' }}>Hours</h4>
                         <p>Monday to Friday<br /><span style={{ fontSize: '1rem' }}>8am to 4pm</span></p><p>Saturday &amp; Sunday<br /><span style={{ fontSize: '1rem' }}>Closed</span></p>
                     </div>

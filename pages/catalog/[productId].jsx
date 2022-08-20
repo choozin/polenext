@@ -59,7 +59,7 @@ const ImagePreview = ({ close, images, imageIndex, title }) => {
                 }}
                     onClick={() => close(false)}>Close</div>
 
-                <Image src={images && images.length > 0 ? images[imageIndex] : '/img/common/image_not_found.png'} layout='fill' objectFit='contain' alt={title + ' from Pole Printing in Forest Ontario'} />
+                <Image src={images && images.length > 0 ? images[imageIndex] : '/img/common/underconstruction.jpg'} layout='fill' objectFit='contain' alt={title + ' from Pole Printing in Forest Ontario'} />
             </div>
             <div style={{
                 width: '100%',
@@ -124,7 +124,7 @@ const Product = () => {
                             cursor: 'zoom-in',
                         }}
                             onClick={() => setIsImagePreviewOpen(true)} >
-                            <Image src={product && product.images && product.images.length > 0 ? product.images[currentImageIndex] : '/img/common/image_not_found.png'} layout='fill' objectFit='contain' alt={product && product.title} />
+                            <Image src={product && product.images && product.images.length > 0 ? product.images[currentImageIndex] : '/img/common/underconstruction.jpg'} layout='fill' objectFit='contain' alt={product && product.title} />
                         </div>
                         {
                             isImagePreviewOpen && <ImagePreview close={() => setIsImagePreviewOpen()} images={product && product.images && product.images.length > 0 && product.images} imageIndex={currentImageIndex} title={product && product.title && product.title} />
@@ -306,6 +306,12 @@ const Product = () => {
                     }}>
                     <h3 style={{ paddingTop: '1rem' }}>About {product && product.title}</h3>
                     <p>{product && product.description}</p>
+                    {
+                        product && product.pdfLink && 
+                        <p>
+                            For more information, see our <Link passHref href={product.pdfLink}><a style={{ color: '#4BD' }}>{product.pdfTitle} here.</a></Link>
+                        </p>
+                    }
                     <p>**Please note, our prefered method of payment is via e-transfer. We will provide you with the receiving address via email when you request your quote. <br />Other payment methods also available upon request.**</p>
                 </div>
             </div>

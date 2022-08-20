@@ -39,7 +39,7 @@ const ProductBrief = (props) => {
                     cursor: 'pointer',
                     position: 'relative',
                 }}>
-                    <a><Image src={props.images ? props.images.length > 0 ? props.images[0] : '/img/common/image_not_found.png' : '/img/common/image_not_found.png'} layout='fill' objectFit='contain' alt={props.title + ' from Pole Printing'}/></a>
+                    <a><Image src={props.images ? props.images.length > 0 ? props.images[0] : '/img/common/underconstruction.jpg' : '/img/common/underconstruction.jpg'} layout='fill' objectFit='contain' alt={props.title + ' from Pole Printing'}/></a>
                 </div>
             </Link>
             <Link
